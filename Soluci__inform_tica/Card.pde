@@ -17,7 +17,7 @@ class Card{
     this.boto.setMides(x, y+120, wCard, 250); this.boto.display();
   }
   void displayStars(int e, float x, float y){ //<>//
-    stars[e-1].resize((int)wCard, 85);
+    stars[e-1].resize((int)wCard, 90);
     image(stars[e-1], x, y+30);
   }
 }
