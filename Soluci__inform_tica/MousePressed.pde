@@ -39,5 +39,10 @@ void checkBotonsExercici(){
         s1.setSelec(i);
       }
     }
+    if(bCadd.mouseOverButton()){
+      interaccio = true;
+    }else if(bCaddLeave.mouseOverButton()){
+      interaccio = false;
+    }
   }
 }

@@ -31,12 +31,20 @@
   
   //Interacció d'exercicis
     //Añadir
-      Button bCadd = new Button("Añadir");
-      Button bDadd = new Button("Añadir");
-      Button bOadd = new Button("Añadir");
-      Button bGadd = new Button("Añadir");
-      Button bEadd = new Button("Añadir");
-      Button bMadd = new Button("Añadir");
+      //Enter
+        Button bCadd = new Button("Añadir");
+        Button bDadd = new Button("Añadir");
+        Button bOadd = new Button("Añadir");
+        Button bGadd = new Button("Añadir");
+        Button bEadd = new Button("Añadir");
+        Button bMadd = new Button("Añadir");
+      //Leave
+        Button bCaddLeave = new Button("Añadir");
+        Button bDaddLeave = new Button("Añadir");
+        Button bOaddLeave = new Button("Añadir");
+        Button bGaddLeave = new Button("Añadir");
+        Button bEaddLeave = new Button("Añadir");
+        Button bMaddLeave = new Button("Añadir");
       
     //Formulari
       Button[] buttonsFormulari = new Button[6];

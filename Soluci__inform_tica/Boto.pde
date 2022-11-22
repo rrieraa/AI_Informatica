@@ -32,27 +32,27 @@ class Button {
  // Dibuixa el botó
  void display(){
    pushStyle();
-   if(mouseOverButton()&&!isSelected){
-     fill(getColor("BotonPulsado"));      // Color quan ratolí a sobre
-   }
-   else if(isSelected){
-     fill(getColor("Seleccionado"));          // Color actiu però ratolí fora
-   }else{
-     fill(getColor("BotonSinPulsar"));
-   }
-   stroke(0); strokeWeight(2);        //Color i gruixa del contorn
-   rect(this.x, this.y, this.w, this.h, redondetjat);   // Rectangle del botó
-
-   
-   // Icona del botó
-   //imageMode(CENTER);
-   //image(icona, this.x, this.y, this.s, this.s);
-   
-   // Text (color, alineació i mida)
-   if(text){
-     fill(0); textAlign(CENTER); textSize(20);
-     text(textBoto, this.x + this.w/2, this.y + this.h/2 + 10);
-   }
+     if(mouseOverButton()&&!isSelected){
+       fill(getColor("BotonPulsado"));      // Color quan ratolí a sobre
+     }
+     else if(isSelected){
+       fill(getColor("Seleccionado"));          // Color actiu però ratolí fora
+     }else{
+       fill(getColor("BotonSinPulsar"));
+     }
+     stroke(0); strokeWeight(2);        //Color i gruixa del contorn
+     rect(this.x, this.y, this.w, this.h, redondetjat);   // Rectangle del botó
+  
+     
+     // Icona del botó
+     //imageMode(CENTER);
+     //image(icona, this.x, this.y, this.s, this.s);
+     
+     // Text (color, alineació i mida)
+     if(text){
+       fill(0); textAlign(CENTER); textSize(20);
+       text(textBoto, this.x + this.w/2, this.y + this.h/2 + 10);
+     }
    popStyle();
  }
  

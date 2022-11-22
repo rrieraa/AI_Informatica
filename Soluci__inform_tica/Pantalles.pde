@@ -1,6 +1,6 @@
 enum PANTALLA {INICI, SELECCIO, EXERCICI, FORMULARI, AFERGIR, EXPORTAR};
 //enum EXERCICI {CINEMATICA, DINAMICA, OPTICA, GRAVITATORI, MEGNATIC, ELECTRIC};
-String tema; int exercici;
+String tema; int exercici; boolean interaccio;
 
 void seleccionaPantalla(PANTALLA p){
   if(p==PANTALLA.INICI){
@@ -134,6 +134,10 @@ void exercicisCienamatica(int exercici){
         //Exportar
         bCexpor.setMides(marginH+100 + 900- (width-2*(marginH+100)-900-200) ,height/3-70+60+ (600-60) + 50, width-2*(marginH+100)-900-200, 80);bCexpor.display();
         
+        if(interaccio){
+          drawAdd();
+        }
+        
     }else if(exercici == 2){
       text("exercici 2", width/2, height/2);
     }else{
@@ -198,6 +202,29 @@ void exercicisElectric(int exercici){
       text("exercici 2", width/2, height/2);
     }else{
       drawPantallaError();
+    }
+  popStyle();
+}
+
+void drawAdd(){
+  pushStyle();
+    if(tema == "CINEMÀTICA"){
+      fill(getColor("Fondo"));
+      rectMode(CENTER); textAlign(CENTER); textSize(midaSubtitol+15);
+      rect(width/2, height/2, width/3+150, height/3+150);
+      fill(0);
+      text("Añadir",width/2, height/2- (height/3+150)/2 +70);
+      bCaddLeave.setMides(width/2, height/2 +(height/3+150)/2 -70, 200, 80); bCaddLeave.display();
+    }else if(tema == "DINÀMICA"){
+      exercicisDinamica(exercici);
+    }else if(tema == "ÒPTICA"){
+      exercicisOptica(exercici);
+    }else if(tema == "CAMP GRAVITATÒRI"){
+      exercicisGravitatori(exercici);
+    }else if(tema == "CAMP ELÈCTRIC"){
+      exercicisElectric(exercici);
+    }else if(tema == "CAMP MAGNÈTIC"){
+      exercicisMagnetic(exercici);
     }
   popStyle();
 }
