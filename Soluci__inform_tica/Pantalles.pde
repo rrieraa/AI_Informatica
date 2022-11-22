@@ -1,16 +1,20 @@
-enum PANTALLA {INICI, SELECCIO, EXERCICI, FORMULARI, AFERGIR, EXPORTAR};
+enum PANTALLA {INICI, SELECCIO, EXERCICI, FORMULARI, EXPLICACION};
 //enum EXERCICI {CINEMATICA, DINAMICA, OPTICA, GRAVITATORI, MEGNATIC, ELECTRIC};
-String tema; int exercici; boolean interaccio;
+String tema; int exercici; 
+enum ESTADO {EJERCICIO, ANADIR, EXPORTAR};
+ESTADO currentState = ESTADO.EJERCICIO;
 
 void seleccionaPantalla(PANTALLA p){
   if(p==PANTALLA.INICI){
     pantallaInicial();
   }else if(p==PANTALLA.SELECCIO){
     pantallaSeleccio(tema);
-  }else if(p==PANTALLA.FORMULARI){
-    pantallaFormulari(tema);
   }else if(p==PANTALLA.EXERCICI){
     pantallaExercicis(tema, exercici);
+  }else if(p==PANTALLA.FORMULARI){
+    pantallaFormulari(tema);
+  }else if(p==PANTALLA.EXPLICACION){
+    pantallaExplicacion(tema, exercici);
   }
 }
 
@@ -35,34 +39,24 @@ void pantallaSeleccio(String tema){
         bC2.setMides(width/2+150, 250, 500, 750); bC2.display();
     }else if(tema == "DINÀMICA"){
       //Exercicis
-        bD1.setMides((width/2)-650, 250, 500, 640); bD1.display();
-        bD2.setMides(width/2+150, 250, 500, 640); bD2.display();
-      //Formularis
-        bDf.setMides(width/2-250, height-160, 500, 100); bDf.display();
+        bD1.setMides((width/2)-650, 250, 500, 750); bD1.display();
+        bD2.setMides(width/2+150, 250, 500, 750); bD2.display();
     }else if(tema == "ÒPTICA"){
       //Exercicis
-        bO1.setMides((width/2)-650, 250, 500, 640); bO1.display();
-        bO2.setMides(width/2+150, 250, 500, 640); bO2.display();
-      //Formularis
-        bOf.setMides(width/2-125, height-160, 250, 100); bOf.display();
+        bO1.setMides((width/2)-650, 250, 500, 750); bO1.display();
+        bO2.setMides(width/2+150, 250, 500, 750); bO2.display();
     }else if(tema == "CAMP GRAVITATÒRI"){
       //Exercicis
-        bG1.setMides((width/2)-650, 250, 500, 640); bG1.display();
-        bG2.setMides(width/2+150, 250, 500, 640); bG2.display();
-      //Formularis
-        bGf.setMides(width/2-125, height-160, 250, 100); bGf.display();
+        bG1.setMides((width/2)-650, 250, 500, 750); bG1.display();
+        bG2.setMides(width/2+150, 250, 500, 750); bG2.display();
     }else if(tema == "CAMP ELÈCTRIC"){
       //Exercicis
-        bE1.setMides((width/2)-650, 250, 500, 640); bE1.display();
-        bE2.setMides(width/2+150, 250, 500, 640); bE2.display();
-      //Formularis
-        bEf.setMides(width/2-125, height-160, 250, 100); bEf.display();
+        bE1.setMides((width/2)-650, 250, 500, 750); bE1.display();
+        bE2.setMides(width/2+150, 250, 500, 750); bE2.display();
     }else if(tema == "CAMP MAGNÈTIC"){
       //Exercicis
-        bM1.setMides((width/2)-650, 250, 500, 640); bM1.display();
-        bM2.setMides(width/2+150, 250, 500, 640); bM2.display();
-      //Formularis
-        bMf.setMides(width/2-125, height-160, 250, 100); bMf.display();
+        bM1.setMides((width/2)-650, 250, 500, 750); bM1.display();
+        bM2.setMides(width/2+150, 250, 500, 750); bM2.display();
     }
   popStyle();
 }
@@ -84,29 +78,55 @@ void pantallaFormulari(String tema){
     }
   popStyle();  
 }
+void pantallaExplicacion(String tema, int ejercicio){
+    if(tema == "CINEMÀTICA"){
+      if(ejercicio==1){
+        text("Explicacion Cinemàtica 1", width/2, height/2);
+      }else if(ejercicio==2){
+        text("Explicacion Cinemàtica 2", width/2, height/2);
+      }  
+    }else if(tema == "DINÀMICA"){
+      if(ejercicio==1){
+        text("Explicacion Dinamica 1", width/2, height/2);
+      }else if(ejercicio==2){
+        text("Explicacion Dinamica 2", width/2, height/2);
+      }
+    }else if(tema == "ÒPTICA"){
+      if(ejercicio==1){
+        text("Explicacion Optica 1", width/2, height/2);
+      }else if(ejercicio==2){
+        text("Explicacion Optica 2", width/2, height/2);
+      }
+    }else if(tema == "CAMP GRAVITATÒRI"){
+      if(ejercicio==1){
+        text("Explicacion Campo Gravitatorio 1", width/2, height/2);
+      }else if(ejercicio==2){
+        text("Explicacion Campo Gravitatorio 2", width/2, height/2);
+      }
+    }else if(tema == "CAMP ELÈCTRIC"){
+      if(ejercicio==1){
+        text("Explicacion Campo Electrico 1", width/2, height/2);
+      }else if(ejercicio==2){
+        text("Explicacion Campo Electrico 2", width/2, height/2);
+      }
+    }else if(tema == "CAMP MAGNÈTIC"){
+      if(ejercicio==1){
+        text("Explicacion Campo Magnetico 1", width/2, height/2);
+      }else if(ejercicio==2){
+        text("Explicacion Campo Magnetico 2", width/2, height/2);
+      }
+    }
+}
 
 void pantallaExercicis(String tema, int exercici){
   pushStyle();
-    if(tema == "CINEMÀTICA"){
-      exercicisCienamatica(exercici);
-    }else if(tema == "DINÀMICA"){
-      exercicisDinamica(exercici);
-    }else if(tema == "ÒPTICA"){
-      exercicisOptica(exercici);
-    }else if(tema == "CAMP GRAVITATÒRI"){
-      exercicisGravitatori(exercici);
-    }else if(tema == "CAMP ELÈCTRIC"){
-      exercicisElectric(exercici);
-    }else if(tema == "CAMP MAGNÈTIC"){
-      exercicisMagnetic(exercici);
-    }
+    drawExercici();
+    displayExercici();
   popStyle();
 }
 
-void exercicisCienamatica(int exercici){
-  pushStyle();
-    if(exercici == 1){
-      //Titol
+void drawExercici(){
+   //Titol
       textSize(midaTitol);
       text("CINEMÀTICA: Intersecció entre mòbils", width/2, marginV+100);
       //Visualització d'exercici
@@ -123,109 +143,50 @@ void exercicisCienamatica(int exercici){
       }else{
         fill(0, 255, 0);
         rect(marginH+100+ 900 +200 ,height/3-70+60, width-2*(marginH+100)-900-200, 600-60);
-        bCexpli.setMides((marginH+100+ 900 +200 )+20, (height/3-70+60)+ (600-60) -(80+20), width-2*(marginH+100)-900-200 -(2*20), 80); bCexpli.display();
+        bEXPLICACION.setMides((marginH+100+ 900 +200 )+20, (height/3-70+60)+ (600-60) -(80+20), width-2*(marginH+100)-900-200 -(2*20), 80); bEXPLICACION.display();
       }
       
       //BOTONES
         //Añadir
-        bCadd.setMides(marginH+100+ 900 +200 ,height/3-70+60+ (600-60) + 50, width-2*(marginH+100)-900-200, 80); bCadd.display();
+        bADD.setMides(marginH+100+ 900 +200 ,height/3-70+60+ (600-60) + 50, width-2*(marginH+100)-900-200, 80); bADD.display();
         //Formulario
-        bCf.setMides(marginH+100 ,height/3-70+60+ (600-60) + 50, width-2*(marginH+100)-900-200, 80);bCf.display();
+        bFORMULARIO.setMides(marginH+100 ,height/3-70+60+ (600-60) + 50, width-2*(marginH+100)-900-200, 80);bFORMULARIO.display();
         //Exportar
-        bCexpor.setMides(marginH+100 + 900- (width-2*(marginH+100)-900-200) ,height/3-70+60+ (600-60) + 50, width-2*(marginH+100)-900-200, 80);bCexpor.display();
+        bEXPORT.setMides(marginH+100 + 900- (width-2*(marginH+100)-900-200) ,height/3-70+60+ (600-60) + 50, width-2*(marginH+100)-900-200, 80);bEXPORT.display();
         
-        if(interaccio){
+        if(currentState == ESTADO.ANADIR){
           drawAdd();
-        }
-        
-    }else if(exercici == 2){
-      text("exercici 2", width/2, height/2);
-    }else{
-      drawPantallaError();
-    }
-  popStyle();
+        }else if(currentState == ESTADO.EXPORTAR){
+          drawExport();
+        }        
 }
 
-void exercicisDinamica(int exercici){
-  pushStyle();
-    if(exercici == 1){
-      text("exercici 1", width/2, height/2);
-    }else if(exercici == 2){
-      text("exercici 2", width/2, height/2);
-    }else{
-      drawPantallaError();
-    }
-  popStyle();
+void displayExercici(){
+  //Aquí mostraré per pantalla l'exercici
 }
-
-void exercicisOptica(int exercici){
-  pushStyle();
-    if(exercici == 1){
-      text("exercici 1", width/2, height/2);
-    }else if(exercici == 2){
-      text("exercici 2", width/2, height/2);
-    }else{
-      drawPantallaError();
-    }
-  popStyle();
-}
-
-void exercicisGravitatori(int exercici){
-  pushStyle();
-    if(exercici == 1){
-      text("exercici 1", width/2, height/2);
-    }else if(exercici == 2){
-      text("exercici 2", width/2, height/2);
-    }else{
-      drawPantallaError();
-    }
-  popStyle();
-}
-
-void exercicisMagnetic(int exercici){
-  pushStyle();
-    if(exercici == 1){
-      text("exercici 1", width/2, height/2);
-    }else if(exercici == 2){
-      text("exercici 2", width/2, height/2);
-    }else{
-      drawPantallaError();
-    }
-  popStyle();
-}
-
-void exercicisElectric(int exercici){
-  pushStyle();
-    if(exercici == 1){
-      text("exercici 1", width/2, height/2);
-    }else if(exercici == 2){
-      text("exercici 2", width/2, height/2);
-    }else{
-      drawPantallaError();
-    }
-  popStyle();
-}
-
 void drawAdd(){
   pushStyle();
-    if(tema == "CINEMÀTICA"){
-      fill(getColor("Fondo"));
+    fill(getColor("Fondo"));
+    rectMode(CENTER); textAlign(CENTER); textSize(midaSubtitol+15);
+    rect(width/2, height/2, width/3+150, height/3+150);
+    fill(0);
+    text("Añadir",width/2, height/2- (height/3+150)/2 +70);
+    rectMode(CORNER);
+    bADDLeave.setMides(width/2 -(200/2), height/2 +(height/3+150)/2 -70 -(80/2), 200, 80); bADDLeave.display();
+    //DisplayAddInformation(tema, erecici); serà per cada una distinta.
+  popStyle();
+}
+
+void drawExport(){
+  pushStyle();
+    fill(getColor("Fondo"));
       rectMode(CENTER); textAlign(CENTER); textSize(midaSubtitol+15);
-      rect(width/2, height/2, width/3+150, height/3+150);
+      rect(width/2, height/2, width/3-150, height/3-150);
       fill(0);
-      text("Añadir",width/2, height/2- (height/3+150)/2 +70);
-      bCaddLeave.setMides(width/2, height/2 +(height/3+150)/2 -70, 200, 80); bCaddLeave.display();
-    }else if(tema == "DINÀMICA"){
-      exercicisDinamica(exercici);
-    }else if(tema == "ÒPTICA"){
-      exercicisOptica(exercici);
-    }else if(tema == "CAMP GRAVITATÒRI"){
-      exercicisGravitatori(exercici);
-    }else if(tema == "CAMP ELÈCTRIC"){
-      exercicisElectric(exercici);
-    }else if(tema == "CAMP MAGNÈTIC"){
-      exercicisMagnetic(exercici);
-    }
+      text("Exportar",width/2, height/2- (height/3-150)/2 +70);
+      rectMode(CORNER);
+      bEXPORTRes.setMides(width/2 -(width/3-150)/2 +20, height/2, ((width/3-150) -20 -2*20 -20)/2, 80); bEXPORTRes.display();
+      bEXPORTEnu.setMides(width/2 +(width/3-150)/2 -20 - ((width/3-150) -20 -2*20 -20)/2, height/2, ((width/3-150) -20 -2*20 -20)/2, 80); bEXPORTEnu.display();
   popStyle();
 }
 

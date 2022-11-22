@@ -32,45 +32,28 @@
   //Interacció d'exercicis
     //Añadir
       //Enter
-        Button bCadd = new Button("Añadir");
-        Button bDadd = new Button("Añadir");
-        Button bOadd = new Button("Añadir");
-        Button bGadd = new Button("Añadir");
-        Button bEadd = new Button("Añadir");
-        Button bMadd = new Button("Añadir");
+        Button bADD = new Button("Añadir");
+        
       //Leave
-        Button bCaddLeave = new Button("Añadir");
-        Button bDaddLeave = new Button("Añadir");
-        Button bOaddLeave = new Button("Añadir");
-        Button bGaddLeave = new Button("Añadir");
-        Button bEaddLeave = new Button("Añadir");
-        Button bMaddLeave = new Button("Añadir");
+        Button bADDLeave = new Button("Añadir");
       
     //Formulari
-      Button[] buttonsFormulari = new Button[6];
-    
-      Button bCf = new Button("Formulari");
-      Button bDf = new Button("Formulari");
-      Button bOf = new Button("Formulari");
-      Button bGf = new Button("Formulari");
-      Button bEf = new Button("Formulari");
-      Button bMf = new Button("Formulari");
-    
+      Button bFORMULARIO = new Button("Formulari");
+
     //Explicació
-      Button bCexpli = new Button("Explicar");
-      Button bDexpli = new Button("Explicar");
-      Button bOexpli = new Button("Explicar");
-      Button bGexpli = new Button("Explicar");
-      Button bEexpli = new Button("Explicar");
-      Button bMexpli = new Button("Explicar");
+      Button bEXPLICACION = new Button("Explicar");
+
     
     //Exportar
-      Button bCexpor = new Button("Exportar");
-      Button bDexpor = new Button("Exportar");
-      Button bOexpor = new Button("Exportar");
-      Button bGexpor = new Button("Exportar");
-      Button bEexpor = new Button("Exportar");
-      Button bMexpor = new Button("Exportar");
+      //Enter
+        Button bEXPORT = new Button("Exportar");
+
+      //Enunciat  
+        Button bEXPORTEnu = new Button("Enunciado");
+
+      //Resposta
+        Button bEXPORTRes = new Button("Respuesta");
+      
       
   //Seleccionadors
     //Datos i respuestas
@@ -91,13 +74,6 @@
         buttonsExercicis[9] = bE2;
         buttonsExercicis[10] = bM1;
         buttonsExercicis[11] = bM2;
-      //Formularis
-        buttonsFormulari[0] = bCf;
-        buttonsFormulari[1] = bDf;
-        buttonsFormulari[2] = bOf;
-        buttonsFormulari[3] = bGf;
-        buttonsFormulari[4] = bEf;
-        buttonsFormulari[5] = bMf;
     }
     
     

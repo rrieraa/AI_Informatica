@@ -24,25 +24,42 @@ void checkBotonsSeleccio(){
       Pantalla = PANTALLA.EXERCICI;
     }
   }
-  for(int i = 0; i<buttonsFormulari.length; i++){
-    if(buttonsFormulari[i].mouseOverButton()){
-      Pantalla = PANTALLA.FORMULARI;
-    }
-  }
 }
 
 void checkBotonsExercici(){
-  if(tema == "CINEMÀTICA"&& exercici == 1){
+  //Selecció datos/respuestas
     for(int i=0; i<s1.opcions.length; i++){
       if(s1.opcions[i].mouseOverButton()){
         s1.opcions[i].isSelected = true;
         s1.setSelec(i);
       }
     }
-    if(bCadd.mouseOverButton()){
-      interaccio = true;
-    }else if(bCaddLeave.mouseOverButton()){
-      interaccio = false;
-    }
-  }
+  //Botons:    
+    //Añadir
+      if(bADD.mouseOverButton()){
+        currentState = ESTADO.ANADIR;
+      }else if(bADDLeave.mouseOverButton()){
+        currentState = ESTADO.EJERCICIO;
+      }
+    //Exportar
+      //Enunciado
+      else if(bEXPORT.mouseOverButton()){
+        currentState = ESTADO.EXPORTAR;
+      }else if(bEXPORTEnu.mouseOverButton()){
+        //Iniciar exportacion Enunciado();
+        currentState = ESTADO.EJERCICIO;
+      }
+      //Respuestas
+      else if(bEXPORTRes.mouseOverButton()){
+        //Iniciar exportacion Respuesas();
+        currentState = ESTADO.EJERCICIO;
+      }
+      //Explicación
+      else if(bEXPLICACION.mouseOverButton()){
+        Pantalla = PANTALLA.EXPLICACION;
+      }
+      //Formulari
+      else if(bFORMULARIO.mouseOverButton()){
+        Pantalla = PANTALLA.FORMULARI;
+      }
 }

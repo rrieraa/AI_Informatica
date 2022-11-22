@@ -25,6 +25,7 @@ class Button {
    this.w = w;
    this.h = h;
  }
+ //Se utiliza para el seleccionador
  void selecUse(){
    redondetjat = 35;
  }
