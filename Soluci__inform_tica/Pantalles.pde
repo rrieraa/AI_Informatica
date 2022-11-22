@@ -1,5 +1,5 @@
 enum PANTALLA {INICI, SELECCIO, EXERCICI, FORMULARI, AFERGIR, EXPORTAR};
-enum EXERCICI {CINEMATICA, DINAMICA, OPTICA, GRAVITATORI, MEGNATIC, ELECTRIC};
+//enum EXERCICI {CINEMATICA, DINAMICA, OPTICA, GRAVITATORI, MEGNATIC, ELECTRIC};
 String tema; int exercici;
 
 void seleccionaPantalla(PANTALLA p){
@@ -120,13 +120,16 @@ void exercicisCienamatica(int exercici){
       }else{
         fill(0, 255, 0);
       }
+      
+      //Dades i respostes
       rect(marginH+100+ 900 +200 ,height/3-70+60, width-2*(marginH+100)-900-200, 600-60);
       fill(0);textSize(midaParagraf);
       text("enunciat \n dades: \n- \n- \n-", marginH+100+ 900 +200+ 40, height/3-70+60+20);
-      fill(255);
-      rect(marginH+100+ 900 +200 ,height/3-70+60+ (600-60) + 50, width-2*(marginH+100)-900-200, 80);
-      fill(0);textSize(midaSubtitol);
-      text("añadir", (marginH+100+ 900 +200 )+ ( width-2*(marginH+100)-900-200)/2, (height/3-70+60+ (600-60) + 50)+(80)/2);
+      
+      //Añadir
+      bCadd.setMides(marginH+100+ 900 +200 ,height/3-70+60+ (600-60) + 50, width-2*(marginH+100)-900-200, 80); bCadd.display();
+
+      
       fill(255);
       rect(marginH+100 ,height/3-70+60+ (600-60) + 50, width-2*(marginH+100)-900-200, 80);
       fill(0);textSize(midaSubtitol);

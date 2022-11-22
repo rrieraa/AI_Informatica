@@ -28,19 +28,42 @@
       Button bM1 = new Button("CAMP MAGNÈTIC 1");
       Button bM2 = new Button("CAMP MAGNÈTIC 2");
     
-  //Formularis
-    Button[] buttonsFormulari = new Button[6];
-  
-    Button bCf = new Button("Formulari");
-    Button bDf = new Button("Formulari");
-    Button bOf = new Button("Formulari");
-    Button bGf = new Button("Formulari");
-    Button bEf = new Button("Formulari");
-    Button bMf = new Button("Formulari");
   
   //Interacció d'exercicis
-    //Cinem`qti
+    //Añadir
+      Button bCadd = new Button("Añadir");
+      Button bDadd = new Button("Añadir");
+      Button bOadd = new Button("Añadir");
+      Button bGadd = new Button("Añadir");
+      Button bEadd = new Button("Añadir");
+      Button bMadd = new Button("Añadir");
+      
+    //Formulari
+      Button[] buttonsFormulari = new Button[6];
     
+      Button bCf = new Button("Formulari");
+      Button bDf = new Button("Formulari");
+      Button bOf = new Button("Formulari");
+      Button bGf = new Button("Formulari");
+      Button bEf = new Button("Formulari");
+      Button bMf = new Button("Formulari");
+    
+    //Explicació
+      Button bCexpli = new Button("Explicar");
+      Button bDexpli = new Button("Explicar");
+      Button bOexpli = new Button("Explicar");
+      Button bGexpli = new Button("Explicar");
+      Button bEexpli = new Button("Explicar");
+      Button bMexpli = new Button("Explicar");
+    
+    //Exportar
+      Button bCexpor = new Button("Exportar");
+      Button bDexpor = new Button("Exportar");
+      Button bOexpor = new Button("Exportar");
+      Button bGexpor = new Button("Exportar");
+      Button bEexpor = new Button("Exportar");
+      Button bMexpor = new Button("Exportar");
+      
   //Seleccionadors
     //Datos i respuestas
        Button Datos = new Button("Datos");
