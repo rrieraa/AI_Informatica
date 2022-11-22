@@ -113,32 +113,27 @@ void exercicisCienamatica(int exercici){
       rect(marginH+100, height/3-70, 900, 600); 
       fill(0);textSize(midaSubtitol);
       text("Visualització d'exercici", marginH+100+900/2, height/3-70+600/2);
-      //Selecc
+      //Selecció
       s1.setMides(marginH+100+ 900 +200 ,height/3-70, width-2*(marginH+100)-900-200, 60); s1.display();
       if(s1.getSelected().equals("Datos")){
         fill(255, 0, 0);
+        rect(marginH+100+ 900 +200 ,height/3-70+60, width-2*(marginH+100)-900-200, 600-60);
+        fill(0);textSize(midaParagraf);
+        text("enunciat \n dades: \n- \n- \n-", marginH+100+ 900 +200+ 40, height/3-70+60+20);
       }else{
         fill(0, 255, 0);
+        rect(marginH+100+ 900 +200 ,height/3-70+60, width-2*(marginH+100)-900-200, 600-60);
+        bCexpli.setMides((marginH+100+ 900 +200 )+20, (height/3-70+60)+ (600-60) -(80+20), width-2*(marginH+100)-900-200 -(2*20), 80); bCexpli.display();
       }
       
-      //Dades i respostes
-      rect(marginH+100+ 900 +200 ,height/3-70+60, width-2*(marginH+100)-900-200, 600-60);
-      fill(0);textSize(midaParagraf);
-      text("enunciat \n dades: \n- \n- \n-", marginH+100+ 900 +200+ 40, height/3-70+60+20);
-      
-      //Añadir
-      bCadd.setMides(marginH+100+ 900 +200 ,height/3-70+60+ (600-60) + 50, width-2*(marginH+100)-900-200, 80); bCadd.display();
-
-      
-      fill(255);
-      rect(marginH+100 ,height/3-70+60+ (600-60) + 50, width-2*(marginH+100)-900-200, 80);
-      fill(0);textSize(midaSubtitol);
-      text("formulari", (marginH+100)+ (width-2*(marginH+100)-900-200)/2, (height/3-70+60+ (600-60) + 50)+ (80)/2);
-      fill(255);
-      rect(marginH+100 + 900- (width-2*(marginH+100)-900-200) ,height/3-70+60+ (600-60) + 50, width-2*(marginH+100)-900-200, 80);
-      fill(0);textSize(midaSubtitol);
-      text("exportar", (marginH+100 + 900- (width-2*(marginH+100)-900-200))+ ( width-2*(marginH+100)-900-200)/2, (height/3-70+60+ (600-60) + 50)+ (80)/2);
-      
+      //BOTONES
+        //Añadir
+        bCadd.setMides(marginH+100+ 900 +200 ,height/3-70+60+ (600-60) + 50, width-2*(marginH+100)-900-200, 80); bCadd.display();
+        //Formulario
+        bCf.setMides(marginH+100 ,height/3-70+60+ (600-60) + 50, width-2*(marginH+100)-900-200, 80);bCf.display();
+        //Exportar
+        bCexpor.setMides(marginH+100 + 900- (width-2*(marginH+100)-900-200) ,height/3-70+60+ (600-60) + 50, width-2*(marginH+100)-900-200, 80);bCexpor.display();
+        
     }else if(exercici == 2){
       text("exercici 2", width/2, height/2);
     }else{
