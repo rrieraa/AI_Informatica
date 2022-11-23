@@ -3,7 +3,7 @@ void setup(){
   fullScreen();
   textAlign(CENTER);
   setColors(); setFonts();
-  setCards(); setButtons();setSeleccionador();
+  setCards(); setButtons();setSeleccionador();setTaules();
   setMedias();
 }
 

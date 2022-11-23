@@ -98,3 +98,102 @@
     s1.setBotons(2, Datos, Respuestas);
     print("arr");
   }
+  
+//TABLES
+  //FORMULARIS:
+    //Informació:
+      //Nombre de files:
+        int nCr = 8;
+        int nDr = 8;
+        int nOr = 8;
+        int nGr = 8;
+        int nEr = 8;
+        int nMr = 8;
+      //Nombre columnes:
+        int nc = 4;
+      //Proportions
+        float[] porportions = {15, 32.5, 32.5, 20};
+        
+      //informació Taules:
+        String[] header = {"Variable", "Definición", "Fórmula", "Unidad en SI"};
+      
+        String[][] infoCt = {{"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""}};
+        String[][] infoDt = {{"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""}};
+        String[][] infoOt = {{"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""}};
+        String[][] infoGt = {{"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""}};
+        String[][] infoEt = {{"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""}};
+        String[][] infoMt = {{"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""},
+                             {"", "", "", ""}};
+        
+    //Tales
+    Table tCfor = new Table(nCr, nc); 
+    Table tDfor = new Table(nGr, nc); 
+    Table tOfor = new Table(nOr, nc); 
+    Table tGfor = new Table(nGr, nc); 
+    Table tEfor = new Table(nEr, nc); 
+    Table tMfor = new Table(nMr, nc); 
+    
+  void setTaules(){
+    //Proportions
+      tCfor.setColumnWidths(porportions);
+      tDfor.setColumnWidths(porportions);
+      tOfor.setColumnWidths(porportions);
+      tGfor.setColumnWidths(porportions);
+      tEfor.setColumnWidths(porportions);
+      tMfor.setColumnWidths(porportions);
+    //Headers
+      tCfor.setHeaders(header);
+      tDfor.setHeaders(header);
+      tOfor.setHeaders(header);
+      tGfor.setHeaders(header);
+      tEfor.setHeaders(header);
+      tMfor.setHeaders(header);
+    //Information
+      tCfor.setData(infoCt);
+      tDfor.setData(infoDt);
+      tOfor.setData(infoOt);
+      tGfor.setData(infoGt);
+      tEfor.setData(infoEt);
+      tMfor.setData(infoMt);
+  }

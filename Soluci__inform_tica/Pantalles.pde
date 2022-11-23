@@ -64,7 +64,8 @@ void pantallaSeleccio(String tema){
 void pantallaFormulari(String tema){
   pushStyle();
     if(tema == "CINEMÀTICA"){
-      text("Formulari Cinemàtica", width/2, height/2);
+      text("Formulari Cinemàtica", width/2, 100);
+      tCfor.display(width/6, height/6, 4*width/6, 4*height/6);
     }else if(tema == "DINÀMICA"){
       text("Formulari Dinàmica", width/2, height/2);
     }else if(tema == "ÒPTICA"){
