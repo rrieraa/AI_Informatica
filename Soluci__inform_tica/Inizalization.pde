@@ -197,3 +197,15 @@
       tEfor.setData(infoEt);
       tMfor.setData(infoMt);
   }
+  
+//TextFields
+  //ADD:
+    //Cinemática:
+      //Nombre
+      TextField tfCaddName = new TextField("Nombre");
+      //Posición
+      TextField tfCaddPos1 = new TextField("Posición");
+      TextField tfCaddPos2 = new TextField("Posición");
+      //Velocidad
+      TextField tfCaddVel1 = new TextField("Velocitat");
+      TextField tfCaddVel2 = new TextField("Velocitat");

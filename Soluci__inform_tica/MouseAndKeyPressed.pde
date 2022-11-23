@@ -4,7 +4,7 @@ void mousePressed(){
   }else if(Pantalla == PANTALLA.SELECCIO){
     checkBotonsSeleccio();
   }else if(Pantalla == PANTALLA.EXERCICI){
-    checkBotonsExercici();
+    checkExercici();
   }
 }
 
@@ -26,7 +26,7 @@ void checkBotonsSeleccio(){
   }
 }
 
-void checkBotonsExercici(){
+void checkExercici(){
   //Selecció datos/respuestas
     for(int i=0; i<s1.opcions.length; i++){
       if(s1.opcions[i].mouseOverButton()){
@@ -54,12 +54,22 @@ void checkBotonsExercici(){
         //Iniciar exportacion Respuesas();
         currentState = ESTADO.EJERCICIO;
       }
-      //Explicación
+    //Explicación
       else if(bEXPLICACION.mouseOverButton()){
         Pantalla = PANTALLA.EXPLICACION;
       }
-      //Formulari
+    //Formulari
       else if(bFORMULARIO.mouseOverButton()){
         Pantalla = PANTALLA.FORMULARI;
       }
+  //TextFields:
+    tfCaddName.isPressed();
+    tfCaddPos1.isPressed(); tfCaddPos2.isPressed();
+    tfCaddVel1.isPressed(); tfCaddVel2.isPressed();
+}
+
+void keyPressed() {
+   tfCaddName.keyPressed(key, (int)keyCode);
+   tfCaddPos1.keyPressed(key, (int)keyCode); tfCaddPos2.keyPressed(key, (int)keyCode);
+   tfCaddVel1.keyPressed(key, (int)keyCode); tfCaddVel2.keyPressed(key, (int)keyCode);
 }

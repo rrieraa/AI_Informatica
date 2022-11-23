@@ -11,3 +11,8 @@ void draw(){
   background(getColor("Fondo"));
   seleccionaPantalla(Pantalla);
 }
+
+/*DEMANAR:
+  -Alinear Text
+  -Alinear text fins el text Field
+*/

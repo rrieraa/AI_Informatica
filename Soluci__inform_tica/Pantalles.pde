@@ -63,19 +63,25 @@ void pantallaSeleccio(String tema){
 
 void pantallaFormulari(String tema){
   pushStyle();
+    textSize(midaTitol);
     if(tema == "CINEMÀTICA"){
-      text("Formulari Cinemàtica", width/2, 100);
-      tCfor.display(width/6, height/6, 4*width/6, 4*height/6);
+      text("Formulari Cinemàtica", width/2, 175);
+      tCfor.display(width/6, height/6+85, 4*width/6, 4*height/6);
     }else if(tema == "DINÀMICA"){
-      text("Formulari Dinàmica", width/2, height/2);
+      text("Formulari Dinàmica", width/2, 175);
+      tDfor.display(width/6, height/6+85, 4*width/6, 4*height/6);
     }else if(tema == "ÒPTICA"){
-      text("Formulari Optica", width/2, height/2);
+      text("Formulari Optica", width/2, 175);
+      tOfor.display(width/6, height/6+85, 4*width/6, 4*height/6);
     }else if(tema == "CAMP GRAVITATÒRI"){
-      text("Formulari Gravitatori", width/2, height/2);
+      text("Formulari Gravitatori", width/2, 175);
+      tGfor.display(width/6, height/6+85, 4*width/6, 4*height/6);
     }else if(tema == "CAMP ELÈCTRIC"){
-      text("Formulari Elèctric", width/2, height/2);
+      text("Formulari Elèctric", width/2, 175);
+      tEfor.display(width/6, height/6+85, 4*width/6, 4*height/6);
     }else if(tema == "CAMP MAGNÈTIC"){
-      text("Formulari Magnètic", width/2, height/2);
+      text("Formulari Magnètic", width/2, 175);
+      tMfor.display(width/6, height/6+85, 4*width/6, 4*height/6);
     }
   popStyle();  
 }
@@ -174,7 +180,59 @@ void drawAdd(){
     text("Añadir",width/2, height/2- (height/3+150)/2 +70);
     rectMode(CORNER);
     bADDLeave.setMides(width/2 -(200/2), height/2 +(height/3+150)/2 -70 -(80/2), 200, 80); bADDLeave.display();
-    //DisplayAddInformation(tema, erecici); serà per cada una distinta.
+    DisplayAddInformation(tema, exercici); //serà per cada una distinta.
+  popStyle();
+}
+
+void DisplayAddInformation(String tema, int ejercicio){
+  pushStyle();
+    textAlign(CORNER);
+    int nFields;
+    if(tema == "CINEMÀTICA"){
+      if(ejercicio==1){
+        nFields = 3;
+        //Nom
+        tfCaddName.display(width/2, (height/2 -(height/3+150)/2-10)+ (1*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+20), 200, 40);
+        //Velocitat
+        tfCaddVel1.display(width/2, (height/2 -(height/3+150)/2-10)+ (3*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)), 80, 40);
+        tfCaddVel2.display(width/2+80+40, (height/2 -(height/3+150)/2-10)+ (3*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)), 80, 40);
+        //Posició
+        tfCaddPos1.display(width/2, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10), 80, 40);
+        tfCaddPos2.display(width/2+80+40, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10), 80, 40);
+      }else if(ejercicio==2){
+        
+      }  
+    }else if(tema == "DINÀMICA"){
+      if(ejercicio==1){
+        
+      }else if(ejercicio==2){
+        
+      }
+    }else if(tema == "ÒPTICA"){
+      if(ejercicio==1){
+        
+      }else if(ejercicio==2){
+        
+      }
+    }else if(tema == "CAMP GRAVITATÒRI"){
+      if(ejercicio==1){
+        
+      }else if(ejercicio==2){
+        
+      }
+    }else if(tema == "CAMP ELÈCTRIC"){
+      if(ejercicio==1){
+        
+      }else if(ejercicio==2){
+        
+      }
+    }else if(tema == "CAMP MAGNÈTIC"){
+      if(ejercicio==1){
+        
+      }else if(ejercicio==2){
+        
+      }
+    }
   popStyle();
 }
 
