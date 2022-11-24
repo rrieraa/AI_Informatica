@@ -51,7 +51,9 @@ class TextField {
             removeText();
          } else if (keyCode == 32) {
             addText(' '); // SPACE
-         } else {
+         }else if(keyCode == 46 || keyCode == 44){
+            addText('.'); // Coma decimal
+         }else {
             
            boolean isKeyCapitalLetter = (key >= 'A' && key <= 'Z');
            boolean isKeySmallLetter = (key >= 'a' && key <= 'z');
