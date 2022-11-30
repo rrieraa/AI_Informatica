@@ -27,6 +27,7 @@ class TextField {
   
   // Dibuixa el Camp de Text
   void display(float x, float y, float w, float h) {
+   pushStyle();
      this.x = x; this.y = y; this.w = w; this.h = h;
       
       if (selected) {
@@ -40,9 +41,10 @@ class TextField {
       rect(x, y, w, h, 5);
       
       fill(fgColor);
-      textSize(textSize);
-      text(text, x + 5, y + textSize);
-   }
+      textSize(textSize); textAlign(CORNER);
+      text(text, x + 5, y + this.h/2+ textSize/2);
+  popStyle();
+ }
    
    // Afegeix, lleva el text que es tecleja
    void keyPressed(char key, int keyCode) {
