@@ -1,7 +1,3 @@
-// APP LAYOUT 
-// Valors de posicionament de blocs
-
-
 // Marges Horitzontal i Vertical
 float marginH = 100,
       marginV = 75;
@@ -21,3 +17,10 @@ float bannerWidth  = 1560,
 // Dimensions Columnes
 float columnWidth  = 505,
       columnHeight = 720;
+      
+//Visualització:
+float wVisualitzacio = 900,
+      hVisualitzacio = 600;
+
+float xVisualitzacio = marginH+100 + wVisualitzacio/2,
+      yVisualitzacio = 1080/3-70+hVisualitzacio/2;

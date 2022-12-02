@@ -137,9 +137,7 @@ void drawExercici(){
       textSize(midaTitol);
       text("CINEMÀTICA: Intersecció entre mòbils", width/2, marginV+100);
       //Visualització d'exercici
-      rect(marginH+100, height/3-70, 900, 600); 
-      fill(0);textSize(midaSubtitol);
-      text("Visualització d'exercici", marginH+100+900/2, height/3-70+600/2);
+      visualitzacioCinematica1(xVisualitzacio,yVisualitzacio , wVisualitzacio, hVisualitzacio);
       //Selecció
       s1.setMides(marginH+100+ 900 +200 ,height/3-70, width-2*(marginH+100)-900-200, 60); s1.display();
       if(s1.getSelected().equals("Datos")){
