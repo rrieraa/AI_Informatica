@@ -2,11 +2,14 @@
 
 // URL de la carpeta on hi ha les imatges
 String URL_IMGS = "imgs/";
+String URL_PORTADAS = "Portadas/";
 
 // Array d'imatges (JPG, PNG, GIF)
 PImage[] imgs;
 
 PImage[] stars;
+
+PImage[] portadas;
   
 // Estableix les imatges de l'App
 void setMedias(){
@@ -15,11 +18,18 @@ void setMedias(){
     this.imgs[1] = loadImage(URL_IMGS+"Proton.png"); //Proton
     
     this.stars = new PImage[5];
-    this.stars[0] = loadImage(URL_IMGS+"Rating/1.png"); //Proton
-    this.stars[1] = loadImage(URL_IMGS+"Rating/2.png");
-    this.stars[2] = loadImage(URL_IMGS+"Rating/3.png");
-    this.stars[3] = loadImage(URL_IMGS+"Rating/4.png");
-    this.stars[4] = loadImage(URL_IMGS+"Rating/5.png");
+    for(int i = 0; i<stars.length; i++){
+      int n = i+1;
+      this.stars[i] = loadImage(URL_IMGS+"Rating/"+n+".png"); 
+    }
+    
+    this.portadas = new PImage[6];
+    portadas[0] = loadImage(URL_IMGS+URL_PORTADAS+"Cinematica.png");
+    portadas[1] = loadImage(URL_IMGS+URL_PORTADAS+"Dinamica.png");
+    portadas[2] = loadImage(URL_IMGS+URL_PORTADAS+"Optica.png");
+    portadas[3] = loadImage(URL_IMGS+URL_PORTADAS+"Gravitatori.png");
+    portadas[4] = loadImage(URL_IMGS+URL_PORTADAS+"Electric.png");
+    portadas[5] = loadImage(URL_IMGS+URL_PORTADAS+"Magnetic.png");
 }
   
   PImage getImage(String s){

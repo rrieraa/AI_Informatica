@@ -8,3 +8,7 @@ float midaParagraf = 18;
 //Mides Card
   float wCard = 400;
   float hCard = 600;
+  
+//Mides botó zoom
+  float wZoom = 80;
+  float hZoom = 80;

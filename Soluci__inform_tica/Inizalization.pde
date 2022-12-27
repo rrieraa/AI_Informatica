@@ -1,12 +1,22 @@
+void setDesktop(){
+  //Desktop
+  desktop = Desktop.getDesktop();
+}
 //BUTTONS
+  //Atrás
+    Button bAtras = new Button("Atras");
   //Inici
+    //Exercicis
     Button bCinematica = new Button("CINEMÀTICA");
     Button bDinamica = new Button("DINÀMICA");
     Button bOptica = new Button("ÒPTICA");
     Button bGravitatori = new Button("CAMP GRAVITATÒRI");
     Button bElectric = new Button("CAMP ELÈCTRIC");
     Button bMagnetic = new Button("CAMP MAGNÈTIC");
-    
+    //Otros
+    Button bApp = new Button("Información App");
+    Button bFAQs = new Button("FAQs");
+    Button bProponer = new Button("Proponer Ejercicio");
   //Selecció d'exercicis
     Button[] buttonsExercicis = new Button[12];
     //Cienamàtica
@@ -30,6 +40,11 @@
     
   
   //Interacció d'exercicis
+  
+    //Visualització
+      //Zoom
+        Button bzoomMas = new Button("+");
+        Button bzoomMenos = new Button("-");
     //Añadir
       //Enter
         Button bADD = new Button("Añadir");
@@ -83,12 +98,12 @@
   void setCards(){
     cards = new Card[6];
     
-    cards[0] = new Card("CINEMÀTICA", 1, bCinematica);
-    cards[1] = new Card("DINÀMICA", 2, bDinamica);
-    cards[2] = new Card("ÒPTICA", 3, bOptica);
-    cards[3] = new Card("CAMP GRAVITATÒRI", 4, bGravitatori);
-    cards[4] = new Card("CAMP ELÈCTRIC", 4, bElectric);
-    cards[5] = new Card("CAMP MAGNÈTIC", 5, bMagnetic);
+    cards[0] = new Card(TEMA.CINEMATICA, 1, bCinematica);
+    cards[1] = new Card(TEMA.DINAMICA, 2, bDinamica);
+    cards[2] = new Card(TEMA.OPTICA, 3, bOptica);
+    cards[3] = new Card(TEMA.GRAVITATORI, 4, bGravitatori);
+    cards[4] = new Card(TEMA.ELECTRIC, 4, bElectric);
+    cards[5] = new Card(TEMA.MEGNETIC, 5, bMagnetic);
   }
   
 //Selecionadors
@@ -96,7 +111,6 @@
   
   void setSeleccionador(){
     s1.setBotons(2, Datos, Respuestas);
-    print("arr");
   }
   
 //TABLES
@@ -207,5 +221,11 @@
       TextField tfCaddPos1 = new TextField("Posición");
       TextField tfCaddPos2 = new TextField("Posición");
       //Velocidad
-      TextField tfCaddVel1 = new TextField("Velocitat");
-      TextField tfCaddVel2 = new TextField("Velocitat");
+      TextField tfCaddVel = new TextField("Velocitat");
+      
+//Objetos
+  //Mobiles
+    Mobil m0;
+    Mobil m1;
+  //Vectores
+    Vector C1vectors;

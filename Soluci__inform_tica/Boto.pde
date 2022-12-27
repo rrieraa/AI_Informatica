@@ -14,7 +14,7 @@ class Button {
  // Mètode Constructor
  Button(String text){
    this.textBoto = text;
-   this.enabled = true;
+   this.enabled = false;
  }
  
  // Setters
@@ -43,17 +43,25 @@ class Button {
      }
      stroke(0); strokeWeight(2);        //Color i gruixa del contorn
      rect(this.x, this.y, this.w, this.h, redondetjat);   // Rectangle del botó
-  
-     
-     // Icona del botó
-     //imageMode(CENTER);
-     //image(icona, this.x, this.y, this.s, this.s);
      
      // Text (color, alineació i mida)
      if(text){
        fill(0); textAlign(CENTER); textSize(20);
        text(textBoto, this.x + this.w/2, this.y + this.h/2 + (20/2));
      }
+   popStyle();
+ }
+ 
+ void DisplayWithImage(PImage icona){
+   pushStyle();
+     imageMode(CORNER);
+     if(mouseOverButton()&&!isSelected){
+       tint(200);
+     }
+     stroke(0); strokeWeight(2);        //Color i gruixa del contorn
+     image(icona, this.x, this.y, this.w, this.h);
+     noFill();
+     rect(this.x, this.y, this.w, this.h, redondetjat);   // Rectangle del botó
    popStyle();
  }
  

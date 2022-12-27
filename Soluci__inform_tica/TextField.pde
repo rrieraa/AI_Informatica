@@ -16,7 +16,7 @@ class TextField {
   // Text del camp
   String text = "";
   int textLength = 0;
-  int textSize = 24;
+  int textSize = 20;
 
   boolean selected = false;
    
@@ -27,6 +27,7 @@ class TextField {
   
   // Dibuixa el Camp de Text
   void display(float x, float y, float w, float h) {
+    rect(x, y, textWidth(this.text), 10);
    pushStyle();
      this.x = x; this.y = y; this.w = w; this.h = h;
       
@@ -55,6 +56,8 @@ class TextField {
             addText(' '); // SPACE
          }else if(keyCode == 46 || keyCode == 44){
             addText('.'); // Coma decimal
+         }else if(keyCode == 45){
+           addText('-'); //Menos
          }else {
             
            boolean isKeyCapitalLetter = (key >= 'A' && key <= 'Z');
@@ -67,10 +70,13 @@ class TextField {
          }
       }
    }
+   void resetText(){
+     this.text = "";
+   }
    
    // Afegeix la lletra c al final del text
    void addText(char c) {
-      if (textWidth(this.text + c) < w) {
+      if (textWidth(this.text + c)*0.5   < w) {
          this.text += c;
          textLength++;
       }
@@ -79,7 +85,7 @@ class TextField {
    // Lleva la darrera lletra del text
    void removeText() {
       if (textLength - 1 >= 0) {
-         text = text.substring(0, textLength - 1);
+         text = text.substring(0, text.length() - 1);
          textLength--;
       }
    }

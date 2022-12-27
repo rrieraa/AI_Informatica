@@ -1,9 +1,9 @@
-PANTALLA Pantalla = PANTALLA.INICI;
+
 void setup(){
   fullScreen();
   textAlign(CENTER);
   setColors(); setFonts();
-  setCards(); setButtons();setSeleccionador();setTaules();
+  setCards(); setButtons();setSeleccionador();setTaules(); setDesktop();
   setMedias();
 }
 
