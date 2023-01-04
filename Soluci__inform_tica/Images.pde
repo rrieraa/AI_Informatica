@@ -17,6 +17,7 @@ void setMedias(){
     this.imgs[0] = loadImage(URL_IMGS+"Electron.png"); //Electron
     this.imgs[1] = loadImage(URL_IMGS+"Proton.png"); //Proton
     
+    //Iniciar imagen de estrellas
     this.stars = new PImage[5];
     for(int i = 0; i<stars.length; i++){
       int n = i+1;

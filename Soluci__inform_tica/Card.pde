@@ -17,12 +17,14 @@ class Card{
     pushStyle();
       textSize(midaSubtitol); //textFont(fonts[2]);
       text(this.nom, x+wCard/2, y);
+      //Se muestran las estrellas
       displayStars(estrelles, x, y-20);
       selectImage();
       this.boto.setMides(x, y+100, wCard, 250); this.boto.DisplayWithImage(this.image);
     popStyle();
   }
   void displayStars(int e, float x, float y){ //<>//
+    //Se redimensionan al tamaño deseado
     stars[e-1].resize((int)wCard, 95);
     image(stars[e-1], x, y+30);
   }
