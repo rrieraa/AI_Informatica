@@ -88,7 +88,7 @@ void checkBotonsExercici(){
         currentState = ESTADO.EJERCICIO;
       }
     //Explicación
-      else if(bEXPLICACION.mouseOverButton()){
+      else if(bEXPLICACION.mouseOverButton()&& !s1.getSelected().equals("Datos")){
         Pantalla = PANTALLA.EXPLICACION;
       }
     //Formulari

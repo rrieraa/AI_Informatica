@@ -14,6 +14,13 @@ class Fletxa {
     return p.dist(q);
   }
   
+  void changePoints(float x1, float y1, float x2, float y2){
+    p = new PVector(x1, y1);
+    q = new PVector(x2, y2);
+    cx = x2-x1;
+    cy = y2-y1;
+  }
+  
   float angle() {
         PVector a2 = p.copy().add(1, 0);
         float angle1 = atan2(a2.y - p.y, p.x - a2.x);

@@ -8,7 +8,9 @@ void setup(){
 }
 
 void draw(){
-  background(getColor("Fondo"));
+  //Background
+  background.resize(width, height);
+  image(background, 0, 0);
   seleccionaPantalla(Pantalla);
 }
 

@@ -52,16 +52,19 @@ class Button {
    popStyle();
  }
  
- void DisplayWithImage(PImage icona){
+ void DisplayWithImage(PImage icona, color c){
    pushStyle();
      imageMode(CORNER);
      if(mouseOverButton()&&!isSelected){
-       tint(200);
+       tint(200); fill(200);
+     }else{
+       fill(c);
      }
-     stroke(0); strokeWeight(2);        //Color i gruixa del contorn
-     image(icona, this.x, this.y, this.w, this.h);
-     noFill();
+     
      rect(this.x, this.y, this.w, this.h, redondetjat);   // Rectangle del botó
+     stroke(0); strokeWeight(2);        //Color i gruixa del contorn
+     image(icona, this.x+3, this.y+3, this.w-6, this.h-6);
+     
    popStyle();
  }
  

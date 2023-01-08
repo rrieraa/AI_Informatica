@@ -8,6 +8,9 @@ class Objeto{
     this.nombre = n;
     this.p = new PVector(x, y);
   }
+  Objeto(String n){
+    this.nombre = n;
+  }
   
   void calculateDisplay(float sX, float sY){
     displayX = this.p.x*sX;

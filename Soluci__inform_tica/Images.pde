@@ -6,6 +6,9 @@ String URL_RATING = "Rating/";
 String URL_PORTADAS = "Portadas/";
 String URL_EJERCICIOS = "Ejercicios/";
 
+
+//IMAGES
+PImage background;
 // Array d'imatges (JPG, PNG, GIF)
 PImage[] imgs;
 
@@ -18,6 +21,8 @@ PImage monigote, vidrio, ojo;
 
 // Estableix les imatges de l'App
 void setMedias(){
+  background = loadImage(URL_IMGS+"Background.png");
+  
     this.imgs = new PImage[3];
     this.imgs[0] = loadImage(URL_IMGS+"Electron.png"); //Electron
     this.imgs[1] = loadImage(URL_IMGS+"Proton.png"); //Proton

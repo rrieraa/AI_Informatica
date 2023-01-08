@@ -217,7 +217,38 @@ void pantallaExercicis(TEMA tema, int exercici){
         image(star, marginH+100+ 900 +200 ,height/3-70-120);
         visualitzacioGravitatori2(xVisualitzacio,yVisualitzacio , wVisualitzacio, hVisualitzacio);
       }
-      
+    }else if(tema == TEMA.ELECTRIC){
+      if(exercici == 1){
+        textSize(midaTitol);textAlign(LEFT, TOP);
+        text("Particulas cargadas", xVisualitzacio-wVisualitzacio/2, yVisualitzacio-hVisualitzacio/2 -120);
+        star = stars[3];
+        star.resize((int)(width-2*(marginH+100)-900-200), (int)100);
+        image(star, marginH+100+ 900 +200 ,height/3-70-120);
+        visualitzacioElectric1(xVisualitzacio,yVisualitzacio , wVisualitzacio, hVisualitzacio);
+      }else if(exercici == 2){
+        textSize(midaTitol);textAlign(LEFT, TOP);
+        text("Particulas cargadas", xVisualitzacio-wVisualitzacio/2, yVisualitzacio-hVisualitzacio/2 -120);
+        star = stars[3];
+        star.resize((int)(width-2*(marginH+100)-900-200), (int)100);
+        image(star, marginH+100+ 900 +200 ,height/3-70-120);
+        visualitzacioElectric2(xVisualitzacio,yVisualitzacio , wVisualitzacio, hVisualitzacio);
+      }
+    }else if(tema == TEMA.MEGNETIC){
+      if(exercici == 1){
+        textSize(midaTitol);textAlign(LEFT, TOP);
+        text("Fuerza entre hilos", xVisualitzacio-wVisualitzacio/2, yVisualitzacio-hVisualitzacio/2 -120);
+        star = stars[3];
+        star.resize((int)(width-2*(marginH+100)-900-200), (int)100);
+        image(star, marginH+100+ 900 +200 ,height/3-70-120);
+        visualitzacioMagnetic1(xVisualitzacio,yVisualitzacio , wVisualitzacio, hVisualitzacio);
+      }else if(exercici == 2){
+        textSize(midaTitol);textAlign(LEFT, TOP);
+        text("Espira conductora", xVisualitzacio-wVisualitzacio/2, yVisualitzacio-hVisualitzacio/2 -120);
+        star = stars[3];
+        star.resize((int)(width-2*(marginH+100)-900-200), (int)100);
+        image(star, marginH+100+ 900 +200 ,height/3-70-120);
+        visualitzacioMagnetic2(xVisualitzacio,yVisualitzacio , wVisualitzacio, hVisualitzacio);
+      }
     }
     drawExercici();
   popStyle();
@@ -228,12 +259,12 @@ void drawExercici(){
       //Selecció
       s1.setMides(marginH+100+ 900 +200 ,height/3-70, width-2*(marginH+100)-900-200, 60); s1.display();
       if(s1.getSelected().equals("Datos")){
-        fill(255, 0, 0);
+        fill(255);
         rect(marginH+100+ 900 +200 ,height/3-70+60, width-2*(marginH+100)-900-200, 600-60);
-        fill(0);textSize(midaParagraf);
-        text("enunciat \n dades: \n- \n- \n-", marginH+100+ 900 +200+ 40, height/3-70+60+20);
+        fill(0);textSize(midaParagraf);textAlign(TOP, LEFT);
+        text("enunciat \n dades: \n- \n- \n-", marginH+100+ 900 +200+ 20, height/3-70+60+40);
       }else{
-        fill(0, 255, 0);
+        fill(255);
         rect(marginH+100+ 900 +200 ,height/3-70+60, width-2*(marginH+100)-900-200, 600-60);
         bEXPLICACION.setMides((marginH+100+ 900 +200 )+20, (height/3-70+60)+ (600-60) -(80+20), width-2*(marginH+100)-900-200 -(2*20), 80); bEXPLICACION.display();
       }

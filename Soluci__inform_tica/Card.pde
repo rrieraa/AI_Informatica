@@ -20,7 +20,7 @@ class Card{
       //Se muestran las estrellas
       displayStars(estrelles, x, y-20);
       selectImage();
-      this.boto.setMides(x, y+100, wCard, 250); this.boto.DisplayWithImage(this.image);
+      this.boto.setMides(x, y+100, wCard, 250); this.boto.DisplayWithImage(this.image, 255);
     popStyle();
   }
   void displayStars(int e, float x, float y){ //<>//

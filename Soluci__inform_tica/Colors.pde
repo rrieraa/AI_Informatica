@@ -17,9 +17,12 @@ void setColors(){
     this.colors[5] = color(#959595);//Botón pulsado
     this.colors[6] = color(#7a7979);//Botón seleccionado
     
-    this.paleta = new color[2];
+    this.paleta = new color[5];
     this.paleta[0] = color(#8D86C9);
     this.paleta[1] = color(#E6AE60);
+    this.paleta[2] = color(#FF5D73);
+    this.paleta[3] = color(#5FA8D3);
+    this.paleta[4] = color(#30343F);
 }
   
   
