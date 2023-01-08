@@ -2,6 +2,9 @@
   
 // Array de colors
 color[] colors;
+
+//Array de paleta
+color[] paleta;
   
 // Estableix colors de l'App
 void setColors(){
@@ -13,6 +16,10 @@ void setColors(){
     this.colors[4] = color(#ADADAD);//Botón sin pulsar
     this.colors[5] = color(#959595);//Botón pulsado
     this.colors[6] = color(#7a7979);//Botón seleccionado
+    
+    this.paleta = new color[2];
+    this.paleta[0] = color(#8D86C9);
+    this.paleta[1] = color(#E6AE60);
 }
   
   

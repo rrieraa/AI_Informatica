@@ -1,12 +1,16 @@
 float scaleEjercicio = 0;
 
-void visualitzacioCinematica1(float x, float y, float w, float h){
-  //RECTANGLE
+
+void dibujarRectangulo(float x, float y, float w, float h){
   pushStyle();
     rectMode(CENTER);
     strokeWeight(3);
     rect(x, y, w, h, 10); 
   popStyle();
+}
+void visualitzacioCinematica1(float x, float y, float w, float h){
+  //RECTANGLE
+  dibujarRectangulo(x, y, w, h);
     
   //VISUALITZACIÓ EXERCICI
   pushMatrix();
@@ -38,16 +42,165 @@ void visualitzacioCinematica1(float x, float y, float w, float h){
 
 void visualitzacioCinematica2(float x, float y, float w, float h){
   //RECTANGLE
-  pushStyle();
-    rectMode(CENTER);
-    strokeWeight(3);
-    rect(x, y, w, h, 10); 
-  popStyle();
+  dibujarRectangulo(x, y, w, h);
     
   //VISUALITZACIÓ EXERCICI
   pushMatrix();
     translate(x, y);
+    //Dibujar el precipicio
+    float precipicioX = -w/2+300;
+    float precipicioXSacled = precipicioX*(1+ scaleEjercicio);
+    float floor = h/2-100;
+    strokeWeight(5);
+    if(scaleEjercicio>1){
+      line(-w/2, floor, w/2, floor);
+    }else{
+    line(-w/2, 0,precipicioXSacled ,0);
+    line(precipicioXSacled,0, precipicioXSacled, floor);
+    line(precipicioXSacled, floor, w/2, floor);
+    }
+    
+    //Dibujar las líneas del suelo 
+    strokeWeight(2);
+    float separacioLineas = 80; int metros =0;
+    for(float xL=precipicioXSacled; xL<w/2; xL+=separacioLineas){
+      if(xL>-w/2){
+        line(xL, floor, xL, floor+8);
+        textSize(10);textAlign(CENTER);fill(0);
+        text(metros, xL, floor+ 24);
+      }
+      metros+=20;
+    }
+    
+  popMatrix();
+  bDerecha.setMides(x+w/2-wZoom*2, y-h/2, wZoom, hZoom); bDerecha.display();
+  bIzquierda.setMides(x+w/2-wZoom*3,y-h/2, wZoom, hZoom); bIzquierda.display();
 }
+
+void visualitzacioDinamica1(float x, float y, float w, float h){
+  float floor = h/2-100;
+  //RECTANGLE
+  dibujarRectangulo(x, y, w, h);
+  
+  pushMatrix();
+  pushStyle();
+    strokeWeight(5);
+    translate(x, y);
+    float xCaja = 100; float wCaja = 200;
+    float yCaja = floor-wCaja/2;
+    //Floor
+    fill(0);
+    line(-w/2, floor, w/2, floor);
+    //Caja
+    rectMode(CENTER);
+    fill(paleta[0]);
+    rect(xCaja, yCaja, wCaja, wCaja);
+    //Monigote NO MOSTRAR FINS QUE SE POSA SA FORÇA
+    monigote.resize(130, 200);
+    imageMode(CENTER);
+    image(monigote, -67, 98);
+  popStyle();
+  popMatrix();
+}
+
+void visualitzacioDinamica2(float x, float y, float w, float h){
+  float floor = h/2-100;
+  float xEmpiezaTriangulo= -170; 
+  float xAcabaTriangulo = -xEmpiezaTriangulo;
+  //RECTANGLE
+  dibujarRectangulo(x, y, w, h);
+ 
+  pushMatrix();
+  pushStyle();
+    strokeWeight(5);
+    translate(x, y);
+    //Floor
+    line(-w/2, floor, xEmpiezaTriangulo, floor);
+    for(float xL = xEmpiezaTriangulo+ 20; xL<xAcabaTriangulo; xL+=40){
+      line(xL, floor, xL+20, floor);
+    }
+    line(xAcabaTriangulo, floor, w/2, floor);
+    //Triangle
+    line(xEmpiezaTriangulo, floor, xAcabaTriangulo, floor-300);
+    line(xAcabaTriangulo, floor-300, xAcabaTriangulo, floor);
+    //Polea
+    line(xAcabaTriangulo, floor-300, xAcabaTriangulo+ 30, floor-300- 30);
+    circle(xAcabaTriangulo+ 30, floor-300- 30, 50);
+    
+  popStyle();
+  popMatrix(); 
+}
+
+void visualitzacioOptica1(float x, float y, float w, float h){
+  //RECTANGLE
+  dibujarRectangulo(x, y, w, h);
+ 
+  pushMatrix();
+  pushStyle();
+    strokeWeight(5);
+    translate(x, y);
+    //Vidrio
+    imageMode(CENTER);
+    vidrio.resize(200, (int)h-100);
+    image(vidrio, w/3, 0);
+    //Ojo
+    ojo.resize(200, 200);
+    image(ojo, -w/3, h/3-2);
+  popStyle();
+  popMatrix(); 
+}
+
+void visualitzacioOptica2(float x, float y, float w, float h){
+  //RECTANGLE
+  dibujarRectangulo(x, y, w, h);
+  pushMatrix();
+  pushStyle();
+    strokeWeight(5);
+    translate(x, y);
+    //Vidrio
+    imageMode(CENTER);
+    vidrio.resize(200, (int)h-100);
+    image(vidrio, 0, 0);
+  popStyle();
+  popMatrix(); 
+}
+
+void visualitzacioGravitatori1(float x, float y, float w, float h){
+  //RECTANGLE
+  dibujarRectangulo(x, y, w, h);
+  pushMatrix();
+  pushStyle();
+    strokeWeight(5);
+    translate(x, y);
+    //Sol
+    noStroke();fill(paleta[1]);
+    arc(0, h/2+99, 400, 400, -PI/1.2, -PI/6, OPEN);
+    //Planeta
+    fill(paleta[0]);
+    circle(0, -h/2+100, 125);
+  popStyle();
+  popMatrix(); 
+}
+
+void visualitzacioGravitatori2(float x, float y, float w, float h){
+  //RECTANGLE
+  dibujarRectangulo(x, y, w, h);
+  pushMatrix();
+  pushStyle();
+    strokeWeight(5);
+    translate(x, y);
+    //Sol
+    noStroke();fill(paleta[1]);
+    circle(0, 0, 200);
+    noFill();stroke(1);strokeWeight(2);
+    ellipse(0, 0, 750, 450);
+    //Planeta
+    fill(paleta[0]); noStroke();
+    circle(375, 0, 75);
+    circle(-375, 0, 75);
+  popStyle();
+  popMatrix(); 
+}  
 
 boolean objetoInVisualization(Objeto o, float w, float h){
   return (o.displayX<w/2&&o.displayX>-w/2)&&(-o.displayY<h/2&& -o.displayY>-h/2);

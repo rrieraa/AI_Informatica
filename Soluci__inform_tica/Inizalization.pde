@@ -45,6 +45,10 @@ void setDesktop(){
       //Zoom
         Button bzoomMas = new Button("+");
         Button bzoomMenos = new Button("-");
+        
+      //Dreta/esquerra
+        Button bDerecha = new Button("->");
+        Button bIzquierda = new Button ("<-");
     //Añadir
       //Enter
         Button bADD = new Button("Añadir");

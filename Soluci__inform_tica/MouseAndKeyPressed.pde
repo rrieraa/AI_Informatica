@@ -70,7 +70,7 @@ void checkBotonsExercici(){
         bADDLeave.enabled = true;
       }else if(bADDLeave.mouseOverButton() && bADDLeave.enabled == true){
         currentState = ESTADO.EJERCICIO;
-        createMobils();
+        createMobils(exercici);
         objetos++;
         bADDLeave.enabled = false;
       }
@@ -96,16 +96,66 @@ void checkBotonsExercici(){
         Pantalla = PANTALLA.FORMULARI;
       }
     //INTERACIÓN CON EL EJERCICIO:
-      if(bzoomMas.mouseOverButton()){
-        scaleEjercicio-=1;
-      }else if(bzoomMenos.mouseOverButton()){
-        scaleEjercicio+=1;
-      }
+      InteraccionEjercicio(tema, exercici);
+      
     
-  //TextFields:
-    tfCaddName.isPressed();
-    tfCaddPos1.isPressed(); tfCaddPos2.isPressed();
-    tfCaddVel.isPressed();
+  
+}
+void InteraccionEjercicio(TEMA tema, int ejercicio){
+  pushStyle();
+  if(tema == TEMA.CINEMATICA){
+      if(ejercicio==1){
+        if(bzoomMas.mouseOverButton()){
+          scaleEjercicio-=1;
+        }else if(bzoomMenos.mouseOverButton()){
+          scaleEjercicio+=1;
+        }
+        
+        //TextFields:
+           tfCaddName.isPressed();
+           tfCaddPos1.isPressed(); tfCaddPos2.isPressed();
+           tfCaddVel.isPressed();
+        
+      }else if(ejercicio==2){
+        if(bDerecha.mouseOverButton()){
+          scaleEjercicio+=1;
+        }else if(bIzquierda.mouseOverButton()&&scaleEjercicio>0){
+          scaleEjercicio-=1;
+        }
+      }  
+    }else if(tema == TEMA.DINAMICA){
+      if(ejercicio==1){
+        
+      }else if(ejercicio==2){
+        
+      }
+    }else if(tema == TEMA.OPTICA){
+      if(ejercicio==1){
+        
+      }else if(ejercicio==2){
+        
+      }
+    }else if(tema == TEMA.GRAVITATORI){
+      if(ejercicio==1){
+        
+      }else if(ejercicio==2){
+        
+      }
+    }else if(tema == TEMA.ELECTRIC){
+      if(ejercicio==1){
+        
+      }else if(ejercicio==2){
+        
+      }
+    }else if(tema == TEMA.MEGNETIC){
+      if(ejercicio==1){
+        
+      }else if(ejercicio==2){
+        
+      }
+    }
+  popStyle();
+  
 }
 
 void checkBotonsFormulariOExplicacion(){

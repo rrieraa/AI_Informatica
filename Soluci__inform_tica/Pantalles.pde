@@ -140,24 +140,84 @@ void pantallaExplicacion(TEMA tema, int ejercicio){
 }
 
 void pantallaExercicis(TEMA tema, int exercici){
+  PImage star;
   pushStyle();
     if(tema == TEMA.CINEMATICA){
       print("cine");
       if(exercici == 1){
         //Titol
-        textSize(midaTitol);
-        text("CINEMÁTICA: Intersección entre mòbiles", width/2, marginV+100);
+        textSize(midaTitol);textAlign(LEFT, TOP);
+        text("Xoque de mobiles", xVisualitzacio-wVisualitzacio/2, yVisualitzacio-hVisualitzacio/2 -120);
+        star = stars[0];
+        star.resize((int)(width-2*(marginH+100)-900-200), (int)100);
+        image(star, marginH+100+ 900 +200 ,height/3-70-120);
         //Visualització d'exercici
         visualitzacioCinematica1(xVisualitzacio,yVisualitzacio , wVisualitzacio, hVisualitzacio);
           if(objetos>1){
             calcularExerciciCinematica1();
           }
-      }else if(exercici == 0){
+      }else if(exercici == 2){
         //Titol
-        textSize(midaTitol);
-        text("CINEMÁTICA: Tiro parabólico", width/2, marginV+100);
+        textSize(midaTitol);textAlign(LEFT, TOP);
+        text("Tiro parabólico", xVisualitzacio-wVisualitzacio/2, yVisualitzacio-hVisualitzacio/2 -120);
+        star = stars[0];
+        star.resize((int)(width-2*(marginH+100)-900-200), (int)100);
+        image(star, marginH+100+ 900 +200 ,height/3-70-120);
         visualitzacioCinematica2(xVisualitzacio,yVisualitzacio , wVisualitzacio, hVisualitzacio);
       }
+    }else if(tema == TEMA.DINAMICA){
+      if(exercici == 1){
+        //Titol
+        textSize(midaTitol);textAlign(LEFT, TOP);
+        text("Caja rozante", xVisualitzacio-wVisualitzacio/2, yVisualitzacio-hVisualitzacio/2 -120);
+        star = stars[1];
+        star.resize((int)(width-2*(marginH+100)-900-200), (int)100);
+        image(star, marginH+100+ 900 +200 ,height/3-70-120);
+        visualitzacioDinamica1(xVisualitzacio,yVisualitzacio , wVisualitzacio, hVisualitzacio);
+      }else if(exercici == 2){
+        //Titol
+        textSize(midaTitol);textAlign(LEFT, TOP);
+        text("Polea en plano inclinado", xVisualitzacio-wVisualitzacio/2, yVisualitzacio-hVisualitzacio/2 -120);
+        star = stars[2];
+        star.resize((int)(width-2*(marginH+100)-900-200), (int)100);
+        image(star, marginH+100+ 900 +200 ,height/3-70-120);
+        visualitzacioDinamica2(xVisualitzacio,yVisualitzacio , wVisualitzacio, hVisualitzacio);
+      }
+    }else if(tema == TEMA.OPTICA){
+      if(exercici == 1){
+        //Titol
+        textSize(midaTitol);textAlign(LEFT, TOP);
+        text("Espejo", xVisualitzacio-wVisualitzacio/2, yVisualitzacio-hVisualitzacio/2 -120);
+        star = stars[2];
+        star.resize((int)(width-2*(marginH+100)-900-200), (int)100);
+        image(star, marginH+100+ 900 +200 ,height/3-70-120);
+        visualitzacioOptica1(xVisualitzacio,yVisualitzacio , wVisualitzacio, hVisualitzacio);
+      }else if(exercici == 2){
+        //Titol
+        textSize(midaTitol);textAlign(LEFT, TOP);
+        text("Separación de rayos", xVisualitzacio-wVisualitzacio/2, yVisualitzacio-hVisualitzacio/2 -120);
+        star = stars[3];
+        star.resize((int)(width-2*(marginH+100)-900-200), (int)100);
+        image(star, marginH+100+ 900 +200 ,height/3-70-120);
+        visualitzacioOptica2(xVisualitzacio,yVisualitzacio , wVisualitzacio, hVisualitzacio);
+      }
+    }else if(tema == TEMA.GRAVITATORI){
+      if(exercici == 1){
+        textSize(midaTitol);textAlign(LEFT, TOP);
+        text("Atracción Estrella-Planeta", xVisualitzacio-wVisualitzacio/2, yVisualitzacio-hVisualitzacio/2 -120);
+        star = stars[3];
+        star.resize((int)(width-2*(marginH+100)-900-200), (int)100);
+        image(star, marginH+100+ 900 +200 ,height/3-70-120);
+        visualitzacioGravitatori1(xVisualitzacio,yVisualitzacio , wVisualitzacio, hVisualitzacio);
+      }else if(exercici == 2){
+        textSize(midaTitol);textAlign(LEFT, TOP);
+        text("Velocitat planeta orbital", xVisualitzacio-wVisualitzacio/2, yVisualitzacio-hVisualitzacio/2 -120);
+        star = stars[3];
+        star.resize((int)(width-2*(marginH+100)-900-200), (int)100);
+        image(star, marginH+100+ 900 +200 ,height/3-70-120);
+        visualitzacioGravitatori2(xVisualitzacio,yVisualitzacio , wVisualitzacio, hVisualitzacio);
+      }
+      
     }
     drawExercici();
   popStyle();
