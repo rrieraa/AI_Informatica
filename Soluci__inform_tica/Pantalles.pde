@@ -262,7 +262,8 @@ void drawExercici(){
         fill(255);
         rect(marginH+100+ 900 +200 ,height/3-70+60, width-2*(marginH+100)-900-200, 600-60);
         fill(0);textSize(midaParagraf);textAlign(TOP, LEFT);
-        text("enunciat \n dades: \n- \n- \n-", marginH+100+ 900 +200+ 20, height/3-70+60+40);
+        drawExerciceText(tema, exercici);
+        
       }else{
         fill(255);
         rect(marginH+100+ 900 +200 ,height/3-70+60, width-2*(marginH+100)-900-200, 600-60);
@@ -285,7 +286,21 @@ void drawExercici(){
     popStyle();
 }
 
+void drawExerciceText(TEMA tema, int exercici){
+  float x = marginH+100+ 900 +200+ 20;
+  float y = height/3-70+60+40;
+  if(tema == TEMA.CINEMATICA){
+    if(exercici == 1){
+      textSize(24);//textFont(fonts[0]);
+      text("ENUNCIADO:", x, y);
+      textSize(20);
+      text("Dos mobiles, uno situado en la coordenada X1, Y1 de un eje de cordenadas cartegianas y otro situado en X2, Y2 se mueven en un MRU (que empieza en t0) en dirección de xocar. Si la velocidad del primero es V1 y la del segundo es V2, ¿cuando xocarán?", x, y+26);
+    }
+  }
+}
+
 void drawAdd(boolean canAdd){
+  
   //Cantidad de objetos
     if(objetos==2){
       canAdd = false;

@@ -15,7 +15,8 @@ class Card{
   }
   void display(float x, float y){
     pushStyle();
-      textSize(midaSubtitol); //textFont(fonts[2]);
+    PFont f = createFont("fonts/jackinput.ttf", midaTitol); //Título
+      textSize(midaSubtitol); //textFont(f);
       text(this.nom, x+wCard/2, y);
       //Se muestran las estrellas
       displayStars(estrelles, x, y-20);
