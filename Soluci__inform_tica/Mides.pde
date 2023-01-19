@@ -2,7 +2,7 @@
 float midaMegaTitol = 90;
 float midaTitol = 75;
 float midaMegaSubtitol = 60;
-float midaSubtitol = 42;
+float midaSubtitol = 32;
 float midaParagraf = 18;
 
 //Mides Card

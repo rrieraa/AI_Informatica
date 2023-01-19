@@ -66,7 +66,7 @@ class Seleccionador{
         line(opcions[i].x+wBotons, opcions[i].y+opcions[i].redondetjat, opcions[i].x+wBotons, opcions[i].y+this.h);
         line(opcions[i].x, opcions[i].y+this.h, opcions[i].x+wBotons, opcions[i].y+this.h);
       //Text
-        fill(0); textAlign(CENTER); textSize(20);
+        fill(0); textAlign(CENTER); textSize(20); textFont(fonts[1]);
         text(opcions[i].textBoto, opcions[i].x+wBotons/2, opcions[i].y+this.h/2+ 10);
     }
   }

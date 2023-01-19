@@ -6,9 +6,9 @@ PFont[] fonts;
 // Estableix les fonts de l'App
 void setFonts(){
     this.fonts = new PFont[3];
-    this.fonts[0] = createFont("fonts/jackinput.ttf", midaTitol); //Título
-    this.fonts[1] = createFont("fonts/Monocode.ttf", midaSubtitol); //Subtítulo
-    this.fonts[2] = createFont("fonts/Sono-medium.TTF", midaParagraf); //texto
+    this.fonts[0] = createFont("fonts/jackinput.TTF", midaTitol); //Título
+    this.fonts[1] = createFont("fonts/monofonto.otf", 23); //Subtítulo
+    this.fonts[2] = createFont("fonts/Sono-medium.ttf", midaParagraf); //texto
 }
   
   PFont getFont(String s){

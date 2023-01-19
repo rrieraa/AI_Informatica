@@ -51,10 +51,10 @@ void setDesktop(){
         Button bIzquierda = new Button ("<-");
     //Añadir
       //Enter
-        Button bADD = new Button("Añadir");
+        Button bADD = new Button("Dar Valores");
         
       //Leave
-        Button bADDLeave = new Button("Añadir");
+        Button bADDLeave = new Button("Dar Valores");
       
     //Formulari
       Button bFORMULARIO = new Button("Formulari");
@@ -128,69 +128,128 @@ void setDesktop(){
         int nEr = 8;
         int nMr = 8;
       //Nombre columnes:
-        int nc = 4;
+        int nc = 3;
       //Proportions
-        float[] porportions = {15, 32.5, 32.5, 20};
+        float[] porportions = {20, 50, 30};
         
       //informació Taules:
-        String[] header = {"Variable", "Definición", "Fórmula", "Unidad en SI"};
+        String[] header = {"Variable", "Definición", "Unidad en SI"};
       
-        String[][] infoCt = {{"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""}};
-        String[][] infoDt = {{"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""}};
-        String[][] infoOt = {{"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""}};
-        String[][] infoGt = {{"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""}};
-        String[][] infoEt = {{"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""}};
-        String[][] infoMt = {{"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""},
-                             {"", "", "", ""}};
+        String[][] infoCt = {{"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""}};
+        String[][] infoDt = {{"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""}};
+        String[][] infoOt = {{"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""}};
+        String[][] infoGt = {{"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""}};
+        String[][] infoEt = {{"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""}};
+        String[][] infoMt = {{"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""}};
         
-    //Tales
+        
+    //Talbes
     Table tCfor = new Table(nCr, nc); 
     Table tDfor = new Table(nGr, nc); 
     Table tOfor = new Table(nOr, nc); 
     Table tGfor = new Table(nGr, nc); 
     Table tEfor = new Table(nEr, nc); 
     Table tMfor = new Table(nMr, nc); 
+    
+    String[] formules = {"Formules"};
+    float[] proportionsF = {100};
+        String[][] infoCf = {{""},
+                             {""},
+                             {""},
+                             {""},
+                             {""},
+                             {""},
+                             {""},
+                             {""}};
+        String[][] infoDf = {{""},
+                             {""},
+                             {""},
+                             {""},
+                             {""},
+                             {""},
+                             {""},
+                             {""}};
+        String[][] infoOf = {{""},
+                             {""},
+                             {""},
+                             {""},
+                             {""},
+                             {""},
+                             {""},
+                             {""}};
+        String[][] infoGf = {{""},
+                             {""},
+                             {""},
+                             {""},
+                             {""},
+                             {""},
+                             {""},
+                             {""}};
+        String[][] infoEf = {{""},
+                             {""},
+                             {""},
+                             {""},
+                             {""},
+                             {""},
+                             {""},
+                             {""}};
+        String[][] infoMf = {{""},
+                             {""},
+                             {""},
+                             {""},
+                             {""},
+                             {""},
+                             {""},
+                             {""}};    
+                             
+     Table fC = new Table(nCr, 1);
+     Table fD = new Table(nDr, 1);
+     Table fO = new Table(nOr, 1);
+     Table fG = new Table(nGr, 1);
+     Table fE = new Table(nEr, 1);
+     Table fM = new Table(nMr, 1);
     
   void setTaules(){
     //Proportions
@@ -214,19 +273,76 @@ void setDesktop(){
       tGfor.setData(infoGt);
       tEfor.setData(infoEt);
       tMfor.setData(infoMt);
+      
+    //Proportions
+      fC.setColumnWidths(proportionsF);
+      fD.setColumnWidths(proportionsF);
+      fO.setColumnWidths(proportionsF);
+      fG.setColumnWidths(proportionsF);
+      fE.setColumnWidths(proportionsF);
+      fM.setColumnWidths(proportionsF);
+
+    //Headers
+      fC.setHeaders(formules);
+      fD.setHeaders(formules);
+      fO.setHeaders(formules);
+      fG.setHeaders(formules);
+      fE.setHeaders(formules);
+      fM.setHeaders(formules);
+    
+    //Information
+      fC.setData(infoCf);
+      fD.setData(infoDf);
+      fO.setData(infoOf);
+      fG.setData(infoGf);
+      fE.setData(infoEf);
+      fM.setData(infoMf);
+      
   }
   
 //TextFields
   //ADD:
     //Cinemática:
       //Nombre
-      TextField tfCaddName = new TextField("Nombre");
+      TextField tfCaddName = new TextField("Nombres");
       //Posición
       TextField tfCaddPos1 = new TextField("Posición");
       TextField tfCaddPos2 = new TextField("Posición");
       //Velocidad
       TextField tfCaddVel = new TextField("Velocitat");
       
+      //
+      TextField tfCaddAngle = new TextField("Angle");
+      TextField tfCaddHigh = new TextField ("Altura");
+      
+      TextField tfDaddF = new TextField("Fuerza");
+      TextField tfDaddMasa = new TextField("Masa");
+      TextField tfDaddNu = new TextField("nu");
+      TextField tfDaddMasas = new TextField ("Masas");
+      
+      TextField tfODistanciaX = new TextField("Distancia X");
+      TextField tfODistanciaY = new TextField("Distancia Obj-Obs");
+      
+      TextField tfOF1 = new TextField("Frecuencia 1");
+      TextField tfOF2 = new TextField("Frecuencia 2");
+      
+      TextField tfGm1 = new TextField("Masa Planeta");
+      TextField tfGm2 = new TextField("Masa Estrella");
+      TextField tfGDistancias = new TextField("Distancia");
+      
+      TextField tfGr1 = new TextField("Radio Perihelio");
+      TextField tfGv1 = new TextField("Vel. Perihelio");
+      
+      TextField tfEc1 = new TextField("Carga 1");
+      TextField tfEc2 = new TextField("Carga 2");
+      
+      TextField tfECarga = new TextField("Carga");
+      
+      TextField tfMI1 = new TextField("Intensidad 1");
+      TextField tfMI2 = new TextField("Intensidad 2");
+      
+      TextField ftMIntensidad = new TextField("Intensidad");
+      TextField tfMRadio = new TextField ("Radio");
 //Objetos
   //Mobiles
     Mobil m0;

@@ -33,7 +33,7 @@ class Table {
   // Dibuixa taula
   void display(float x, float y, float w, float h){
     pushMatrix();
-      fill(200, 50); stroke(0);strokeWeight(3);
+      fill(240); stroke(0);strokeWeight(3);
       rect(x, y, w, h);
       
       float rowHeight = h / numRows;

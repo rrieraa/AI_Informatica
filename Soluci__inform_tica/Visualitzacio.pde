@@ -3,6 +3,7 @@ float scaleEjercicio = 0;
 
 void dibujarRectangulo(float x, float y, float w, float h){
   pushStyle();
+  fill(255);
     rectMode(CENTER);
     strokeWeight(3);
     rect(x, y, w, h, 10); 
@@ -36,8 +37,8 @@ void visualitzacioCinematica1(float x, float y, float w, float h){
       }
     }
   popMatrix();
-  bzoomMas.setMides(x+w/2-wZoom*3, y-h/2, wZoom, hZoom); bzoomMas.display();
-  bzoomMenos.setMides(x+w/2-wZoom*2,y-h/2, wZoom, hZoom); bzoomMenos.display();
+  bzoomMas.setMides(x+w/2-wZoom*2, y-h/2, wZoom, hZoom); bzoomMas.displayTransparencia(150);
+  bzoomMenos.setMides(x+w/2-wZoom*1,y-h/2, wZoom, hZoom); bzoomMenos.displayTransparencia(150);
 }
 
 void visualitzacioCinematica2(float x, float y, float w, float h){
@@ -59,6 +60,13 @@ void visualitzacioCinematica2(float x, float y, float w, float h){
     line(precipicioXSacled,0, precipicioXSacled, floor);
     line(precipicioXSacled, floor, w/2, floor);
     }
+    //Dibujar altura
+    strokeWeight(2);
+    if(scaleEjercicio<=1){
+      line(precipicioXSacled-20, 0, precipicioXSacled-20, floor);
+      line(precipicioXSacled, floor, precipicioXSacled-30, floor);
+    }
+    
     
     //Dibujar las líneas del suelo 
     strokeWeight(2);
@@ -73,8 +81,10 @@ void visualitzacioCinematica2(float x, float y, float w, float h){
     }
     
   popMatrix();
-  bDerecha.setMides(x+w/2-wZoom*2, y-h/2, wZoom, hZoom); bDerecha.display();
-  bIzquierda.setMides(x+w/2-wZoom*3,y-h/2, wZoom, hZoom); bIzquierda.display();
+  if(scaleEjercicio!=0){
+    bIzquierda.setMides(x+w/2-wZoom*2,y-h/2, wZoom, hZoom); bIzquierda.displayTransparencia(150);
+  }
+  bDerecha.setMides(x+w/2-wZoom*1, y-h/2, wZoom, hZoom); bDerecha.displayTransparencia(150);
 }
 
 void visualitzacioDinamica1(float x, float y, float w, float h){
@@ -264,8 +274,8 @@ void visualitzacioMagnetic2(float x, float y, float w, float h){
   pushStyle();
     strokeWeight(5);
     translate(x, y);
-    Particula p = new Particula("a", 2);
-    p.display();
+    fill(0);
+    circle(0, 0, 4);
     //Dibuja Espira
     noFill();stroke(3);
     arc(0, 0, 400, 400, -6*PI/7, 6*PI/7);

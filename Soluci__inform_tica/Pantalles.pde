@@ -45,96 +45,127 @@ void pantallaInicial(){
 
 void pantallaSeleccio(TEMA tema){
   pushStyle();
-    textSize(midaTitol);
-    text(tema.toString(), width/2, marginV+100);//titol
     if(tema == TEMA.CINEMATICA){
+      textSize(midaTitol); fill(0);
+    text("Cinemática", width/2, marginV+100);//titol
       //Exercicis
-        bC1.setMides((width/2)-650, 250, 500, 750); bC1.display();
-        bC2.setMides(width/2+150, 250, 500, 750); bC2.display();
+        bC1.setMides((width/2)-650, 250, 500, 750); bC1.DisplayWithImage(ejercicios[0], 255);
+        bC2.setMides(width/2+150, 250, 500, 750); bC2.DisplayWithImage(ejercicios[1], 255);
     }else if(tema == TEMA.DINAMICA){
       //Exercicis
-        bD1.setMides((width/2)-650, 250, 500, 750); bD1.display();
-        bD2.setMides(width/2+150, 250, 500, 750); bD2.display();
+        bD1.setMides((width/2)-650, 250, 500, 750); bD1.DisplayWithImage(ejercicios[2], 255);
+        bD2.setMides(width/2+150, 250, 500, 750); bD2.DisplayWithImage(ejercicios[3], 255);
+        textSize(midaTitol); fill(0);
+    text("Dinámica", width/2, marginV+100);//titol
     }else if(tema == TEMA.OPTICA){
       //Exercicis
-        bO1.setMides((width/2)-650, 250, 500, 750); bO1.display();
-        bO2.setMides(width/2+150, 250, 500, 750); bO2.display();
+        bO1.setMides((width/2)-650, 250, 500, 750); bO1.DisplayWithImage(ejercicios[4], 255);
+        bO2.setMides(width/2+150, 250, 500, 750); bO2.DisplayWithImage(ejercicios[5], 255);
+        textSize(midaTitol); fill(0);
+    text("Óptica", width/2, marginV+100);//titol
     }else if(tema == TEMA.GRAVITATORI){
       //Exercicis
-        bG1.setMides((width/2)-650, 250, 500, 750); bG1.display();
-        bG2.setMides(width/2+150, 250, 500, 750); bG2.display();
+        bG1.setMides((width/2)-650, 250, 500, 750); bG1.DisplayWithImage(ejercicios[6], 255);
+        bG2.setMides(width/2+150, 250, 500, 750); bG2.DisplayWithImage(ejercicios[7], 255);
+        textSize(midaTitol); fill(0);
+    text("Gravitatorio", width/2, marginV+100);//titol
     }else if(tema == TEMA.ELECTRIC){
       //Exercicis
-        bE1.setMides((width/2)-650, 250, 500, 750); bE1.display();
-        bE2.setMides(width/2+150, 250, 500, 750); bE2.display();
+        bE1.setMides((width/2)-650, 250, 500, 750); bE1.DisplayWithImage(ejercicios[8], 255);
+        bE2.setMides(width/2+150, 250, 500, 750); bE2.DisplayWithImage(ejercicios[9], 255);
+        textSize(midaTitol); fill(0);
+    text("Eléctrico", width/2, marginV+100);//titol
     }else if(tema == TEMA.MEGNETIC){
       //Exercicis
-        bM1.setMides((width/2)-650, 250, 500, 750); bM1.display();
-        bM2.setMides(width/2+150, 250, 500, 750); bM2.display();
+        bM1.setMides((width/2)-650, 250, 500, 750); bM1.DisplayWithImage(ejercicios[10], 255);
+        bM2.setMides(width/2+150, 250, 500, 750); bM2.DisplayWithImage(ejercicios[11], 255);
+        textSize(midaTitol); fill(0);
+    text("Magnético", width/2, marginV+100);//titol
     }
   popStyle();
 }
 
 void pantallaFormulari(TEMA tema){
-  pushStyle();
+  pushStyle();fill(0);
+  float x1 = width/6;
+  float w1 = width/2;
     textSize(midaTitol);
     if(tema == TEMA.CINEMATICA){
-      text("Formulari Cinemàtica", width/2, 175);
-      tCfor.display(width/6, height/6+85, 4*width/6, 4*height/6);
+      float y = height/6+85;
+      float h = 4*height/6;
+      text("Formulario Cinemática", width/2, 175);
+      tCfor.display(x1, y, w1, h);
+      fC.display(x1 + w1 + 100, y, 350, h);
     }else if(tema == TEMA.DINAMICA){
-      text("Formulari Dinàmica", width/2, 175);
-      tDfor.display(width/6, height/6+85, 4*width/6, 4*height/6);
+      float y = height/6+85;
+      float h = 4*height/6;
+      text("Formulario Dinámica", width/2, 175);
+      tDfor.display(x1, y, w1, h);
+      fD.display(x1 + w1 + 100, y, 350, h);
     }else if(tema == TEMA.OPTICA){
-      text("Formulari Optica", width/2, 175);
-      tOfor.display(width/6, height/6+85, 4*width/6, 4*height/6);
+      float y = height/6+85;
+      float h = 4*height/6;
+      text("Formulario Óptica", width/2, 175);
+      tOfor.display(x1, y, w1, h);
+      fO.display(x1 + w1 + 100, y, 350, h);
     }else if(tema == TEMA.GRAVITATORI){
-      text("Formulari Gravitatori", width/2, 175);
-      tGfor.display(width/6, height/6+85, 4*width/6, 4*height/6);
+      float y = height/6+85;
+      float h = 4*height/6;
+      text("Formulario Gravitatorio", width/2, 175);
+      tGfor.display(x1, y, w1, h);
+      fG.display(x1 + w1 + 100, y, 350, h);
     }else if(tema == TEMA.ELECTRIC){
-      text("Formulari Elèctric", width/2, 175);
-      tEfor.display(width/6, height/6+85, 4*width/6, 4*height/6);
+      float y = height/6+85;
+      float h = 4*height/6;
+      text("Formulario Eléctrico", width/2, 175);
+      tEfor.display(x1, y, w1, h);
+      fE.display(x1 + w1 + 100, y, 350, h);
     }else if(tema == TEMA.MEGNETIC){
-      text("Formulari Magnètic", width/2, 175);
-      tMfor.display(width/6, height/6+85, 4*width/6, 4*height/6);
+      float y = height/6+85;
+      float h = 4*height/6;
+      text("Formulario Magnético", width/2, 175);
+      tMfor.display(x1, y, w1, h);
+      fM.display(x1 + w1 + 100, y, 350, h);
     }
   popStyle();  
 }
 void pantallaExplicacion(TEMA tema, int ejercicio){
+  fill(0);
     if(tema == TEMA.CINEMATICA){
       if(ejercicio==1){
-        text("Explicacion Cinemàtica 1", width/2, height/2);
+        text("Explicación Cinemàtica 1", width/2, height/2);
       }else if(ejercicio==2){
-        text("Explicacion Cinemàtica 2", width/2, height/2);
+        text("Explicación Cinemàtica 2", width/2, height/2);
       }  
     }else if(tema == TEMA.DINAMICA){
       if(ejercicio==1){
-        text("Explicacion Dinamica 1", width/2, height/2);
+        text("Explicación Dinamica 1", width/2, height/2);
       }else if(ejercicio==2){
-        text("Explicacion Dinamica 2", width/2, height/2);
+        text("Explicación Dinamica 2", width/2, height/2);
       }
     }else if(tema == TEMA.OPTICA){
       if(ejercicio==1){
-        text("Explicacion Optica 1", width/2, height/2);
+        text("Explicación Optica 1", width/2, height/2);
       }else if(ejercicio==2){
-        text("Explicacion Optica 2", width/2, height/2);
+        text("Explicación Optica 2", width/2, height/2);
       }
     }else if(tema == TEMA.GRAVITATORI){
       if(ejercicio==1){
-        text("Explicacion Campo Gravitatorio 1", width/2, height/2);
+        text("Explicación Campo Gravitatorio 1", width/2, height/2);
       }else if(ejercicio==2){
-        text("Explicacion Campo Gravitatorio 2", width/2, height/2);
+        text("Explicación Campo Gravitatorio 2", width/2, height/2);
       }
     }else if(tema == TEMA.ELECTRIC){
       if(ejercicio==1){
-        text("Explicacion Campo Electrico 1", width/2, height/2);
+        text("Explicación Campo Electrico 1", width/2, height/2);
       }else if(ejercicio==2){
-        text("Explicacion Campo Electrico 2", width/2, height/2);
+        text("Explicación Campo Electrico 2", width/2, height/2);
       }
     }else if(tema == TEMA.MEGNETIC){
       if(ejercicio==1){
-        text("Explicacion Campo Magnetico 1", width/2, height/2);
+        text("Explicación Campo Magnetico 1", width/2, height/2);
       }else if(ejercicio==2){
-        text("Explicacion Campo Magnetico 2", width/2, height/2);
+        text("Explicación Campo Magnetico 2", width/2, height/2);
       }
     }
 }
@@ -142,12 +173,12 @@ void pantallaExplicacion(TEMA tema, int ejercicio){
 void pantallaExercicis(TEMA tema, int exercici){
   PImage star;
   pushStyle();
+  fill(0);
     if(tema == TEMA.CINEMATICA){
-      print("cine");
       if(exercici == 1){
         //Titol
         textSize(midaTitol);textAlign(LEFT, TOP);
-        text("Xoque de mobiles", xVisualitzacio-wVisualitzacio/2, yVisualitzacio-hVisualitzacio/2 -120);
+        text("Choque de móbiles", xVisualitzacio-wVisualitzacio/2, yVisualitzacio-hVisualitzacio/2 -120);
         star = stars[0];
         star.resize((int)(width-2*(marginH+100)-900-200), (int)100);
         image(star, marginH+100+ 900 +200 ,height/3-70-120);
@@ -227,7 +258,7 @@ void pantallaExercicis(TEMA tema, int exercici){
         visualitzacioElectric1(xVisualitzacio,yVisualitzacio , wVisualitzacio, hVisualitzacio);
       }else if(exercici == 2){
         textSize(midaTitol);textAlign(LEFT, TOP);
-        text("Particulas cargadas", xVisualitzacio-wVisualitzacio/2, yVisualitzacio-hVisualitzacio/2 -120);
+        text("Equilibrio Eléctrico", xVisualitzacio-wVisualitzacio/2, yVisualitzacio-hVisualitzacio/2 -120);
         star = stars[3];
         star.resize((int)(width-2*(marginH+100)-900-200), (int)100);
         image(star, marginH+100+ 900 +200 ,height/3-70-120);
@@ -236,7 +267,7 @@ void pantallaExercicis(TEMA tema, int exercici){
     }else if(tema == TEMA.MEGNETIC){
       if(exercici == 1){
         textSize(midaTitol);textAlign(LEFT, TOP);
-        text("Fuerza entre hilos", xVisualitzacio-wVisualitzacio/2, yVisualitzacio-hVisualitzacio/2 -120);
+        text("Fuerza entre conductores", xVisualitzacio-wVisualitzacio/2, yVisualitzacio-hVisualitzacio/2 -120);
         star = stars[3];
         star.resize((int)(width-2*(marginH+100)-900-200), (int)100);
         image(star, marginH+100+ 900 +200 ,height/3-70-120);
@@ -289,16 +320,50 @@ void drawExercici(){
 void drawExerciceText(TEMA tema, int exercici){
   float x = marginH+100+ 900 +200+ 20;
   float y = height/3-70+60+40;
+  float w = width-2*(marginH+100)-900-200; 
+  float h = 600-60;
+  textSize(24);//textFont(fonts[0]);
+  text("ENUNCIADO:", x, y);
+  textSize(20);
   if(tema == TEMA.CINEMATICA){
     if(exercici == 1){
-      textSize(24);//textFont(fonts[0]);
-      text("ENUNCIADO:", x, y);
-      textSize(20);
-      text("Dos mobiles, uno situado en la coordenada X1, Y1 de un eje de cordenadas cartegianas y otro situado en X2, Y2 se mueven en un MRU (que empieza en t0) en dirección de xocar. Si la velocidad del primero es V1 y la del segundo es V2, ¿cuando xocarán?", x, y+26);
+      text("Dos mobiles, uno situado en la coordenada X1, Y1 de un eje de cordenadas cartegianas y otro situado en X2, Y2 se mueven en un MRU (que empieza en t0) en dirección de xocar. Si la velocidad del primero es V1 y la del segundo es V2, ¿cuando xocarán?", x, y+26, w-30, h-10);
+    }else if(exercici == 2){
+      text("Si un mobil se situa en un precipicio cuya altura es H y se lanza a una velocidad V en un ángulo A respeto a la horizontal; ¿a cuantos metros del precicpicio xocará contra el suelo?", x, y+26, w-30, h-10);
+    }
+  }else if(tema == TEMA.DINAMICA){
+    if(exercici == 1){
+      text("Si a un cuerpo de massa M se le aplica una fuerza F teniendo en cuenta que entre el suelo y dicho objeto hay un coeficiente de fricción Nu, ¿cual será la acceleración del cuerpo?", x, y+26, w-30, h-10);
+    }else if(exercici == 2){
+      text("Si se considera una polea en un plano inclinado de ángulo Alpha que sujeta dos objetos, de massa M1 y M2, ¿cual será la acceleración del sistema?", x, y+26, w-30, h-10);
+    }
+  }else if(tema == TEMA.OPTICA){
+    if(exercici == 1){
+      text("Si un observador se situa a X1 de un espejo y observa a una abeja en su misma posición, ¿cual será la posición donde se produce la imagen de la abeja?", x, y+26, w-30, h-10);
+    }else if(exercici == 2){
+      text("Si se disparan dos rayos de frecuencias F1 y F2 que inciden en un vidrio al mismo sitio, ¿cual será la separación entre los dos rayos tras salir del vidrio?", x, y+26, w-30, h-10);
+    }
+  }else if(tema == TEMA.GRAVITATORI){
+    if(exercici == 1){
+      text("Si un planeta de massa M1 se encuentra a Dist de una estrella de massa M2, ?cual será la fuerza de atracción entre los dos cuerpos?", x, y+26, w-30, h-10);
+    }else if(exercici == 2){
+      text("Si un cuerpo orbita al rededor de otro y su velocidad en el perihélio (Dist) es V1, ¿cual será su velocidad en R2?", x, y+26, w-30, h-10);
+    }
+  }else if(tema == TEMA.ELECTRIC){
+    if(exercici == 1){
+      text("¿Cual és la fuerza que ejercen dos posticulas cargades (C1 y C2) que se encuentran a Dist de distancia?", x, y+26, w-30, h-10);
+    }else if(exercici == 2){
+      text("¿Qué debe valer el potencial eléctrico para mantener en equilibrio a una partícula cargada de C?", x, y+26, w-30, h-10);
+    }
+  }else if(tema == TEMA.MEGNETIC){
+    if(exercici == 1){
+      text("Si se consideran dos hilos conductores con intensidades I1 y I2 que distan de Dist  ¿Qué valdrá la fuerza producida entre ellos?", x, y+26, w-30, h-10);
+    }else if(exercici == 2){
+      text("¿Cual es el valor del campo magnético en una espira de radio R que conduce una intensidad de I?", x, y+26, w-30, h-10);
     }
   }
 }
-
+//text("", x, y+26, w-30, h-10);
 void drawAdd(boolean canAdd){
   
   //Cantidad de objetos
@@ -311,7 +376,7 @@ void drawAdd(boolean canAdd){
     rect(width/2, height/2, width/3+150, height/3+150);
     if(canAdd){
       textSize(midaSubtitol+15); fill(0);
-      text("Añadir",width/2, height/2- (height/3+150)/2 +70);
+      text("Dar Valores",width/2, height/2- (height/3+150)/2 +70);
       rectMode(CORNER);
       bADDLeave.setMides(width/2 -(200/2), height/2 +(height/3+150)/2 -70 -(80/2), 200, 80); bADDLeave.display();
       DisplayAddInformation(tema, exercici); //serà per cada una distinta.
@@ -324,57 +389,142 @@ void drawAdd(boolean canAdd){
 
 void DisplayAddInformation(TEMA tema, int ejercicio){
   pushStyle();
-    textAlign(CORNER); textSize(30);
+    textAlign(CORNER); textFont(fonts[1]);textSize(30);
     int nFields;
+    float xF = width/2-25;
+    float xT = width/2-200;
     if(tema == TEMA.CINEMATICA){
       if(ejercicio==1){
         nFields = 3;
         //Nom
-        tfCaddName.display(width/2-25, (height/2 -(height/3+150)/2-10)+ (1*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+20), 200, 40);
-        text(tfCaddName.tipo + ":", width/2-200, (height/2 -(height/3+150)/2-10)+ (1*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+20)+(30));
+        tfCaddName.display(xF, (height/2 -(height/3+150)/2-10)+ (1*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+20), 200, 40);
+        text(tfCaddName.tipo + ":", xT, (height/2 -(height/3+150)/2-10)+ (1*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+20)+(30));
         //Velocitat
-        tfCaddVel.display(width/2-25, (height/2 -(height/3+150)/2-10)+ (3*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)), 200, 40);
-        text(tfCaddVel.tipo + ":", width/2-200, (height/2 -(height/3+150)/2-10)+ (3*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields))+30);
+        tfCaddVel.display(xF, (height/2 -(height/3+150)/2-10)+ (3*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)), 200, 40);
+        text(tfCaddVel.tipo + ":", xT, (height/2 -(height/3+150)/2-10)+ (3*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields))+30);
         //Posició
-        text("X:", width/2-25- 30, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10 + 30));
-        tfCaddPos1.display(width/2-25, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10), 70, 40);
-        text("Y:", width/2-25+70+(200-70-70)-30, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10 + 30));
-        tfCaddPos2.display(width/2-25+70+(200-70-70), (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10), 70, 40);
-        text(tfCaddPos1.tipo + ":", width/2-200, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10 + 30));
-
-        
+        text("X:", xF- 30, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10 + 30));
+        tfCaddPos1.display(xF, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10), 70, 40);
+        text("Y:", xF+70+(200-70-70)-30, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10 + 30));
+        tfCaddPos2.display(xF+70+(200-70-70), (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10), 70, 40);
+        text(tfCaddPos1.tipo + ":", xT, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10 + 30));
       }else if(ejercicio==2){
-        
+        nFields = 4;
+        //Nom
+        tfCaddName.display(xF, (height/2 -(height/3+150)/2-10)+ (1*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+20), 200, 40);
+        text(tfCaddName.tipo + ":", xT, (height/2 -(height/3+150)/2-10)+ (1*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+20)+(30));
+        //Velocitat
+        tfCaddVel.display(xF, (height/2 -(height/3+150)/2-10)+ (3*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)), 200, 40);
+        text(tfCaddVel.tipo + ":", xT, (height/2 -(height/3+150)/2-10)+ (3*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields))+30);
+        //Angle
+        tfCaddAngle.display(xF, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10), 200, 40);
+        text(tfCaddAngle.tipo + ":", xT, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+35));
+        tfCaddHigh.display(xF, -20+(height/2 -(height/3+150)/2-10)+ (4*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10), 200, 40);
+        text(tfCaddAngle.tipo + ":", xT, -20+(height/2 -(height/3+150)/2-10)+ (4*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+35));
       }  
     }else if(tema == TEMA.DINAMICA){
       if(ejercicio==1){
-        
+        nFields = 3;
+        //Nom
+        tfDaddMasa.display(xF, (height/2 -(height/3+150)/2-10)+ (1*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+20), 200, 40);
+        text(tfDaddMasa.tipo + ":", xT, (height/2 -(height/3+150)/2-10)+ (1*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+20)+(30));
+        //Velocitat
+        tfDaddF.display(xF, (height/2 -(height/3+150)/2-10)+ (3*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)), 200, 40);
+        text(tfDaddF.tipo + ":", xT, (height/2 -(height/3+150)/2-10)+ (3*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields))+30);
+        //Posició
+        tfDaddNu.display(xF, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10), 70, 40);
+        text(tfDaddNu.tipo + ":", xT, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10 + 30));
+   
+  
+   
       }else if(ejercicio==2){
-        
+        nFields = 3;
+        //Nom
+        tfDaddMasas.display(xF, (height/2 -(height/3+150)/2-10)+ (1*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+20), 200, 40);
+        text(tfDaddMasas.tipo + ":", xT, (height/2 -(height/3+150)/2-10)+ (1*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+20)+(30));
+        //Velocitat
+        tfCaddAngle.display(xF, (height/2 -(height/3+150)/2-10)+ (3*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)), 200, 40);
+        text(tfCaddAngle.tipo + ":", xT, (height/2 -(height/3+150)/2-10)+ (3*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields))+30);
+        //Posició
+        tfDaddNu.display(xF, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10), 70, 40);
+        text(tfDaddNu.tipo + ":", xT, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10 + 30));
+
       }
     }else if(tema == TEMA.OPTICA){
       if(ejercicio==1){
-        
+        nFields=2;
+        tfODistanciaX.display(xF, (height/2 -(height/3+150)/2-10)+ (1*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+20), 200, 40);
+        text(tfODistanciaX.tipo + ":", xT-90, (height/2 -(height/3+150)/2-10)+ (1*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+20)+(30));
+        //Posició
+        tfODistanciaY.display(xF, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10), 200, 40);
+        text(tfODistanciaY.tipo + ":", xT-90, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10 + 30));
       }else if(ejercicio==2){
-        
+        nFields=2;
+        tfOF1.display(xF, -40+(height/2 -(height/3+150)/2-10)+ (1*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+20), 200, 40);
+        text(tfOF1.tipo + ":", xT-20, -40+(height/2 -(height/3+150)/2-10)+ (1*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+20)+(30));
+        //Posició
+        tfOF2.display(xF, -40+(height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10), 200, 40);
+        text(tfOF2.tipo + ":", xT-20, -40+(height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10 + 30));
       }
     }else if(tema == TEMA.GRAVITATORI){
       if(ejercicio==1){
-        
+        nFields = 3;
+        tfGm1.display(xF, (height/2 -(height/3+150)/2-10)+ (1*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+20), 200, 40);
+        text(tfGm1.tipo + ":", xT-40, (height/2 -(height/3+150)/2-10)+ (1*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+20)+(30));
+        //Velocitat
+        tfGm2.display(xF, (height/2 -(height/3+150)/2-10)+ (3*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)), 200, 40);
+        text(tfGm2.tipo + ":", xT-40, (height/2 -(height/3+150)/2-10)+ (3*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields))+30);
+        //Posició
+        tfGDistancias.display(xF, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10), 70, 40);
+        text(tfGDistancias.tipo + ":", xT-30, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10 + 30));
       }else if(ejercicio==2){
-        
+        nFields = 3;
+        tfGr1.display(xF, (height/2 -(height/3+150)/2-10)+ (1*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+20), 200, 40);
+        text(tfGr1.tipo + ":", xT-65, (height/2 -(height/3+150)/2-10)+ (1*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+20)+(30));
+        //Velocitat
+        tfGv1.display(xF, (height/2 -(height/3+150)/2-10)+ (3*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)), 200, 40);
+        text(tfGv1.tipo + ":", xT-65, (height/2 -(height/3+150)/2-10)+ (3*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields))+30);
+       
+        tfGDistancias.display(xF, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10), 200, 40);
+        text(tfGDistancias.tipo + ":", xT-65, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10 + 30));
+      
       }
     }else if(tema == TEMA.ELECTRIC){
       if(ejercicio==1){
-        
+        nFields = 3;
+        tfEc1.display(xF, (height/2 -(height/3+150)/2-10)+ (1*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+20), 200, 40);
+        text(tfEc1.tipo + ":", xT, (height/2 -(height/3+150)/2-10)+ (1*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+20)+(30));
+        //Velocitat
+        tfEc2.display(xF, (height/2 -(height/3+150)/2-10)+ (3*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)), 200, 40);
+        text(tfEc2.tipo + ":", xT, (height/2 -(height/3+150)/2-10)+ (3*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields))+30);
+       
+        tfGDistancias.display(xF, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10), 200, 40);
+        text(tfGDistancias.tipo + ":", xT, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10 + 30));
+  
       }else if(ejercicio==2){
-        
+        nFields = 1;
+        tfECarga.display(xF, height/2-30, 200, 40);
+        text(tfECarga.tipo+ ":", xT, height/2);
       }
     }else if(tema == TEMA.MEGNETIC){
       if(ejercicio==1){
-        
+        nFields = 3;
+        tfMI1.display(xF, (height/2 -(height/3+150)/2-10)+ (1*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+20), 200, 40);
+        text(tfMI1.tipo + ":", xT-20, (height/2 -(height/3+150)/2-10)+ (1*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+20)+(30));
+        //Velocitat
+        tfGDistancias.display(xF, (height/2 -(height/3+150)/2-10)+ (3*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)), 200, 40);
+        text(tfGDistancias.tipo + ":", xT-20, (height/2 -(height/3+150)/2-10)+ (3*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields))+30);
+       
+        tfMI2.display(xF, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10), 200, 40);
+        text(tfMI2.tipo + ":", xT-20, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10 + 30));
       }else if(ejercicio==2){
-        
+        nFields=2;
+        ftMIntensidad.display(xF, (height/2 -(height/3+150)/2-10)+ (1*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+20), 200, 40);
+        text(ftMIntensidad.tipo + ":", xT, (height/2 -(height/3+150)/2-10)+ (1*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+20)+(30));
+        //Posició
+        tfMRadio.display(xF, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10), 200, 40);
+        text(tfMRadio.tipo + ":", xT, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10 + 30));
+     
       }
     }
   popStyle();

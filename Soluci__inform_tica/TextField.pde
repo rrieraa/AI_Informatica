@@ -27,7 +27,6 @@ class TextField {
   
   // Dibuixa el Camp de Text
   void display(float x, float y, float w, float h) {
-    rect(x, y, textWidth(this.text), 10);
    pushStyle();
      this.x = x; this.y = y; this.w = w; this.h = h;
       
