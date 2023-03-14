@@ -28,15 +28,15 @@ class Vector{
 
     //Display una línea
     if(objetoInVisualization(m1, w, h)){//Si se ve, se dibuja
-      float xm1 = lerp(this.m1.displayX, this.m2.displayX, componentX);
-      float ym1 = lerp(this.m1.displayY, this.m2.displayY, componentY);
-      f1 = new Fletxa(m1.displayX, m1.displayY, m1.displayX+componentX, m1.displayY+componentY);
+      float xm1 = lerp(this.m1.displayX, this.m2.displayX, m1.vel/150);
+      float ym1 = lerp(this.m1.displayY, this.m2.displayY, m1.vel/150);
+      f1 = new Fletxa(m1.displayX, m1.displayY, xm1, ym1);
       f1.display(0);
       
     }
     if(objetoInVisualization(m2, w, h)){//Si se ve, se dibuja
-      float xm2 = lerp(this.m2.displayX, this.m1.displayX, m2.vel/100);
-      float ym2 = lerp(this.m2.displayY, this.m1.displayY, m2.vel/100);
+      float xm2 = lerp(this.m2.displayX, this.m1.displayX, m2.vel/150);
+      float ym2 = lerp(this.m2.displayY, this.m1.displayY, m2.vel/150);
       f2 = new Fletxa(m2.displayX, m2.displayY, xm2, ym2);
       f2.display(0);
     }

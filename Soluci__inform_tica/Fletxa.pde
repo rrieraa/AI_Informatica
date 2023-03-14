@@ -9,6 +9,7 @@ class Fletxa {
     cx = x2-x1;
     cy = y2-y1;
   }
+  Fletxa(){}
   
   float distance(){
     return p.dist(q);

@@ -55,12 +55,17 @@ void setDesktop(){
         
       //Leave
         Button bADDLeave = new Button("Dar Valores");
+      //Random Values
+        Button bADDRanValues = new Button("Valores Aleatorios");
       
     //Formulari
       Button bFORMULARIO = new Button("Formulari");
 
     //Explicació
       Button bEXPLICACION = new Button("Explicar");
+      
+    //Reset
+      Button bRESET = new Button("Nuevos valores");
 
     
     //Exportar
@@ -75,8 +80,8 @@ void setDesktop(){
       
       
   //Seleccionadors
-    //Datos i respuestas
-       Button Datos = new Button("Datos");
+    //Enunciado i respuestas
+       Button Enunciado = new Button("Enunciado");
        Button Respuestas = new Button("Respuestas");
     
     void setButtons(){
@@ -114,7 +119,7 @@ void setDesktop(){
   Seleccionador s1 = new Seleccionador(); 
   
   void setSeleccionador(){
-    s1.setBotons(2, Datos, Respuestas);
+    s1.setBotons(2, Enunciado, Respuestas);
   }
   
 //TABLES
@@ -304,7 +309,7 @@ void setDesktop(){
   //ADD:
     //Cinemática:
       //Nombre
-      TextField tfCaddName = new TextField("Nombres");
+      TextField tfCaddName = new TextField("Nombre");
       //Posición
       TextField tfCaddPos1 = new TextField("Posición");
       TextField tfCaddPos2 = new TextField("Posición");
@@ -312,19 +317,20 @@ void setDesktop(){
       TextField tfCaddVel = new TextField("Velocitat");
       
       //
-      TextField tfCaddAngle = new TextField("Angle");
+      TextField tfCaddAngle = new TextField("Ángulo");
       TextField tfCaddHigh = new TextField ("Altura");
       
       TextField tfDaddF = new TextField("Fuerza");
       TextField tfDaddMasa = new TextField("Masa");
-      TextField tfDaddNu = new TextField("nu");
-      TextField tfDaddMasas = new TextField ("Masas");
+      TextField tfDaddNu = new TextField("Nu");
       
-      TextField tfODistanciaX = new TextField("Distancia X");
-      TextField tfODistanciaY = new TextField("Distancia Obj-Obs");
+      TextField tfOXobs = new TextField("Distancia Obs-V");
+      TextField tfOXabeja = new TextField("Distancia 'x' Abeja-Obs");
+      TextField tfOYabeja = new TextField("Distancia 'y' Abeja-Obs");
       
-      TextField tfOF1 = new TextField("Frecuencia 1");
-      TextField tfOF2 = new TextField("Frecuencia 2");
+      TextField tfOAngulo = new TextField("Ángulo");
+      TextField tfOn1 = new TextField("n 1");
+      TextField tfOn2 = new TextField("n 2");
       
       TextField tfGm1 = new TextField("Masa Planeta");
       TextField tfGm2 = new TextField("Masa Estrella");
@@ -345,7 +351,25 @@ void setDesktop(){
       TextField tfMRadio = new TextField ("Radio");
 //Objetos
   //Mobiles
-    Mobil m0;
-    Mobil m1;
+    Mobil m0 = new Mobil();
+    Mobil m1 = new Mobil();
+  //Cajas
+    Caja c0 = new Caja();
+    
+  //Luz
+  Luz l = new Luz();
+  
   //Vectores
     Vector C1vectors;
+    
+    
+//PDFs
+PGraphics pdfC1;
+
+void createGraphicsPDF(){
+  pushMatrix();
+    translate(width/6, 0);
+    pdfC1 = createGraphics(2*width/3, height);
+  popMatrix();
+  
+}

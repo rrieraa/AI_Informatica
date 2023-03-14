@@ -5,6 +5,7 @@ String URL_IMGS = "imgs/";
 String URL_RATING = "Rating/";
 String URL_PORTADAS = "Portadas/";
 String URL_EJERCICIOS = "Ejercicios/";
+String URL_RESOLUCIONES = "Resoluciones/";
 
 
 //IMAGES
@@ -19,7 +20,10 @@ PImage[] portadas;
 PImage[] ejercicios;
   
 //IMATGES EXERCICIS
-PImage monigote, vidrio, ojo;
+PImage monigote, vidrio, ojo, abeja;
+
+//IMAGENES RESOLUCIONES
+PImage pit1, pit2;
 
 // Estableix les imatges de l'App
 void setMedias(){
@@ -60,7 +64,11 @@ void setMedias(){
     
     monigote = loadImage(URL_IMGS+URL_EJERCICIOS+"Monigote.png");
     vidrio = loadImage(URL_IMGS+URL_EJERCICIOS+"Vidrio.png");
-    ojo =loadImage(URL_IMGS+URL_EJERCICIOS+"Ojo.png");
+    ojo = loadImage(URL_IMGS+URL_EJERCICIOS+"Ojo.png");
+    abeja = loadImage(URL_IMGS+URL_EJERCICIOS+"Abeja.png");
+    
+    pit1 = loadImage(URL_IMGS+URL_RESOLUCIONES+"Pit1.png");
+    pit2 = loadImage(URL_IMGS+URL_RESOLUCIONES+"Pit2.png");
 }
   
   PImage getImage(String s){

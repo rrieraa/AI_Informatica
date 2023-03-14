@@ -83,7 +83,7 @@ class TextField {
    
    // Lleva la darrera lletra del text
    void removeText() {
-      if (textLength - 1 >= 0) {
+      if (textLength - 1 >= 0){
          text = text.substring(0, text.length() - 1);
          textLength--;
       }

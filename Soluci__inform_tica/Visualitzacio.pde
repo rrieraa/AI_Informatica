@@ -20,7 +20,6 @@ void visualitzacioCinematica1(float x, float y, float w, float h){
     float separacioLineasY = ((h/2)/(15+scaleEjercicio));
     eixDeCoordenadesCart(w, h, separacioLineasX, separacioLineasY);
     if(objetos == 1){
-      //Se dibuja si se encuentra dentro de la visualización
       m0.calculateDisplay(separacioLineasX, separacioLineasY);
       if(objetoInVisualization(m0, w, h)){
         m0.display(separacioLineasX, separacioLineasY);
@@ -41,6 +40,9 @@ void visualitzacioCinematica1(float x, float y, float w, float h){
   bzoomMenos.setMides(x+w/2-wZoom*1,y-h/2, wZoom, hZoom); bzoomMenos.displayTransparencia(150);
 }
 
+float precipicioXSacled;
+float precipicioX;
+float floor;
 void visualitzacioCinematica2(float x, float y, float w, float h){
   //RECTANGLE
   dibujarRectangulo(x, y, w, h);
@@ -49,9 +51,9 @@ void visualitzacioCinematica2(float x, float y, float w, float h){
   pushMatrix();
     translate(x, y);
     //Dibujar el precipicio
-    float precipicioX = -w/2+300;
-    float precipicioXSacled = precipicioX*(1+ scaleEjercicio);
-    float floor = h/2-100;
+    precipicioX = -w/2+300;
+    precipicioXSacled = precipicioX*(1+ scaleEjercicio);
+    floor = h/2-100;
     strokeWeight(5);
     if(scaleEjercicio>1){
       line(-w/2, floor, w/2, floor);
@@ -85,9 +87,57 @@ void visualitzacioCinematica2(float x, float y, float w, float h){
     bIzquierda.setMides(x+w/2-wZoom*2,y-h/2, wZoom, hZoom); bIzquierda.displayTransparencia(150);
   }
   bDerecha.setMides(x+w/2-wZoom*1, y-h/2, wZoom, hZoom); bDerecha.displayTransparencia(150);
+  
+  
+  //Dibujar mobil
+  checkLimit();
+  if(objetos==objetoLimite){
+    m0.display(m0.p.x, m0.p.y);
+    pushMatrix();
+      translate(xVisualitzacio, yVisualitzacio);
+      float xF = (m0.p.x+ m0.vel*cos(radians(m0.angulo)));
+      float yF = (m0.p.y+ m0.vel*sin(radians(-m0.angulo)));
+      Fletxa f = new Fletxa();
+      f.changePoints(m0.p.x, m0.p.y, xF, yF); f.display(0);
+    popMatrix();
+  }
 }
 
+  float floorD1;
+  float xEmpiezaTriangulo; 
+  float xAcabaTriangulo;
 void visualitzacioDinamica1(float x, float y, float w, float h){
+  floorD1 = h/2-100;
+  xEmpiezaTriangulo= -170; 
+  xAcabaTriangulo = -xEmpiezaTriangulo;
+  //RECTANGLE
+  dibujarRectangulo(x, y, w, h);
+ 
+  pushMatrix();
+  pushStyle();
+    strokeWeight(5);
+    translate(x, y);
+    //Floor
+    line(-w/2, floorD1, xEmpiezaTriangulo, floorD1);
+    for(float xL = xEmpiezaTriangulo+ 20; xL<xAcabaTriangulo; xL+=40){
+      line(xL, floorD1, xL+20, floorD1);
+    }
+    line(xAcabaTriangulo, floorD1, w/2, floorD1);
+    //Triangle
+    line(xEmpiezaTriangulo, floorD1, xAcabaTriangulo, floorD1-300);
+    line(xAcabaTriangulo, floorD1-300, xAcabaTriangulo, floorD1);
+    //Polea
+    line(xAcabaTriangulo, floorD1-300, xAcabaTriangulo+ 30, floorD1-300- 30);
+    circle(xAcabaTriangulo+ 30, floorD1-300- 30, 50);
+    
+    if(objetos > 0){
+      c0.display();
+    }
+  popStyle();
+  popMatrix(); 
+}
+
+void visualitzacioDinamica2(float x, float y, float w, float h){
   float floor = h/2-100;
   //RECTANGLE
   dibujarRectangulo(x, y, w, h);
@@ -105,40 +155,11 @@ void visualitzacioDinamica1(float x, float y, float w, float h){
     rectMode(CENTER);
     fill(paleta[0]);
     rect(xCaja, yCaja, wCaja, wCaja);
-    //Monigote NO MOSTRAR FINS QUE SE POSA SA FORÇA
-    monigote.resize(130, 200);
-    imageMode(CENTER);
-    image(monigote, -67, 98);
+    if(objetos > 0){
+      c0.display();
+    }
   popStyle();
   popMatrix();
-}
-
-void visualitzacioDinamica2(float x, float y, float w, float h){
-  float floor = h/2-100;
-  float xEmpiezaTriangulo= -170; 
-  float xAcabaTriangulo = -xEmpiezaTriangulo;
-  //RECTANGLE
-  dibujarRectangulo(x, y, w, h);
- 
-  pushMatrix();
-  pushStyle();
-    strokeWeight(5);
-    translate(x, y);
-    //Floor
-    line(-w/2, floor, xEmpiezaTriangulo, floor);
-    for(float xL = xEmpiezaTriangulo+ 20; xL<xAcabaTriangulo; xL+=40){
-      line(xL, floor, xL+20, floor);
-    }
-    line(xAcabaTriangulo, floor, w/2, floor);
-    //Triangle
-    line(xEmpiezaTriangulo, floor, xAcabaTriangulo, floor-300);
-    line(xAcabaTriangulo, floor-300, xAcabaTriangulo, floor);
-    //Polea
-    line(xAcabaTriangulo, floor-300, xAcabaTriangulo+ 30, floor-300- 30);
-    circle(xAcabaTriangulo+ 30, floor-300- 30, 50);
-    
-  popStyle();
-  popMatrix(); 
 }
 
 void visualitzacioOptica1(float x, float y, float w, float h){
@@ -156,6 +177,16 @@ void visualitzacioOptica1(float x, float y, float w, float h){
     //Ojo
     ojo.resize(200, 200);
     image(ojo, -w/3, h/3-2);
+    
+    //if(objetos >0){
+      abeja.resize(200, 200);
+      image(abeja, -w/3+ 140, -h/3+10);
+    
+      line(-w/3+50, h/3-2, w/3 - 100, 0);
+      line(w/3 - 100, 0, -w/3+ 210, -h/3+40);
+      //Discontínuas
+      //line(w/3 - 100, 0, w/3 + 1, -40);
+   // } 
   popStyle();
   popMatrix(); 
 }

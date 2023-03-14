@@ -23,6 +23,13 @@ void checkAtras(){
      }
      //Se vuelve a la pantalla anterior
      else{
+       if(Pantalla == PANTALLA.EXERCICI){
+         if(tema == TEMA.CINEMATICA){
+           resetCinematica();
+         }else if(tema == TEMA.DINAMICA){
+           resetDinamica();
+         }
+       }
        Pantalla = PantallaPrevia;
      }
    }
@@ -47,7 +54,7 @@ void checkBotonsSeleccio(){
   PantallaPrevia = PANTALLA.INICI;
   for(int i = 0; i<buttonsExercicis.length ; i++){
     if(buttonsExercicis[i].mouseOverButton()){
-      exercici = (i%2 +1);
+      exercici = i%2 == 0 ? 1: 2;
       Pantalla = PANTALLA.EXERCICI;
       PantallaPrevia = PANTALLA.SELECCIO;
     }
@@ -56,7 +63,7 @@ void checkBotonsSeleccio(){
 
 void checkBotonsExercici(){
   PantallaPrevia = PANTALLA.SELECCIO;
-  //Selecció datos/respuestas
+  //Selecció Enunciado/respuestas
     for(int i=0; i<s1.opcions.length; i++){
       if(s1.opcions[i].mouseOverButton()){
         s1.opcions[i].isSelected = true;
@@ -68,11 +75,34 @@ void checkBotonsExercici(){
       if(bADD.mouseOverButton()){
         currentState = ESTADO.ANADIR;
         bADDLeave.enabled = true;
-      }else if(bADDLeave.mouseOverButton() && bADDLeave.enabled == true){
+      }else if(bADDLeave.mouseOverButton() && bADDLeave.enabled == true && canAdd){
         currentState = ESTADO.EJERCICIO;
-        createMobils(exercici);
-        objetos++;
         bADDLeave.enabled = false;
+        if(tema == TEMA.CINEMATICA){
+          if(exercici == 1){
+            createMobilsC1();
+            objetos++;
+          }else if(exercici == 2){
+            createMobilC2();
+            objetos++;
+          }
+        }else if(tema == TEMA.DINAMICA){
+          if(exercici == 1){
+            createCajasD1();
+            objetos ++;
+          }else if(exercici == 2){
+            createCajaD2();
+            objetos ++;
+          }
+        }else if(tema == TEMA.OPTICA){
+          if(exercici == 1){
+            createLuzO1();
+            objetos ++;
+          }else if(exercici == 2){
+            createLuzO2();
+            objetos ++;
+          }
+        }
       }
     //Exportar
       //Enunciado
@@ -86,9 +116,10 @@ void checkBotonsExercici(){
       else if(bEXPORTRes.mouseOverButton()){
         //Iniciar exportacion Respuesas();
         currentState = ESTADO.EJERCICIO;
+        exportarC1();
       }
     //Explicación
-      else if(bEXPLICACION.mouseOverButton()&& !s1.getSelected().equals("Datos")){
+      else if(bEXPLICACION.mouseOverButton()&& !s1.getSelected().equals("Enunciado")){
         Pantalla = PANTALLA.EXPLICACION;
       }
     //Formulari
@@ -122,18 +153,30 @@ void InteraccionEjercicio(TEMA tema, int ejercicio){
         }else if(bIzquierda.mouseOverButton()&&scaleEjercicio>0){
           scaleEjercicio-=1;
         }
+        //TextFields:
+           tfCaddName.isPressed();
+           tfCaddHigh.isPressed();
+           tfCaddAngle.isPressed();
+           tfCaddVel.isPressed();
       }  
     }else if(tema == TEMA.DINAMICA){
       if(ejercicio==1){
-        
+        tfDaddMasa.isPressed();
+        tfCaddAngle.isPressed();
       }else if(ejercicio==2){
-        
+        tfDaddMasa.isPressed();
+        tfDaddF.isPressed();
+        tfDaddNu.isPressed();
       }
     }else if(tema == TEMA.OPTICA){
       if(ejercicio==1){
-        
+        tfOXobs.isPressed();
+        tfOXabeja.isPressed();
+        tfOYabeja.isPressed();
       }else if(ejercicio==2){
-        
+        tfOAngulo.isPressed();
+        tfOn1.isPressed();
+        tfOn2.isPressed();
       }
     }else if(tema == TEMA.GRAVITATORI){
       if(ejercicio==1){
@@ -163,7 +206,34 @@ void checkBotonsFormulariOExplicacion(){
 }
 
 void keyPressed() {
-   tfCaddName.keyPressed(key, (int)keyCode);
-   tfCaddPos1.keyPressed(key, (int)keyCode); tfCaddPos2.keyPressed(key, (int)keyCode);
-   tfCaddVel.keyPressed(key, (int)keyCode);
+  if(tema == TEMA.CINEMATICA){
+    tfCaddName.keyPressed(key, (int)keyCode);
+    tfCaddVel.keyPressed(key, (int)keyCode);
+    if(exercici == 1){
+      tfCaddPos1.keyPressed(key, (int)keyCode); tfCaddPos2.keyPressed(key, (int)keyCode);
+    }else if(exercici == 2){
+      tfCaddHigh.keyPressed(key, (int)keyCode);
+      tfCaddAngle.keyPressed(key, (int)keyCode);
+    }
+  }else if(tema == TEMA.DINAMICA){
+    if(exercici == 1){
+      tfDaddMasa.keyPressed(key, (int)keyCode);
+      tfCaddAngle.keyPressed(key, (int)keyCode);
+    }else if(exercici == 2){
+      tfDaddMasa.keyPressed(key, (int)keyCode);
+      tfDaddF.keyPressed(key, (int)keyCode);
+      tfDaddNu.keyPressed(key, (int)keyCode);
+    }
+  }else if(tema == TEMA.OPTICA){
+    if(exercici == 1){
+       tfOXobs.keyPressed(key, (int)keyCode);
+       tfOXabeja.keyPressed(key, (int)keyCode);
+       tfOYabeja.keyPressed(key, (int)keyCode);
+    }else if(exercici == 2){
+       tfOAngulo.keyPressed(key, (int)keyCode);
+       tfOn1.keyPressed(key, (int)keyCode);
+       tfOn2.keyPressed(key, (int)keyCode);
+    }
+  }
+   
 }

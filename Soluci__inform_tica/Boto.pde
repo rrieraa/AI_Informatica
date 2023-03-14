@@ -46,7 +46,11 @@ class Button {
      
      // Text (color, alineació i mida)
      if(text){
-       fill(0); textAlign(CENTER); textSize(5);textFont(fonts[1]);
+       fill(0); textAlign(CENTER); textFont(fonts[1]);
+       /*if(textBoto == "Valores Aleatorios"){
+         textSize(20);
+       }*/
+       
        text(textBoto, this.x + this.w/2, this.y + this.h/2 + (20/2));
      }
    popStyle();

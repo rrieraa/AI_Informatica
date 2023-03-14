@@ -1,3 +1,5 @@
+//Libraries
+import processing.pdf.*;
 
 void setup(){
   fullScreen();
@@ -5,6 +7,7 @@ void setup(){
   setColors(); setFonts();
   setCards(); setButtons();setSeleccionador();setTaules(); setDesktop();
   setMedias();
+  createGraphicsPDF();
 }
 
 void draw(){
@@ -13,8 +16,3 @@ void draw(){
   image(background, 0, 0);
   seleccionaPantalla(Pantalla);
 }
-
-/*DEMANAR:
-  -Alinear Text
-  -Alinear text fins el text Field
-*/
