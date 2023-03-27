@@ -129,8 +129,8 @@ void visualitzacioDinamica1(float x, float y, float w, float h){
     //Polea
     line(xAcabaTriangulo, floorD1-300, xAcabaTriangulo+ 30, floorD1-300- 30);
     circle(xAcabaTriangulo+ 30, floorD1-300- 30, 50);
-    
-    if(objetos > 0){
+    checkLimit();
+    if(objetos == objetoLimite){
       c0.display();
     }
   popStyle();
@@ -155,7 +155,8 @@ void visualitzacioDinamica2(float x, float y, float w, float h){
     rectMode(CENTER);
     fill(paleta[0]);
     rect(xCaja, yCaja, wCaja, wCaja);
-    if(objetos > 0){
+    checkLimit();
+    if(objetos == objetoLimite){
       c0.display();
     }
   popStyle();
@@ -176,17 +177,11 @@ void visualitzacioOptica1(float x, float y, float w, float h){
     image(vidrio, w/3, 0);
     //Ojo
     ojo.resize(200, 200);
-    image(ojo, -w/3, h/3-2);
-    
-    //if(objetos >0){
-      abeja.resize(200, 200);
-      image(abeja, -w/3+ 140, -h/3+10);
-    
-      line(-w/3+50, h/3-2, w/3 - 100, 0);
-      line(w/3 - 100, 0, -w/3+ 210, -h/3+40);
-      //Discontínuas
-      //line(w/3 - 100, 0, w/3 + 1, -40);
-   // } 
+    //Display
+    checkLimit();
+    if(objetos == objetoLimite){
+      l.display();
+    } 
   popStyle();
   popMatrix(); 
 }
@@ -202,6 +197,11 @@ void visualitzacioOptica2(float x, float y, float w, float h){
     imageMode(CENTER);
     vidrio.resize(200, (int)h-100);
     image(vidrio, 0, 0);
+    
+    checkLimit();
+    if(objetos == objetoLimite){
+      l.display();
+    } 
   popStyle();
   popMatrix(); 
 }
@@ -216,9 +216,13 @@ void visualitzacioGravitatori1(float x, float y, float w, float h){
     //Sol
     noStroke();fill(paleta[1]);
     arc(0, h/2+99, 400, 400, -PI/1.2, -PI/6, OPEN);
-    //Planeta
-    fill(paleta[0]);
-    circle(0, -h/2+100, 125);
+    
+    //Display
+    checkLimit();
+    if(objetos == objetoLimite){
+      CG.display();
+    }
+    
   popStyle();
   popMatrix(); 
 }
@@ -233,12 +237,11 @@ void visualitzacioGravitatori2(float x, float y, float w, float h){
     //Sol
     noStroke();fill(paleta[1]);
     circle(0, 0, 200);
-    noFill();stroke(1);strokeWeight(2);
-    ellipse(0, 0, 750, 450);
-    //Planeta
-    fill(paleta[0]); noStroke();
-    circle(375, 0, 75);
-    circle(-375, 0, 75);
+    
+    checkLimit();
+    if(objetos == objetoLimite){
+      CG.display();
+    }
   popStyle();
   popMatrix(); 
 }  
@@ -250,8 +253,11 @@ void visualitzacioElectric1(float x, float y, float w, float h){
   pushStyle();
     strokeWeight(5);
     translate(x, y);
-    Particules p = new Particules("a", 1, "b", 1);
-    p.display(w);
+    checkLimit();
+    if(objetos == objetoLimite){
+      P.display();
+    }
+    
   popStyle();
   popMatrix(); 
 }
@@ -271,10 +277,9 @@ void visualitzacioElectric2(float x, float y, float w, float h){
     Fletxa f = new Fletxa(xF, y1F, xF, y2F);
     for(float x0 = xF; x0<w/3+40; x0+=50.9){     
       f.display(paleta[4]);
-      f.changePoints(x0, y1F, x0, y2F);
+      f.changePoints(x0, y1F, x0, y2F); 
     }
-    Particula p = new Particula("a", 2); noStroke();
-    p.display();
+    
   popStyle();
   popMatrix(); 
 }

@@ -24,9 +24,36 @@ class Luz{
   
   void display(){
     if(exercici == 1){
+      //Abeja
+      abeja.resize(200, 200);
+      image(abeja, -wVisualitzacio/3+ 140, -hVisualitzacio/3+10);
+      //Rayo de luz
+      line(-wVisualitzacio/3+50, hVisualitzacio/3-2, wVisualitzacio/3 - 100, 0);
+      line(wVisualitzacio/3 - 100, 0, -wVisualitzacio/3+ 210, -hVisualitzacio/3+40);
+      //Discontínuas
+      line(wVisualitzacio/3 - 100, 0, wVisualitzacio/3-50, -20);
+      line( wVisualitzacio/3 , -40, wVisualitzacio/3 +50, -60);
+      line( wVisualitzacio/3 +100, -80, wVisualitzacio/3 +150, -100);
       
     }else if(exercici == 2){
+      stroke(paleta[1]);
+      line(-100, 0, -wVisualitzacio/3, hVisualitzacio/2-20);
+      stroke(paleta[2]);
+      line(-100, 0, 100, -100);
+      line(100, -100, +wVisualitzacio/3 -60, -hVisualitzacio/2+40);
+      stroke(paleta[5]);
+      line(-100, 0, 100, -40);
+      line(100, -40, +wVisualitzacio/3 -10, -hVisualitzacio/2+40);
       
     }
+  }
+  
+  void reset(){
+    XObsVi = 0;
+    xAbeja = 0; 
+    yAbeja = 0;
+    angulo = 0;
+    n1 = 0;
+    n2 = 0;
   }
 }

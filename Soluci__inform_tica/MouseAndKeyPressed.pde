@@ -28,6 +28,10 @@ void checkAtras(){
            resetCinematica();
          }else if(tema == TEMA.DINAMICA){
            resetDinamica();
+         }else if(tema == TEMA.OPTICA){
+           resetOptica();
+         }else if(tema == TEMA.GRAVITATORI){
+           resetCampoGravitatorio();
          }
        }
        Pantalla = PantallaPrevia;
@@ -102,6 +106,20 @@ void checkBotonsExercici(){
             createLuzO2();
             objetos ++;
           }
+        }else if(tema == TEMA.GRAVITATORI){
+          if(exercici == 1){
+            createCampoGravitatorioG1();
+            objetos++;
+          }else if(exercici == 2){
+            createCampoGravitatorioG2();
+            objetos++;
+          }
+        }else if(tema == TEMA.ELECTRIC){
+          if(exercici == 1){
+            createCampoElectrico1();
+            objetos++;
+          }
+          
         }
       }
     //Exportar
@@ -180,13 +198,19 @@ void InteraccionEjercicio(TEMA tema, int ejercicio){
       }
     }else if(tema == TEMA.GRAVITATORI){
       if(ejercicio==1){
-        
+        tfGm1.isPressed();
+        tfGm2.isPressed();
+        tfGDistancias.isPressed();
       }else if(ejercicio==2){
-        
+        tfGr1.isPressed();
+        tfGr2.isPressed();
+        tfGv1.isPressed();
       }
     }else if(tema == TEMA.ELECTRIC){
       if(ejercicio==1){
-        
+        tfEc1.isPressed();
+        tfEc2.isPressed();
+        tfGDistancias.isPressed();
       }else if(ejercicio==2){
         
       }
@@ -226,13 +250,29 @@ void keyPressed() {
     }
   }else if(tema == TEMA.OPTICA){
     if(exercici == 1){
-       tfOXobs.keyPressed(key, (int)keyCode);
-       tfOXabeja.keyPressed(key, (int)keyCode);
-       tfOYabeja.keyPressed(key, (int)keyCode);
+      tfOXobs.keyPressed(key, (int)keyCode);
+      tfOXabeja.keyPressed(key, (int)keyCode);
+      tfOYabeja.keyPressed(key, (int)keyCode);
     }else if(exercici == 2){
-       tfOAngulo.keyPressed(key, (int)keyCode);
-       tfOn1.keyPressed(key, (int)keyCode);
-       tfOn2.keyPressed(key, (int)keyCode);
+      tfOAngulo.keyPressed(key, (int)keyCode);
+      tfOn1.keyPressed(key, (int)keyCode);
+      tfOn2.keyPressed(key, (int)keyCode);
+    }
+  }else if(tema == TEMA.GRAVITATORI){
+    if(exercici == 1){
+      tfGm1.keyPressed(key, (int)keyCode);
+      tfGm2.keyPressed(key, (int)keyCode);
+      tfGDistancias.keyPressed(key, (int)keyCode);
+    }else if(exercici == 2){
+      tfGr1.keyPressed(key, (int)keyCode);
+      tfGr2.keyPressed(key, (int)keyCode);
+      tfGv1.keyPressed(key, (int)keyCode);
+    }
+  }else if(tema == TEMA.ELECTRIC){
+    if(exercici == 1){
+      tfEc1.keyPressed(key, (int)keyCode);
+      tfEc2.keyPressed(key, (int)keyCode);
+      tfGDistancias.keyPressed(key, (int)keyCode);
     }
   }
    

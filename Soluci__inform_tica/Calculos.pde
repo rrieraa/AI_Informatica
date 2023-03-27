@@ -40,3 +40,22 @@ float calcularEjercicioO2(){
   res = abs(A1-A2);
   return res;
 }
+
+float calcularEjercicioG1(){
+  float a = (float)(6.67*Math.pow(10, -11))*CG.m1 * CG.m2;
+  float b = (float)(Math.pow(CG.distancia, 2));
+  return a/b;
+}
+
+float calcularEjercicioG2(){
+  float v = (CG.rp * CG.vp)/CG.ra;
+  return v;
+}
+
+float calcularEjercicioE1(){
+  float F;
+  float a = (float)(9*Math.pow(10, 9) * P.c1 * P.c2);
+  float b = (float) (Math.pow(P.distancia, 2));
+  F = a/b;
+  return F;
+}

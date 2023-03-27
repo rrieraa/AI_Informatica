@@ -391,8 +391,21 @@ void checkLimit(){
     }else if(exercici == 2){
       objetoLimite = 1;
     }
+  }else if(tema == TEMA.GRAVITATORI){
+    if(exercici == 1){
+      objetoLimite = 1;
+    }else if(exercici == 2){
+      objetoLimite = 1;
+    }
+  }else if(tema == TEMA.ELECTRIC){
+    if(exercici == 1){
+      objetoLimite = 1;
+    }else if(exercici == 2){
+      objetoLimite = 1;
+    }
   }
 }
+
 void drawExerciceResolucion(TEMA tema, int exercici){
   float Resp;
   
@@ -452,13 +465,30 @@ void drawExerciceResolucion(TEMA tema, int exercici){
     }
   }else if(tema == TEMA.GRAVITATORI){
     if(exercici == 1){
-      text("Si un planeta de massa M1 se encuentra a Dist de una estrella de massa M2, ?cual será la fuerza de atracción entre los dos cuerpos?", x, y+26, w-30, h-10);
+      text("Masa Planeta: "+CG.m1+"Kg", x, y+40, w-30, h);
+      text("Masa Sol: "+CG.m2+"Kg", x, y+80, w-30, h);
+      text("Distancia: "+CG.distancia+"m", x, y+120, w-30, h);
+      Resp = calcularEjercicioG1();
+      text("La fuerza de atracción entre los cuerpos astonómicos es "+Resp+"N", x, y+h/2+40, w-30, h);
     }else if(exercici == 2){
-      text("Si un cuerpo orbita al rededor de otro y su velocidad en el perihélio (Dist) es V1, ¿cual será su velocidad en R2?", x, y+26, w-30, h-10);
+      text("Distancia del perihelio: "+CG.rp+"Km", x, y+40, w-30, h);
+      text("Distancia del afelio: "+CG.vp+"Km", x, y+80, w-30, h);
+      text("velocidad Perihelio: "+CG.rp+"m/s", x, y+120, w-30, h);
+      Resp =  calcularEjercicioG2();
+      text("En el afelio tiene una velocidad de "+Resp+"m/s", x, y+h/2+40, w-30, h);
     }
   }else if(tema == TEMA.ELECTRIC){
     if(exercici == 1){
-      text("¿Cual és la fuerza que ejercen dos posticulas cargades (C1 y C2) que se encuentran a Dist de distancia?", x, y+26, w-30, h-10);
+      text("Carga primera partícula: "+P.c1+"mC", x, y+40, w-30, h);
+      text("Carga segunda partícula: "+P.c2+"mC", x, y+80, w-30, h);
+      text("Distancia entre partículas: "+P.distancia+"m", x, y+120, w-30, h);
+      Resp =  calcularEjercicioE1();
+      if(P.c1 > 0 && P.c2 > 0 || P.c1 < 0 && P.c2 < 0){
+        text("La fuerza entre las partículas es de "+Resp+"F repulsiva", x, y+h/2+40, w-30, h);
+      }else{
+        text("La fuerza entre las partículas es de "+Resp+"F atractiva", x, y+h/2+40, w-30, h);
+      }
+      
     }else if(exercici == 2){
       text("¿Qué debe valer el potencial eléctrico para mantener en equilibrio a una partícula cargada de C?", x, y+26, w-30, h-10);
     }
@@ -524,13 +554,25 @@ void drawExerciceText(TEMA tema, int exercici){
    }
   }else if(tema == TEMA.GRAVITATORI){
     if(exercici == 1){
-      text("Si un planeta de massa M1 se encuentra a Dist de una estrella de massa M2, ?cual será la fuerza de atracción entre los dos cuerpos?", x, y+26, w-30, h-10);
+      if(objetos == 0){
+        text("Si un planeta de massa M1 se encuentra a Dist de una estrella de massa M2, ¿cual será la fuerza de atracción entre los dos cuerpos?", x, y+26, w-30, h-10);
+      }else{
+        text("Si un planeta de massa "+CG.m1+" se encuentra a "+CG.distancia+" de una estrella de massa "+CG.m2+", ¿cual será la fuerza de atracción entre los dos cuerpos?", x, y+26, w-30, h-10);
+      }
     }else if(exercici == 2){
-      text("Si un cuerpo orbita al rededor de otro y su velocidad en el perihélio (Dist) es V1, ¿cual será su velocidad en R2?", x, y+26, w-30, h-10);
+      if(objetos == 0){
+        text("Si un cuerpo orbita al rededor de otro y su velocidad en el perihélio (Dist km) es V1 m/s, ¿cual será su velocidad en el afelio (Dist km)?", x, y+26, w-30, h-10);
+      }else{
+        text("Si un cuerpo orbita al rededor de otro y su velocidad en el perihélio ("+CG.rp+"km) es "+CG.vp+" m/s, ¿cual será su velocidad en el afelio ("+CG.ra+" km)?", x, y+26, w-30, h-10);
+      }
     }
   }else if(tema == TEMA.ELECTRIC){
     if(exercici == 1){
-      text("¿Cual és la fuerza que ejercen dos posticulas cargades (C1 y C2) que se encuentran a Dist de distancia?", x, y+26, w-30, h-10);
+      if(objetos == 0){
+        text("¿Cual és la fuerza entre dos particulas cargadas (C1 mC y C2 mC) que se encuentran a D m de distancia?", x, y+26, w-30, h-10);
+      }else{
+        text("¿Cual és la fuerza entre dos particulas cargadas ("+P.c1+"mC y "+P.c2+"mC) que se encuentran a "+P.distancia+"m de distancia?", x, y+26, w-30, h-10);
+      }
     }else if(exercici == 2){
       text("¿Qué debe valer el potencial eléctrico para mantener en equilibrio a una partícula cargada de C?", x, y+26, w-30, h-10);
     }
@@ -656,7 +698,7 @@ void DisplayAddInformation(TEMA tema, int ejercicio){
         tfGm2.display(xF, (height/2 -(height/3+150)/2-10)+ (3*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)), 200, 40);
         text(tfGm2.tipo + ":", xT-40, (height/2 -(height/3+150)/2-10)+ (3*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields))+30);
         //Posició
-        tfGDistancias.display(xF, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10), 70, 40);
+        tfGDistancias.display(xF, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10), 200, 40);
         text(tfGDistancias.tipo + ":", xT-30, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10 + 30));
       }else if(ejercicio==2){
         nFields = 3;
@@ -666,8 +708,8 @@ void DisplayAddInformation(TEMA tema, int ejercicio){
         tfGv1.display(xF, (height/2 -(height/3+150)/2-10)+ (3*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)), 200, 40);
         text(tfGv1.tipo + ":", xT-65, (height/2 -(height/3+150)/2-10)+ (3*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields))+30);
        
-        tfGDistancias.display(xF, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10), 200, 40);
-        text(tfGDistancias.tipo + ":", xT-65, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10 + 30));
+        tfGr2.display(xF, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10), 200, 40);
+        text(tfGr2.tipo + ":", xT-65, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10 + 30));
       
       }
     }else if(tema == TEMA.ELECTRIC){

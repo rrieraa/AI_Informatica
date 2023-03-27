@@ -12,9 +12,9 @@ void createMobilsC1() {
   tfCaddVel.resetText();
 }
 
-void createMobilC2(){
+void createMobilC2() {
   if (objetos == 0) {
-    m0.setValues2(tfCaddName.text, Float.parseFloat(tfCaddVel.text),Float.parseFloat(tfCaddHigh.text), Float.parseFloat(tfCaddAngle.text), paleta[1]);
+    m0.setValues2(tfCaddName.text, Float.parseFloat(tfCaddVel.text), Float.parseFloat(tfCaddHigh.text), Float.parseFloat(tfCaddAngle.text), paleta[1]);
   }
   tfCaddName.resetText();
   tfCaddHigh.resetText();
@@ -22,16 +22,16 @@ void createMobilC2(){
   tfCaddVel.resetText();
 }
 
-void createCajasD1(){
-  if(objetos == 0){
+void createCajasD1() {
+  if (objetos == 0) {
     c0.setValues1(Float.parseFloat(tfDaddMasa.text), Float.parseFloat(tfCaddAngle.text));
   }
   tfDaddMasa.resetText();
   tfCaddAngle.resetText();
 }
 
-void createCajaD2(){
-  if(objetos == 0){
+void createCajaD2() {
+  if (objetos == 0) {
     c0.setValues2(Float.parseFloat(tfDaddMasa.text), Float.parseFloat(tfDaddF.text), Float.parseFloat(tfDaddNu.text));
   }
   tfDaddMasa.resetText();
@@ -39,8 +39,8 @@ void createCajaD2(){
   tfDaddNu.resetText();
 }
 
-void createLuzO1(){
-  if(objetos == 0){
+void createLuzO1() {
+  if (objetos == 0) {
     l.setValues1(Float.parseFloat(tfOXobs.text), Float.parseFloat(tfOXabeja.text), Float.parseFloat(tfOYabeja.text));
   }
   tfOXobs.resetText();
@@ -48,11 +48,38 @@ void createLuzO1(){
   tfOYabeja.resetText();
 }
 
-void createLuzO2(){
-  if(objetos == 0){
+void createLuzO2() {
+  if (objetos == 0) {
     l.setValues2(Float.parseFloat(tfOAngulo.text), Float.parseFloat(tfOn1.text), Float.parseFloat(tfOn2.text));
   }
   tfOAngulo.resetText();
   tfOn1.resetText();
   tfOn2.resetText();
+}
+
+void createCampoGravitatorioG1() {
+  if (objetos == 0) {
+    CG.setValues1(Float.parseFloat(tfGm1.text), Float.parseFloat(tfGm1.text), Float.parseFloat(tfGDistancias.text));
+  }
+  tfGm1.resetText();
+  tfGm2.resetText();
+  tfGDistancias.resetText();
+}
+
+void createCampoGravitatorioG2() {
+  if (objetos == 0) {
+    CG.setValues2(Float.parseFloat(tfGr1.text), Float.parseFloat(tfGr2.text), Float.parseFloat(tfGv1.text));
+  }
+  tfGr1.resetText();
+  tfGv1.resetText();
+  tfGr2.resetText();
+}
+
+void createCampoElectrico1(){
+  if(objetos == 0){
+    P.setValores1(Float.parseFloat(tfEc1.text), Float.parseFloat(tfEc2.text), Float.parseFloat(tfGDistancias.text));
+  }
+  tfEc1.resetText();
+  tfEc2.resetText();
+  tfGDistancias.resetText();
 }

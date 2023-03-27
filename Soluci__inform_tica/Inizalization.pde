@@ -337,7 +337,9 @@ void setDesktop(){
       TextField tfGDistancias = new TextField("Distancia");
       
       TextField tfGr1 = new TextField("Radio Perihelio");
+      TextField tfGr2 = new TextField("Radio Afelio");
       TextField tfGv1 = new TextField("Vel. Perihelio");
+      
       
       TextField tfEc1 = new TextField("Carga 1");
       TextField tfEc2 = new TextField("Carga 2");
@@ -358,6 +360,12 @@ void setDesktop(){
     
   //Luz
   Luz l = new Luz();
+  
+  //CampoGravitatorio
+  CampoGravitatorio CG = new CampoGravitatorio();
+  
+  //Particulas
+  Particula P = new Particula();
   
   //Vectores
     Vector C1vectors;
