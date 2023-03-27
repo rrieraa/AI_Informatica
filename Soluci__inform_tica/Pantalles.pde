@@ -574,7 +574,7 @@ void drawExerciceText(TEMA tema, int exercici){
         text("¿Cual és la fuerza entre dos particulas cargadas ("+P.c1+"mC y "+P.c2+"mC) que se encuentran a "+P.distancia+"m de distancia?", x, y+26, w-30, h-10);
       }
     }else if(exercici == 2){
-      text("¿Qué debe valer el potencial eléctrico para mantener en equilibrio a una partícula cargada de C?", x, y+26, w-30, h-10);
+      text("¿Cuál debe ser la separación entre dos placas infinits con diferencia de potencial v V para mantener unelectrón en equilibrio?", x, y+26, w-30, h-10);
     }
   }else if(tema == TEMA.MEGNETIC){
     if(exercici == 1){
@@ -726,8 +726,8 @@ void DisplayAddInformation(TEMA tema, int ejercicio){
   
       }else if(ejercicio==2){
         nFields = 1;
-        tfECarga.display(xF, height/2-30, 200, 40);
-        text(tfECarga.tipo+ ":", xT, height/2);
+        tfEV.display(xF+95, height/2-30, 200, 40);
+        text(tfEV.tipo+ ":", xT-95, height/2);
       }
     }else if(tema == TEMA.MEGNETIC){
       if(ejercicio==1){

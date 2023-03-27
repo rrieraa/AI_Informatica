@@ -344,7 +344,7 @@ void setDesktop(){
       TextField tfEc1 = new TextField("Carga 1");
       TextField tfEc2 = new TextField("Carga 2");
       
-      TextField tfECarga = new TextField("Carga");
+      TextField tfEV = new TextField("Diferencia de potencial");
       
       TextField tfMI1 = new TextField("Intensidad 1");
       TextField tfMI2 = new TextField("Intensidad 2");

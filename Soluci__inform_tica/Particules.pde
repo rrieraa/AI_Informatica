@@ -2,6 +2,7 @@ class Particula{
   //Atributos Especificos
   float c1, c2;
   float distancia;
+  float V;
   
   Particula(){}
   
@@ -11,8 +12,8 @@ class Particula{
     this.distancia = dist;
   }
   
-  void setValores2(float c ){
-    this.c1 = c;
+  void setValores2(float V ){
+    this.V = V;
   }
   
   void display(){

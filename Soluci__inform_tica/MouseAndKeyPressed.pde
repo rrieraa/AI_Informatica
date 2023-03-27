@@ -212,7 +212,7 @@ void InteraccionEjercicio(TEMA tema, int ejercicio){
         tfEc2.isPressed();
         tfGDistancias.isPressed();
       }else if(ejercicio==2){
-        
+        tfEV.isPressed();
       }
     }else if(tema == TEMA.MEGNETIC){
       if(ejercicio==1){
@@ -273,6 +273,8 @@ void keyPressed() {
       tfEc1.keyPressed(key, (int)keyCode);
       tfEc2.keyPressed(key, (int)keyCode);
       tfGDistancias.keyPressed(key, (int)keyCode);
+    }else if(exercici == 2){
+      tfEV.keyPressed(key, (int)keyCode);
     }
   }
    
