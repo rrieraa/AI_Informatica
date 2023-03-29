@@ -271,13 +271,10 @@ void visualitzacioElectric2(float x, float y, float w, float h){
     translate(x, y);
     line(-w/3, h/5, w/3, h/5);
     line(-w/3, -h/5, w/3, -h/5);
-    //Damos valores para la fletxa
-    float xF = -w/3+20; float y1F = h/5-20; float y2F = -h/5+20;
     
-    Fletxa f = new Fletxa(xF, y1F, xF, y2F);
-    for(float x0 = xF; x0<w/3+40; x0+=50.9){     
-      f.display(paleta[4]);
-      f.changePoints(x0, y1F, x0, y2F); 
+    checkLimit();
+    if(objetos == objetoLimite){
+      P.display();
     }
     
   popStyle();
@@ -293,12 +290,11 @@ void visualitzacioMagnetic1(float x, float y, float w, float h){
     translate(x, y);
     line(w/5, h/2, w/5, -h/2);
     line(-w/5, h/2, -w/5, -h/2);
-    //Fletxas orientadas según la corriente
-    Fletxa f = new Fletxa(w/5, 100, w/5, -100);
-    f.display(paleta[4]);
-    f.changePoints(-w/5, 100, -w/5, -100);
-    f.display(paleta[4]);
     
+    checkLimit();
+    if(objetos==objetoLimite){
+      CM.display();
+    }
   popStyle();
   popMatrix(); 
 }    
@@ -317,11 +313,10 @@ void visualitzacioMagnetic2(float x, float y, float w, float h){
     arc(0, 0, 400, 400, -6*PI/7, 6*PI/7);
     line(-w/2+100, 200*sin(-6*PI/7), 200*cos(-6*PI/7), 200*sin(-6*PI/7));
     line(-w/2+100, -200*sin(-6*PI/7), 200*cos(-6*PI/7), -200*sin(-6*PI/7));
-    //Sentido
-    Fletxa f = new Fletxa(-w/2+110, 200*sin(-6*PI/7),-w/2+260, 200*sin(-6*PI/7));
-    f.display(paleta[4]);
-    f.changePoints(-w/2+260, -200*sin(-6*PI/7), -w/2+110, -200*sin(-6*PI/7));
-    f.display(paleta[4]);
+    checkLimit();
+    if(objetos==objetoLimite){
+      CM.display();
+    }
   popStyle();
   popMatrix(); 
 }   

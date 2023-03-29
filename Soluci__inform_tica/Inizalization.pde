@@ -361,11 +361,14 @@ void setDesktop(){
   //Luz
   Luz l = new Luz();
   
-  //CampoGravitatorio
+  //Campo Gravitatorio
   CampoGravitatorio CG = new CampoGravitatorio();
   
-  //Particulas
+  //Campo Electrico
   Particula P = new Particula();
+  
+  //Campo Magnetico
+  CampoMagnetico CM = new CampoMagnetico();
   
   //Vectores
     Vector C1vectors;

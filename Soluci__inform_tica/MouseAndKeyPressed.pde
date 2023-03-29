@@ -32,6 +32,10 @@ void checkAtras(){
            resetOptica();
          }else if(tema == TEMA.GRAVITATORI){
            resetCampoGravitatorio();
+         }else if(tema == TEMA.ELECTRIC){
+           resetCampoElectrico();
+         }else if(tema == TEMA.MEGNETIC){
+           resetCampoMagnetico();
          }
        }
        Pantalla = PantallaPrevia;
@@ -118,8 +122,18 @@ void checkBotonsExercici(){
           if(exercici == 1){
             createCampoElectrico1();
             objetos++;
+          }else if(exercici == 2){
+            createCampoElectrico2();
+            objetos++;
           }
-          
+        }else if(tema == TEMA.MEGNETIC){
+          if(exercici == 1){
+            createCampoMagnetico1();
+            objetos++;
+          }else if(exercici == 2){
+            createCampoMagnetico2();
+            objetos++;
+          }
         }
       }
     //Exportar
@@ -216,9 +230,12 @@ void InteraccionEjercicio(TEMA tema, int ejercicio){
       }
     }else if(tema == TEMA.MEGNETIC){
       if(ejercicio==1){
-        
+        tfMI1.isPressed();
+        tfGDistancias.isPressed();
+        tfMI2.isPressed();
       }else if(ejercicio==2){
-        
+        ftMIntensidad.isPressed();
+        tfMRadio.isPressed();
       }
     }
   popStyle();
@@ -276,6 +293,16 @@ void keyPressed() {
     }else if(exercici == 2){
       tfEV.keyPressed(key, (int)keyCode);
     }
+  }else if(tema == TEMA.MEGNETIC){
+    if(exercici == 1){
+      tfMI1.keyPressed(key, (int)keyCode);
+      tfGDistancias.keyPressed(key, (int)keyCode);
+      tfMI2.keyPressed(key, (int)keyCode);
+    }else if(exercici == 2){
+      ftMIntensidad.keyPressed(key, (int)keyCode);
+      tfMRadio.keyPressed(key, (int)keyCode);
+    }
+      
   }
    
 }

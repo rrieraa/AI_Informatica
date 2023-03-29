@@ -59,3 +59,21 @@ float calcularEjercicioE1(){
   F = a/b;
   return F;
 }
+
+float calcularEjercicioE2(){
+  float a = 1.6* (float)Math.pow(10,-19) * P.V;
+  float b = 9.81* 9.31 * (float)Math.pow(10, -31);
+  return a/b;
+}
+
+float calcularEjercicioM1(){
+  float a =  4*PI* (float)Math.pow(10,-7) * CM.I1 * CM.I2;
+  float b = 2*PI*CM.distancia;
+  return a/b;
+}
+
+float calcularEjercicioM2(){
+  float a =  4*PI* (float)Math.pow(10,-7) * CM.I1;
+  float b = 2*CM.distancia;
+  return a/b;
+}

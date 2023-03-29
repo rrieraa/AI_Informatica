@@ -403,6 +403,12 @@ void checkLimit(){
     }else if(exercici == 2){
       objetoLimite = 1;
     }
+  }else if(tema == TEMA.MEGNETIC){
+    if(exercici == 1){
+      objetoLimite = 1;
+    }else if(exercici == 2){
+      objetoLimite = 1;
+    }
   }
 }
 
@@ -456,7 +462,7 @@ void drawExerciceResolucion(TEMA tema, int exercici){
       text("Distancia y Obs-Abeja: "+l.yAbeja+"m", x, y+120, w-30, h);
       Resp = calcularEjercicioO1();
       text("La imagen se formará a "+Resp+"m del observador", x, y+h/2+40, w-30, h);
-    }else if(exercici == 2){
+    }else if(exercici == 2 && objetos >0){
       text("Ángulo de incidencia: "+l.angulo+"º", x, y+40, w-30, h);
       text("n1: "+l.n1, x, y+80, w-30, h);
       text("n2: "+l.n2, x, y+120, w-30, h);
@@ -464,13 +470,13 @@ void drawExerciceResolucion(TEMA tema, int exercici){
       text("La separación de los rayos será por "+Resp+"º", x, y+h/2+40, w-30, h);
     }
   }else if(tema == TEMA.GRAVITATORI){
-    if(exercici == 1){
+    if(exercici == 1 && objetos >0){
       text("Masa Planeta: "+CG.m1+"Kg", x, y+40, w-30, h);
       text("Masa Sol: "+CG.m2+"Kg", x, y+80, w-30, h);
       text("Distancia: "+CG.distancia+"m", x, y+120, w-30, h);
       Resp = calcularEjercicioG1();
       text("La fuerza de atracción entre los cuerpos astonómicos es "+Resp+"N", x, y+h/2+40, w-30, h);
-    }else if(exercici == 2){
+    }else if(exercici == 2 && objetos >0){
       text("Distancia del perihelio: "+CG.rp+"Km", x, y+40, w-30, h);
       text("Distancia del afelio: "+CG.vp+"Km", x, y+80, w-30, h);
       text("velocidad Perihelio: "+CG.rp+"m/s", x, y+120, w-30, h);
@@ -478,7 +484,7 @@ void drawExerciceResolucion(TEMA tema, int exercici){
       text("En el afelio tiene una velocidad de "+Resp+"m/s", x, y+h/2+40, w-30, h);
     }
   }else if(tema == TEMA.ELECTRIC){
-    if(exercici == 1){
+    if(exercici == 1 && objetos >0){
       text("Carga primera partícula: "+P.c1+"mC", x, y+40, w-30, h);
       text("Carga segunda partícula: "+P.c2+"mC", x, y+80, w-30, h);
       text("Distancia entre partículas: "+P.distancia+"m", x, y+120, w-30, h);
@@ -489,14 +495,36 @@ void drawExerciceResolucion(TEMA tema, int exercici){
         text("La fuerza entre las partículas es de "+Resp+"F atractiva", x, y+h/2+40, w-30, h);
       }
       
-    }else if(exercici == 2){
-      text("¿Qué debe valer el potencial eléctrico para mantener en equilibrio a una partícula cargada de C?", x, y+26, w-30, h-10);
+    }else if(exercici == 2 && objetos > 0){
+      text("Diferencia de potencial: "+P.V+"mC", x, y+40, w-30, h);
+      if(P.V > 0){
+        Resp =  calcularEjercicioE2();
+        text("Tendrá que tener una carga de "+Resp+"C para mantenerse en equilibrio", x, y+h/2+40, w-30, h);
+      }else{
+        text("No se podrá aguantar", x, y+h/2+40, w-30, h);
+      }
     }
   }else if(tema == TEMA.MEGNETIC){
-    if(exercici == 1){
-      text("Si se consideran dos hilos conductores con intensidades I1 y I2 que distan de Dist  ¿Qué valdrá la fuerza producida entre ellos?", x, y+26, w-30, h-10);
+    if(exercici == 1 && objetos >0){
+      text("Intensidad del primer hilo: "+CM.I1+"A", x, y+40, w-30, h);
+      text("Intensidad del segundo hilo: "+CM.I2+"A", x, y+80, w-30, h);
+      text("Distancia entre hilos: "+CM.distancia+"m", x, y+120, w-30, h);
+      Resp =  calcularEjercicioM1();
+      if(CM.I1< 0 && CM.I2< 0 || CM.I1> 0 && CM.I2> 0){
+        text("La fuerza entre los hilos es de "+Resp+"F atractiva", x, y+h/2+40, w-30, h);
+      }else{
+        text("La fuerza entre los hilos es de "+Resp+"F repulsiva", x, y+h/2+40, w-30, h);
+      }
+      
     }else if(exercici == 2){
-      text("¿Cual es el valor del campo magnético en una espira de radio R que conduce una intensidad de I?", x, y+26, w-30, h-10);
+      text("Intensidad del la espira: "+CM.I1+"A", x, y+40, w-30, h);
+      text("Radio de la espira: "+CM.distancia+"A", x, y+80, w-30, h);
+      Resp =  calcularEjercicioM2();
+      if(CM.I1>0){
+        text("El campo magnetico generado es de "+Resp+"T hacia dentro de la pantalla", x, y+h/2+40, w-30, h);
+      }else{
+        text("El campo magnetico generado es de "+Resp+"T hacia fuera de la pantalla", x, y+h/2+40, w-30, h);
+      }
     }
   }
 }
@@ -574,13 +602,26 @@ void drawExerciceText(TEMA tema, int exercici){
         text("¿Cual és la fuerza entre dos particulas cargadas ("+P.c1+"mC y "+P.c2+"mC) que se encuentran a "+P.distancia+"m de distancia?", x, y+26, w-30, h-10);
       }
     }else if(exercici == 2){
-      text("¿Cuál debe ser la separación entre dos placas infinits con diferencia de potencial v V para mantener unelectrón en equilibrio?", x, y+26, w-30, h-10);
+      if(objetos == 0){
+        text("¿Cuál debe ser la separación entre dos placas infinits con diferencia de potencial v V para mantener unelectrón en equilibrio?", x, y+26, w-30, h-10);
+      }else{
+        text("¿Cuál debe ser la separación entre dos placas infinitas con diferencia de potencial "+P.V+" V para mantener unelectrón en equilibrio?", x, y+26, w-30, h-10);
+      }
     }
   }else if(tema == TEMA.MEGNETIC){
     if(exercici == 1){
-      text("Si se consideran dos hilos conductores con intensidades I1 y I2 que distan de Dist  ¿Qué valdrá la fuerza producida entre ellos?", x, y+26, w-30, h-10);
+      if(objetos == 0){
+        text("Si se consideran dos hilos conductores con intensidades I1 A y I2 A que distan de Dist m ¿Qué valdrá la fuerza producida entre ellos?", x, y+26, w-30, h-10);  
+      }else{
+        text("Si se consideran dos hilos conductores con intensidades "+CM.I1+"A y "+CM.I2+"A que distan de "+CM.distancia+"m  ¿Qué valdrá la fuerza producida entre ellos?", x, y+26, w-30, h-10);
+      }
+      
     }else if(exercici == 2){
-      text("¿Cual es el valor del campo magnético en una espira de radio R que conduce una intensidad de I?", x, y+26, w-30, h-10);
+      if(objetos == 0){
+        text("¿Cual es el valor del campo magnético en una espira de radio R m que conduce una intensidad de I A?", x, y+26, w-30, h-10);
+      }else{
+        text("¿Cual es el valor del campo magnético en una espira de radio "+CM.distancia+" m que conduce una intensidad de "+CM.I1+" A?", x, y+26, w-30, h-10);
+      }
     }
   }
 }

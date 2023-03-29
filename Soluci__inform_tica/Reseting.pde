@@ -20,6 +20,11 @@ void resetCampoGravitatorio(){
 }
 
 void resetCampoElectrico(){
-  objetos = 1;
+  objetos = 0;
   P.reset();
+}
+
+void resetCampoMagnetico(){
+  objetos = 0;
+  CM.reset();
 }

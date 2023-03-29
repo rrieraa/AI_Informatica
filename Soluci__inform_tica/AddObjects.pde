@@ -83,3 +83,27 @@ void createCampoElectrico1(){
   tfEc2.resetText();
   tfGDistancias.resetText();
 }
+
+void createCampoElectrico2(){
+  if(objetos == 0){
+    P.setValores2(Float.parseFloat(tfEV.text));
+    tfEV.resetText();
+  }
+}
+
+void createCampoMagnetico1(){
+  if(objetos == 0){
+    CM.setValues1(Float.parseFloat(tfMI1.text), Float.parseFloat(tfMI2.text), Float.parseFloat(tfGDistancias.text));
+  }
+  tfMI1.resetText();
+  tfGDistancias.resetText();
+  tfMI2.resetText();
+}
+
+void createCampoMagnetico2(){
+  if(objetos == 0){
+    CM.setValues2(Float.parseFloat(ftMIntensidad.text), Float.parseFloat(tfMRadio.text));
+  }
+  ftMIntensidad.resetText();
+  tfMRadio.resetText();
+}
