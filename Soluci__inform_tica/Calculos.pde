@@ -43,7 +43,7 @@ float calcularEjercicioO2(){
 
 float calcularEjercicioG1(){
   float a = (float)(6.67*Math.pow(10, -11))*CG.m1 * CG.m2;
-  float b = (float)(Math.pow(CG.distancia, 2));
+  float b = (float)(Math.pow(CG.distancia * 1000, 2));
   return a/b;
 }
 
@@ -54,8 +54,8 @@ float calcularEjercicioG2(){
 
 float calcularEjercicioE1(){
   float F;
-  float a = (float)(9*Math.pow(10, 9) * P.c1 * P.c2);
-  float b = (float) (Math.pow(P.distancia, 2));
+  float a = (float)(9*Math.pow(10, 9) * P.c1/1000000000 * P.c2/1000000000);
+  float b = (float) (Math.pow(P.distancia/1000, 2));
   F = a/b;
   return F;
 }
@@ -68,12 +68,12 @@ float calcularEjercicioE2(){
 
 float calcularEjercicioM1(){
   float a =  4*PI* (float)Math.pow(10,-7) * CM.I1 * CM.I2;
-  float b = 2*PI*CM.distancia;
+  float b = 2*PI*CM.distancia*1000;
   return a/b;
 }
 
 float calcularEjercicioM2(){
   float a =  4*PI* (float)Math.pow(10,-7) * CM.I1;
-  float b = 2*CM.distancia;
+  float b = 2*CM.distancia*100000;
   return a/b;
 }

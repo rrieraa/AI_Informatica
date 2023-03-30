@@ -40,6 +40,12 @@ class Caja extends Objeto{
       monigote.resize(130, 200);
       imageMode(CENTER);
       image(monigote, -67, 98); 
+      fill(0);textSize(20);
+      text("F", 20, 60);
+      f.changePoints(0, 90,40,90); f.display(0);
+      
+      text("Ff", -30, 160);
+      f.changePoints(0, 190,-40,190); f.display(0);
     }
 
   }

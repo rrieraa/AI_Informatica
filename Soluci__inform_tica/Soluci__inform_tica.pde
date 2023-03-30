@@ -5,7 +5,7 @@ void setup(){
   fullScreen();
   textAlign(CENTER);
   setColors(); setFonts();
-  setCards(); setButtons();setSeleccionador();setTaules(); setDesktop();
+  setCards(); setButtons();setSeleccionador();setTaules(); setDesktop(); setTFnumbers();
   setMedias();
   createGraphicsPDF();
 }

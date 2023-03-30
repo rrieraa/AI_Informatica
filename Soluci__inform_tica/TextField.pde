@@ -19,6 +19,7 @@ class TextField {
   int textSize = 20;
 
   boolean selected = false;
+  boolean numerical = false;
    
   // Constructor
   TextField(String tipo) {
@@ -62,9 +63,17 @@ class TextField {
            boolean isKeyCapitalLetter = (key >= 'A' && key <= 'Z');
            boolean isKeySmallLetter = (key >= 'a' && key <= 'z');
            boolean isKeyNumber = (key >= '0' && key <= '9');
+           
+           if(numerical){
+             if (isKeyNumber || (keyCode == 46 || keyCode == 44) || keyCode == 45) {
+               addText(key);
+             }
+           }
+           else{
       
            if (isKeyCapitalLetter || isKeySmallLetter || isKeyNumber) {
                addText(key);
+           }
            }
          }
       }

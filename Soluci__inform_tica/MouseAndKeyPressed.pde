@@ -83,6 +83,7 @@ void checkBotonsExercici(){
       if(bADD.mouseOverButton()){
         currentState = ESTADO.ANADIR;
         bADDLeave.enabled = true;
+        bADDRanValues.enabled = true;
       }else if(bADDLeave.mouseOverButton() && bADDLeave.enabled == true && canAdd){
         currentState = ESTADO.EJERCICIO;
         bADDLeave.enabled = false;
@@ -135,6 +136,59 @@ void checkBotonsExercici(){
             objetos++;
           }
         }
+      }else if(bADDRanValues.mouseOverButton() && bADDRanValues.enabled == true && canAdd){
+        currentState = ESTADO.EJERCICIO;
+        bADDRanValues.enabled = false;
+        if(tema == TEMA.CINEMATICA){
+          if(exercici == 1){
+            createRanMobilsC1();
+            objetos++;
+          }else if(exercici == 2){
+            createRanMobilC2();
+            objetos++;
+          }
+        }else if(tema == TEMA.DINAMICA){
+          if(exercici == 1){
+            createRanCajasD1();
+            objetos ++;
+          }else if(exercici == 2){
+            createRanCajaD2();
+            objetos ++;
+          }
+        }else if(tema == TEMA.OPTICA){
+          if(exercici == 1){
+            createRanLuzO1();
+            objetos ++;
+          }else if(exercici == 2){
+            createRanLuzO2();
+            objetos ++;
+          }
+        }else if(tema == TEMA.GRAVITATORI){
+          if(exercici == 1){
+            createRanCampoGravitatorioG1();
+            objetos++;
+          }else if(exercici == 2){
+            createRanCampoGravitatorioG2();
+            objetos++;
+          }
+        }else if(tema == TEMA.ELECTRIC){
+          if(exercici == 1){
+            createRanCampoElectrico1();
+            print("holis");
+            objetos++;
+          }else if(exercici == 2){
+            createRanCampoElectrico2();
+            objetos++;
+          }
+        }else if(tema == TEMA.MEGNETIC){
+          if(exercici == 1){
+            createRanCampoMagnetico1();
+            objetos++;
+          }else if(exercici == 2){
+            createRanCampoMagnetico2();
+            objetos++;
+          }
+        }
       }
     //Exportar
       //Enunciado
@@ -153,6 +207,10 @@ void checkBotonsExercici(){
     //Explicación
       else if(bEXPLICACION.mouseOverButton()&& !s1.getSelected().equals("Enunciado")){
         Pantalla = PANTALLA.EXPLICACION;
+      }else if(bEXPLICACION.mouseOverButton()&& !s1.getSelected().equals("Respuestas")){
+        if(tema == TEMA.CINEMATICA){
+          resetCinematica();
+        }
       }
     //Formulari
       else if(bFORMULARIO.mouseOverButton()){

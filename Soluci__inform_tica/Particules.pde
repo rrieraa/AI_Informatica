@@ -26,7 +26,7 @@ class Particula{
       }else{
         c = paleta[3];
       }
-      fill(c);
+      fill(c); noStroke();
       circle(-200, 0, 150);
       
       //Segunda partícula
@@ -35,11 +35,18 @@ class Particula{
       }else{
         c = paleta[3];
       }
-      fill(c);
+      fill(c);noStroke();
       circle(200, 0, 150);
       
       f.changePoints(-200,0,-100,0);f.display(0);
       f.changePoints(200,0,100,0);f.display(0);
+      fill(0);textSize(20);
+      text("F", 150, -30);
+      text("F", -150, -30);
+      
+      text(distancia, 0, 60);
+      f.changePoints(-200,80,200,80);f.display(0);
+      f.changePoints(200,80,-200,80);f.display(0);
     }else if(exercici == 2){
       //Damos valores para la fletxa
       float xF = -wVisualitzacio/3+20; float y1F = hVisualitzacio/5-20; float y2F = -hVisualitzacio/5+20;
@@ -51,8 +58,13 @@ class Particula{
       }
       
       c = paleta[3];
-      fill(c);
+      fill(c);noStroke();
       circle(0, 0, 75);
+      textSize(20); fill(0);
+      text("Fe", 10, -40);
+      f.changePoints(0,0,0,-60);f.display(0);
+      text("P",  10,  40);
+      f.changePoints(0,0,0, 60);f.display(0);
     }
   }
   

@@ -351,6 +351,50 @@ void setDesktop(){
       
       TextField ftMIntensidad = new TextField("Intensidad");
       TextField tfMRadio = new TextField ("Radio");
+      
+      
+      //Set numerics
+      void setTFnumbers(){
+        tfCaddPos1.numerical = true;
+        tfCaddPos2.numerical = true;
+        
+        tfCaddVel.numerical = true;
+              
+        tfCaddAngle.numerical = true;
+        tfCaddHigh.numerical = true;
+              
+        tfDaddF.numerical = true;
+        tfDaddMasa.numerical = true;
+        tfDaddNu.numerical = true;
+              
+        tfOXobs.numerical = true;
+        tfOXabeja.numerical = true;
+        tfOYabeja.numerical = true;
+              
+        tfOAngulo.numerical = true;
+        tfOn1.numerical = true;
+        tfOn2.numerical = true;
+              
+        tfGm1.numerical = true;
+        tfGm2.numerical = true;
+        tfGDistancias.numerical = true;
+              
+        tfGr1.numerical = true;
+        tfGr2.numerical = true;
+        tfGv1.numerical = true;
+              
+              
+        tfEc1.numerical = true;
+        tfEc2.numerical = true;
+              
+        tfEV.numerical = true;
+              
+        tfMI1.numerical = true;
+        tfMI2.numerical = true;
+              
+        ftMIntensidad.numerical = true;
+        tfMRadio.numerical = true;
+      }
 //Objetos
   //Mobiles
     Mobil m0 = new Mobil();

@@ -177,6 +177,7 @@ void visualitzacioOptica1(float x, float y, float w, float h){
     image(vidrio, w/3, 0);
     //Ojo
     ojo.resize(200, 200);
+    image(ojo, -w/3+20, h/4+50);
     //Display
     checkLimit();
     if(objetos == objetoLimite){
