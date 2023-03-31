@@ -140,48 +140,48 @@ void setDesktop(){
       //informació Taules:
         String[] header = {"Variable", "Definición", "Unidad en SI"};
       
-        String[][] infoCt = {{"", "", ""},
+        String[][] infoCt = {{"t", "Diferencia entre el momento en que ocurren dos eventos ", "s"},
+                             {"x", "Componente horizontal de un sistema de coordenadas", "m"},
+                             {"y", "Componente vertical de un sistema de coordenadas", "m"},
+                             {"V", "Variación del espacio en un tiempo determinado", "m/s"},
+                             {"Vx", "Componente 'x' de la velocidad", "m/s"},
+                             {"Vy", "Componente 'y' de la velocidad", "m/s"},
                              {"", "", ""},
-                             {"", "", ""},
+                             {"", "", ""}};
+        String[][] infoDt = {{"F", "Intensidad de cambio de movimiento", "N"},
+                             {"M", "Porpiedad que describe la cantidad de materia de un objeto", "Kg"},
+                             {"nu", "coeficiente de proporcionalidad entre fuerza y fricción", "No tiene"},
                              {"", "", ""},
                              {"", "", ""},
                              {"", "", ""},
                              {"", "", ""},
                              {"", "", ""}};
-        String[][] infoDt = {{"", "", ""},
+        String[][] infoOt = {{"A", "Ángulo entre el rayo y la normal", "º"},
+                             {"x", "Posición horizontal de un objeto", "m"},
+                             {"y", "Posición vertical de un objeto", "m"},
+                             {"n", "Rleación de la reducción de la velocidad de una onda", "No tiene"},
                              {"", "", ""},
                              {"", "", ""},
+                             {"", "", ""},
+                             {"", "", ""}};
+        String[][] infoGt = {{"Dist/Radio", "Diferencia en la posición de dos cuerpos", "m"},
+                             {"M", "Porpiedad que describe la cantidad de materia de un objeto", ""},
+                             {"V", "Variación del espacio en un tiempo determinad", "m/s"},
                              {"", "", ""},
                              {"", "", ""},
                              {"", "", ""},
                              {"", "", ""},
                              {"", "", ""}};
-        String[][] infoOt = {{"", "", ""},
-                             {"", "", ""},
-                             {"", "", ""},
-                             {"", "", ""},
-                             {"", "", ""},
-                             {"", "", ""},
-                             {"", "", ""},
-                             {"", "", ""}};
-        String[][] infoGt = {{"", "", ""},
-                             {"", "", ""},
-                             {"", "", ""},
+        String[][] infoEt = {{"C", "El nivel de electricidad de una particula o cuerpo", "C"},
+                             {"Dist", "Diferencia en la posición de dos cuerpos", "m"},
+                             {"V", "diferencia de potencial electrico entre dos puntos", "V"},
                              {"", "", ""},
                              {"", "", ""},
                              {"", "", ""},
                              {"", "", ""},
                              {"", "", ""}};
-        String[][] infoEt = {{"", "", ""},
-                             {"", "", ""},
-                             {"", "", ""},
-                             {"", "", ""},
-                             {"", "", ""},
-                             {"", "", ""},
-                             {"", "", ""},
-                             {"", "", ""}};
-        String[][] infoMt = {{"", "", ""},
-                             {"", "", ""},
+        String[][] infoMt = {{"I", "Intensidad electrica de un cuerpo", "A"},
+                             {"Dist/Radio", "Diferencia en la posición de dos cuerpos", "m"},
                              {"", "", ""},
                              {"", "", ""},
                              {"", "", ""},
@@ -424,7 +424,7 @@ PGraphics pdfC1;
 void createGraphicsPDF(){
   pushMatrix();
     translate(width/6, 0);
-    pdfC1 = createGraphics(2*width/3, height);
+    pdfC1 = createGraphics(2*width/3, height, PDF, "optput.pdf");
   popMatrix();
   
 }

@@ -1,12 +1,14 @@
-//Libraries
+//Librarias
 import processing.pdf.*;
+import de.bezier.data.sql.*;
+
 
 void setup(){
   fullScreen();
   textAlign(CENTER);
   setColors(); setFonts();
   setCards(); setButtons();setSeleccionador();setTaules(); setDesktop(); setTFnumbers();
-  setMedias();
+  setMedias(); setBBDD();
   createGraphicsPDF();
 }
 

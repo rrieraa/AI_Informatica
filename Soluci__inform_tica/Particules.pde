@@ -38,11 +38,20 @@ class Particula{
       fill(c);noStroke();
       circle(200, 0, 150);
       
-      f.changePoints(-200,0,-100,0);f.display(0);
-      f.changePoints(200,0,100,0);f.display(0);
-      fill(0);textSize(20);
-      text("F", 150, -30);
-      text("F", -150, -30);
+      if((c1 < 0 && c2>0)||(c1>0 && c2<0)   ||    (c1 > 0 && c2<0)||(c1<0 && c2>0)){
+        f.changePoints(-200,0,-100,0);f.display(0);
+        f.changePoints(200,0,100,0);f.display(0);
+        fill(0);textSize(20);
+        text("F", 150, -30);
+        text("F", -150, -30);
+      }else{
+        f.changePoints(-200,0,-300,0);f.display(0);
+        f.changePoints(200,0,300,0);f.display(0);
+        fill(0);textSize(20);
+        text("F", 250, -30);
+        text("F", -250, -30);
+      }
+      
       
       text(distancia, 0, 60);
       f.changePoints(-200,80,200,80);f.display(0);

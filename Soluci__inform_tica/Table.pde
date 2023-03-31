@@ -37,7 +37,7 @@ class Table {
       rect(x, y, w, h);
       
       float rowHeight = h / numRows;
-      fill(200, 100, 100); stroke(0);strokeWeight(3);
+      fill(colors[4]); stroke(0);strokeWeight(3);
       rect(x, y, w, rowHeight);
       
       // Dibuixa files
@@ -64,7 +64,7 @@ class Table {
             text(tableHeaders[c], xCol + 10, y + (r+1)*rowHeight - 30);
           }
           else{
-            text(tableData[r-1][c], xCol + 10, y + (r+1)*rowHeight - 30);
+            text(tableData[r-1][c], xCol + 10, y + (r+1)*rowHeight- 80, 478, 100);
           }
           xCol += w*columnWidths[c]/100.0;
         }

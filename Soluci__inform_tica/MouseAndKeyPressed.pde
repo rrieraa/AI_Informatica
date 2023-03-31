@@ -205,11 +205,21 @@ void checkBotonsExercici(){
         exportarC1();
       }
     //Explicación
-      else if(bEXPLICACION.mouseOverButton()&& !s1.getSelected().equals("Enunciado")){
+      else if(bEXPLICACION.mouseOverButton()&& s1.getSelected().equals("Respuestas")){
         Pantalla = PANTALLA.EXPLICACION;
-      }else if(bEXPLICACION.mouseOverButton()&& !s1.getSelected().equals("Respuestas")){
+      }else if(bRESET.mouseOverButton()&& s1.getSelected().equals("Enunciado")){
         if(tema == TEMA.CINEMATICA){
           resetCinematica();
+        }else if(tema == TEMA.DINAMICA){
+          resetDinamica();
+        }else if(tema == TEMA.OPTICA){
+          resetOptica();
+        }else if(tema == TEMA.GRAVITATORI){
+          resetCampoGravitatorio();
+        }else if(tema == TEMA.ELECTRIC){
+          resetCampoElectrico();
+        }else if(tema == TEMA.MEGNETIC){
+          resetCampoMagnetico();
         }
       }
     //Formulari
