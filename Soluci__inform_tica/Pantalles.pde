@@ -343,9 +343,92 @@ void pantallaExplicacion(TEMA tema, int ejercicio){
         }
       }else if(tema == TEMA.OPTICA){
         if(ejercicio==1){
-          text("Explicación Optica 1", width/2, height/2);
+          textSize(midaTitol-16); fill(0); textAlign(CENTER);
+          text("Explicación Espejo", width/2, marginV+25);//titol
+          fill(200); noStroke();
+          rect(x+ 30 -10, y+marginV+55-10, w-50, 190 ,10);
+          textSize(midaSubtitol-2);textAlign(TOP, LEFT); fill(0);
+          //Pregunta
+          if(objetos == 0){
+            text("Se toma como punto de referencia el ojo de un observador. También se sabe que hay un vidrio a X1 m del ojo y una abeja stiuada a X2 y Y2 m de distáncia,¿en que posición se produce la imagen de la abeja?", x+ 30, y+marginV+55, w-60, h-10);
+          }else if(objetos == 1){
+            text("Se toma como punto de referencia el ojo de un observador. También se sabe que hay un vidrio a "+l.XObsVi+" m del ojo y una abeja stiuada a "+l.xAbeja+" y "+l.yAbeja+" m de distáncia,¿en que posición se produce la imagen de la abeja?", x+ 30, y+marginV+55, w-60, h-10);
+          }
+          //Explicación
+          textSize(midaSubtitol-8);
+          float Y1 = y+marginV+55+200;
+          text("Cuando se ve un objeto reflejado en un espejo, se ve como una imagen virtual. Además, se puede afirmar que la distancia entre el objto y el vidrio será la mismo que entre la imagen y el vídrio. Además, su posición Y será también identica. Entonces, se puede afirmar lo siguiente:", x+ 30,Y1, w-50, h-10);
+          float Y2 = Y1+125;
+          textSize(midaParagraf);
+          text("Ax = DXvo + DXva     ;     Ay = DYao", w/2 + 150,Y2, w-50, h-10);
+          float Y3 = Y2 + 50;
+          textSize(midaSubtitol-8);
+          text("Donde DXvo se refiere a la distancia horizontal entre el vidrio y el ojo; DXva, a la distancia horizontal entre el vidrio y la abeja y finalmente, DYao, a la vertical entre la abeja y el ojo. \nEntonces, la posición de la abeja se escribe como A(Ax, Ay). Seguidamente, se debe hacer el módulo de este vector.", x+ 30,Y3, w-50, h-10);
+          if(objetos > 0){
+            float Y4 = Y3 + 150;
+            text("Primero, se substituye:", x+ 30,Y4, w-50, h-10);
+            textSize(midaParagraf);
+            text("Ax = "+l.XObsVi+" + "+l.xAbeja+"     ;     Ay = "+l.yAbeja+"", w/2+150,Y4, w-50, h-10);
+            float Y5 = Y4 + 50;
+            textSize(midaSubtitol-8);
+            text("Y luego, se calcula el módulo:", x+ 30,Y5, w-50, h-10);
+            textSize(midaParagraf);
+            float Resp = calcularEjercicioO1();
+            text("|A| = sqrt[("+l.XObsVi+" + "+l.xAbeja+")^2 + ("+l.yAbeja+")^2] = "+Resp, w/2+ 150,Y5, w-50, h-10);
+            float Y6 = Y5+50;
+            textSize(midaSubtitol-8);
+            text("Solución: La imagen se formará a "+Resp+"m del observador", x+30, Y6, w-30, h);
+          }
+          
+          
+          textSize(midaSubtitol-8);
         }else if(ejercicio==2){
-          text("Explicación Optica 2", width/2, height/2);
+          textSize(midaTitol-16); fill(0); textAlign(CENTER);
+          text("Explicación Separación de rayos", width/2, marginV+25);//titol
+          fill(200); noStroke();
+          rect(x+ 30 -10, y+marginV+55-10, w-50, 190 ,10);
+          textSize(midaSubtitol-2);textAlign(TOP, LEFT); fill(0);
+          //Pregunta
+          if(objetos == 0){
+            text("Si un rayo de luz que se translada por el aire incide en un vidrio formando un ángulo de Aº con la normal y se separa en dos rayos de coeficientes de refracción n1 y n2, ¿cual será la separación angular de los rayos?", x+ 30, y+marginV+55, w-60, h-10);
+         }else if(objetos == 1){
+            text("Si un rayo de luz que se translada por el aire incide en un vidrio formando un ángulo de "+l.angulo+"º con la normal y se separa en dos rayos de coeficientes de refracción "+l.n1+" y "+l.n2+", ¿cual será la separación angular de los rayos?", x+ 30, y+marginV+55, w-60, h-10);
+         }
+         textSize(midaSubtitol-8);
+         float Y1 = y+marginV+55+200;
+         text("Para calcular la separación, se tienen que calcular cada uno de los ángulos y encontrar la diferencia. \nPara esto, se tiene que aplicar la ley de Snell, que dice:", x+ 30,Y1, w-50, h-10);
+         float Y2 = Y1 + 100;
+         textSize(midaParagraf);
+         text("n sin(a) = n' sin(a')", w/2 + 100,Y2, w-50, h-10);
+         float Y3 = Y2 + 50;
+         textSize(midaSubtitol-8);
+         text("Entonces, se tienen que calcular esto para los dos casos.", x+ 30,Y3, w-50, h-10);
+         float Y4 = Y3 + 50;
+         textSize(midaParagraf);
+         text("1* sin(A) = n1' sin(a1)", w/2 + 100,Y4, w-50, h-10);
+         float Y5 = Y4 + 50;
+         text("a1 = arcsin[(sin(A))/n1]", w/2 + 100,Y5, w-50, h-10);
+         float Y6 = Y5 + 50;
+         text("1* sin(A) = n2' sin(a2)", w/2 + 100,Y6, w-50, h-10);
+         float Y7 = Y6 + 50;
+         text("a2 = arcsin[(sin(A))/n2]", w/2 + 100,Y7, w-50, h-10);
+         textSize(midaSubtitol-8);
+         float Y8 = Y7 + 50;
+         text("La sparación, será la resta entre los dos ángulos", x+ 30,Y8, w-50, h-10);
+         float Y9 = Y8 +50;
+         textSize(midaParagraf);
+         text("S = arcsin[(sin(A))/n1]-arcsin[(sin(A))/n2]", w/2 + 100,Y9, w-50, h-10);
+         if(objetos > 0){
+           textSize(midaSubtitol-8);
+           float Y10 = Y9 + 50;
+           text("Finalmente, substituimos:", x+ 30,Y10, w-50, h-10);
+           textSize(midaParagraf);
+           float Resp = calcularEjercicioO2();
+           text("S = arcsin[(sin("+l.angulo+"))/"+l.n1+"]-arcsin[(sin("+l.angulo+"))/"+l.n2+"] = "+Resp, w/2 + 100,Y10, w-50, h-10);
+           float Y11 = Y10 + 50;
+           textSize(midaSubtitol-8);
+           text("La separación de los rayos será por "+Resp+"º", x, y+h/2+40, w-30, h);
+         }
         }
       }else if(tema == TEMA.GRAVITATORI){
         if(ejercicio==1){
@@ -522,8 +605,8 @@ void pantallaExplicacion(TEMA tema, int ejercicio){
         }
       }else if(tema == TEMA.MEGNETIC){
         if(ejercicio==1){
-           textSize(midaTitol-16); fill(0); textAlign(CENTER);
-          text("Explicación Equilibrio eléctrico", width/2, marginV+25);//titol
+          textSize(midaTitol-16); fill(0); textAlign(CENTER);
+          text("Explicación Fuerza entre hilos", width/2, marginV+25);//titol
           fill(200); noStroke();
           rect(x+ 30 -10, y+marginV+55-10, w-50, 190 ,10);
           textSize(midaSubtitol-2);textAlign(TOP, LEFT); fill(0);
@@ -536,7 +619,7 @@ void pantallaExplicacion(TEMA tema, int ejercicio){
           //Explicación:
           float Y1 = y+marginV+55+200;
           textSize(midaSubtitol-8);
-          text("En esto problema, existen dos casos. Por un lado, si los verctores de la intensidad de los hilos van en el mismo sentido, la fuerza será actractiva, en cambio, si van en sentido contrario, senrá repulsiva. De igual manera, su valor se puede calcular con el módulo siguiendo la siguiente expresión:", x+30, Y1, w-30, h);
+          text("En esto problema, existen dos casos. Por un lado, si los verctores de la intensidad de los hilos van en el mismo sentido, la fuerza será actractiva, en cambio, si van en sentido contrario, será repulsiva. De igual manera, su valor se puede calcular con el módulo siguiendo la siguiente expresión:", x+30, Y1, w-30, h);
           float Y2 = Y1 + 125;
           textSize(midaParagraf);
           text("F = NUo*(I1*I2)/(2*PI*r)", w/2 + 150,Y2, w-50, h-10);
@@ -560,7 +643,41 @@ void pantallaExplicacion(TEMA tema, int ejercicio){
           }
           
         }else if(ejercicio==2){
-          text("Explicación Campo Magnetico 2", width/2, height/2);
+          textSize(midaTitol-16); fill(0); textAlign(CENTER);
+          text("Explicació Espira conductora", width/2, marginV+25);//titol
+          fill(200); noStroke();
+          rect(x+ 30 -10, y+marginV+55-10, w-50, 190 ,10);
+          textSize(midaSubtitol-2);textAlign(TOP, LEFT); fill(0);
+          //Pregunta
+          if(objetos == 0){
+            text("¿Cual es el valor del campo magnético en una espira de radio R mm que conduce una intensidad de I A?", x+ 30, y+marginV+55, w-60, h-10);
+          }else{
+            text("¿Cual es el valor del campo magnético en una espira de radio "+CM.distancia+" mm que conduce una intensidad de "+CM.I1+" A?", x+ 30, y+marginV+55, w-60, h-10);
+          }
+          //Explicación:
+          float Y1 = y+marginV+55+200;
+          textSize(midaSubtitol-8);
+          text("En esto problema, existen dos casos. Por un lado, si la intensidad es positiva(es decir, circula en sentido horario) el vecor del campo magnético irá hacia dentro del plano del papel. En cambio, si es negativa, irá hacia fuera. De igual manera, su valor se puede calcular con el módulo siguiendo la siguiente expresión:", x+30, Y1, w-30, h);
+          float Y2 = Y1 + 125;
+          textSize(midaParagraf);
+          text("B = NUo*(I)/(2*r)", w/2 + 150,Y2, w-50, h-10);
+          textSize(midaSubtitol-8);
+          float Y3 = Y2 + 50;
+          text("En esta ecuación, NUo es la resistivitat magnética del medio que equivale a 4*PI*(10^-7)\nEntonces, lo único que hace falta es substituir.", x+ 30,Y3, w-50, h-10);
+          if(objetos > 0){
+            float Y4 = Y3 + 75;
+            float Resp = calcularEjercicioM2();
+            textSize(midaParagraf);
+            text("F = (4*PI*(10^-7))*("+CM.I1+")/(2*"+CM.distancia+") = "+Resp, w/2,Y4, w-50, h-10);
+            
+            textSize(midaSubtitol-8);
+            float Y5 = Y4 + 50;
+            if(CM.I1>0){
+              text("El campo magnetico generado es de "+Resp+"T hacia dentro de la pantalla", x+30, Y5, w-30, h);
+            }else{
+              text("El campo magnetico generado es de "+Resp+"T hacia fuera de la pantalla", x+30, Y5, w-30, h);
+            } 
+          }
         }
       }
     popStyle();
