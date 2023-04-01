@@ -363,21 +363,202 @@ void pantallaExplicacion(TEMA tema, int ejercicio){
           //Explicación:
           textSize(midaSubtitol-8);
           float Y1 = y+marginV+55+200;
-          text("La fuerza de atracción entre cuerpoes es debido al campo gravitatorio. Existe", x+ 30,Y1, w-50, h-10);
+          text("La fuerza de atracción entre cuerpoes es debido al campo gravitatorio. De hecho, exsite una fórmula para calcular la fuerza de atracción entre dos cuerpos. Esta es la siguiente:", x+ 30,Y1, w-50, h-10);
+          float Y2 = Y1 + 100;
+          textSize(midaParagraf);
+          text("F = G*(M1*M2)/(r^2)", w/2 + 150,Y2, w-50, h-10);
+          textSize(midaSubtitol-8);
+          float Y3 = Y2 + 50;
+          text("En esta ecuación, G es la constante de gravitación que equivale a 6.67*(10^-11)\nEntonces, lo único que hace falta es substituir.", x+ 30,Y3, w-50, h-10);
           
-           
+          if(objetos > 0){
+            float Y4 = Y3 + 75;
+            float Resp = calcularEjercicioG1();
+            textSize(midaParagraf);
+            text("F = (6.67*(10^-11))*("+CG.m1+"*"+CG.m2+")/("+CG.distancia+"^2) = "+Resp, w/2-150,Y4, w-50, h-10);
+            
+            textSize(midaSubtitol-8);
+            float Y5 = Y4 + 50;
+            text("Solución: La fuerza de atracción entre los cuerpos astonómicos es "+Resp+"N", x+ 30,Y5, w-50, h-10);          
+          }
+          
         }else if(ejercicio==2){
-          text("Explicación Campo Gravitatorio 2", width/2, height/2);
+          textSize(midaTitol-16); fill(0); textAlign(CENTER);
+          text("Explicación Velocidad planeta orbital", width/2, marginV+25);//titol
+          fill(200); noStroke();
+          rect(x+ 30 -10, y+marginV+55-10, w-50, 190 ,10);
+          textSize(midaSubtitol-2);textAlign(TOP, LEFT); fill(0);
+          //Pregunta
+          if(objetos == 0){
+            text("Si un cuerpo orbita al rededor de otro y su velocidad en el perihélio (Dist km) es V1 m/s, ¿cual será su velocidad en el afelio (Dist km)?", x+ 30, y+marginV+55, w-60, h-10);
+          }else{
+            text("Si un cuerpo orbita al rededor de otro y su velocidad en el perihélio ("+CG.rp+"km) es "+CG.vp+" m/s, ¿cual será su velocidad en el afelio ("+CG.ra+" km)?", x+ 30, y+marginV+55, w-60, h-10);
+          }
+          //Explicación:
+          textSize(midaSubtitol-8);
+          float Y1 = y+marginV+55+200;
+          text("El campo gravitatorio se caracteriza por ser conservativo, lo que significa que la energía mecánica se conserva. Además, según las leyes de Keppler, en una orbita cerrada elíptica, se conserva el movimiento angular. Para simplificar el caso estudiado, se van a considerar los puntos correspondientes al afelio y el perifelio ya que se conoce su distancia y velocidad.", x+ 30,Y1, w-50, h-10);
+          textSize(midaParagraf);
+          float Y2 = Y1 + 125;
+          text("Lp = La", w/2 + 150,Y2, w-50, h-10);
+          float Y3 = Y2 + 50;
+          text("Rp*Pp = Ra*Pa", w/2 + 150,Y3, w-50, h-10);
+          textSize(midaSubtitol-8);
+          float Y4 = Y3 + 50;
+          text("Donde p es la cantidad de movimiento. Entonces, esta se puede escribir como masa por velocidad donde la masa es igual ya que se trata del mismo cuerpo.", x+ 30,Y4, w-50, h-10);
+          textSize(midaParagraf);
+          float Y5 = Y4 + 75;
+          text("Rp*m*Vp = Ra*m*Va", w/2 + 150,Y5, w-50, h-10);
+          float Y6 = Y5 + 50;
+          text("Rp*Vp = Ra*Va", w/2 + 150,Y6, w-50, h-10);
+          textSize(midaSubtitol-8);
+          float Y7 = Y6 + 50;
+          text("Entonces, aislamos:", x+ 30,Y7, w-50, h-10);
+          textSize(midaParagraf);
+          text("Va = (Rp*Vp)/Ra", w/2 + 150,Y7, w-50, h-10);
+          
+          if(objetos > 0){
+            textSize(midaSubtitol-8);
+            float Y8 = Y7 + 50;
+            text("I finalmente, substituimos:", x+ 30,Y8, w-50, h-10);
+            float Resp = calcularEjercicioG2();
+            textSize(midaParagraf);
+            text("Va = ("+CG.rp+"*"+CG.vp+")/"+CG.ra+" = "+Resp, w/2 + 150,Y8, w-50, h-10);
+            textSize(midaSubtitol-8);
+            float Y9 = Y8 + 50;
+            text("Solución: En el afelio tiene una velocidad de "+Resp+"km/s", x+ 30,Y9, w-50, h-10);
+          } 
         }
+        
+        
       }else if(tema == TEMA.ELECTRIC){
         if(ejercicio==1){
-          text("Explicación Campo Electrico 1", width/2, height/2);
+          textSize(midaTitol-16); fill(0); textAlign(CENTER);
+          text("Explicación Partículas cargadas", width/2, marginV+25);//titol
+          fill(200); noStroke();
+          rect(x+ 30 -10, y+marginV+55-10, w-50, 190 ,10);
+          textSize(midaSubtitol-2);textAlign(TOP, LEFT); fill(0);
+          //Pregunta
+          if(objetos == 0){
+            text("¿Cual és la fuerza entre dos particulas cargadas (C1 nC y C2 nC) que se encuentran a D mm de distancia?",x+ 30, y+marginV+55, w-60, h-10);
+          }else{
+            text("¿Cual és la fuerza entre dos particulas cargadas ("+P.c1+"nC y "+P.c2+"nC) que se encuentran a "+P.distancia+"mm de distancia?", x+ 30, y+marginV+55, w-60, h-10);
+          }
+          //Explicación:
+          textSize(midaSubtitol-8);
+          float Y1 = y+marginV+55+200;
+          text("La fuerza de atracción entre cuerpoes es debido al campo electrico. De hecho, exsite una fórmula para calcular la fuerza de atracción entre dos partículas cargadas. Esta es la siguiente:", x+ 30,Y1, w-50, h-10);
+          float Y2 = Y1 + 100;
+          textSize(midaParagraf);
+          text("F = K*(C1*C2)/(r^2)", w/2 + 150,Y2, w-50, h-10);
+          textSize(midaSubtitol-8);
+          float Y3 = Y2 + 50;
+          text("En esta ecuación, K es la constante del campo eléctrico que se aproxima que equivale a 9*(10^9)\nEntonces, lo único que hace falta es substituir.", x+ 30,Y3, w-50, h-10);
+          
+          if(objetos > 0){
+            float Y4 = Y3 + 100;
+            float Resp = calcularEjercicioE1();
+            textSize(midaParagraf);
+            text("F = (9*(10^9))*("+P.c1+"*"+P.c2+")/("+P.distancia+"^2) = "+Resp, w/2,Y4, w-50, h-10);
+            
+            textSize(midaSubtitol-8);
+            float Y5 = Y4 + 50;
+            if(P.c1 > 0 && P.c2 > 0 || P.c1 < 0 && P.c2 < 0){
+              text("La fuerza entre las partículas es de "+Resp+"F repulsiva", x+30, Y5, w-30, h);
+            }else{
+              text("La fuerza entre las partículas es de "+Resp+"F atractiva", x+30, Y5, w-30, h);
+            }        
+          }
         }else if(ejercicio==2){
-          text("Explicación Campo Electrico 2", width/2, height/2);
+          textSize(midaTitol-16); fill(0); textAlign(CENTER);
+          text("Explicación Equilibrio eléctrico", width/2, marginV+25);//titol
+          fill(200); noStroke();
+          rect(x+ 30 -10, y+marginV+55-10, w-50, 190 ,10);
+          textSize(midaSubtitol-2);textAlign(TOP, LEFT); fill(0);
+          //Pregunta
+          if(objetos == 0){
+            text("¿Cuál debe ser la separación entre dos placas infinits con diferencia de potencial v V para mantener unelectrón en equilibrio?", x+ 30, y+marginV+55, w-60, h-10);
+          }else{
+            text("¿Cuál debe ser la separación entre dos placas infinitas con diferencia de potencial "+P.V+" V para mantener unelectrón en equilibrio?", x+ 30, y+marginV+55, w-60, h-10);
+          }
+          float Y1 = y+marginV+55+200;
+          textSize(midaSubtitol-8);
+          text("Cuando dos planos cargados eléctricamente se encuentran cerca, se establece una diferencia de potenciasl. Al acercarse más y ser paralelos e infinitos, esta diferencia de potencial crea un campo eléctrico constante que se define de la siguiente manera:", x+30, Y1, w-30, h);
+          textSize(midaParagraf);
+          float Y2 = Y1+ 150;
+          text("E = DV/d", w/2+ 250,Y2, w-50, h-10);
+          float Y3 = Y2 +50;
+          textSize(midaSubtitol-8);
+          text("Que estén en equilibrio significa que la fuerza eléctrica se iguala con el peso. por lo tanto, se pueden igualar los módulos", x+30, Y3, w-30, h);
+          textSize(midaParagraf);
+          float Y4 = Y3+ 50;
+          text("F = P", w/2 + 250,Y4, w-50, h-10);
+          float Y5 = Y4+ 50;
+          text("q*E = m*g", w/2+ 250,Y5, w-50, h-10);
+          float Y6 = Y5+ 50;
+          text("q*V/d = m*g", w/2+ 250,Y6, w-50, h-10);
+          float Y7 = Y6 +50;
+          textSize(midaSubtitol-8);
+          text("Seguidamente, de aisla la distancia:", x+30, Y7, w-30, h);
+          textSize(midaParagraf);
+          text("d = (q*V)/(m*g)", w/2+ 250,Y7, w-50, h-10);
+          if(objetos > 0){
+           float Y8 = Y7 +50;
+           textSize(midaSubtitol-8);
+           text("Finalmente, se substituye:", x+30, Y8, w-30, h);
+           textSize(midaParagraf);
+           float Resp = calcularEjercicioE2();
+           text("d = (1.6*(10^-19)*"+P.V+")/(9.1*(10^-31)*9.81) = "+Resp, w/2+ 250,Y8, w-50, h-10);
+           float Y9 = Y8+50;
+           textSize(midaSubtitol-8);
+           if(P.V > 0){
+             text("Solución: Tendrá que tener una carga de "+Resp+"C para mantenerse en equilibrio", x+30, Y9, w-30, h);
+           }else{
+             text("Solución: No se podrá aguantar", x+30, Y9, w-30, h);
+           }
+          }
+          
+          
         }
       }else if(tema == TEMA.MEGNETIC){
         if(ejercicio==1){
-          text("Explicación Campo Magnetico 1", width/2, height/2);
+           textSize(midaTitol-16); fill(0); textAlign(CENTER);
+          text("Explicación Equilibrio eléctrico", width/2, marginV+25);//titol
+          fill(200); noStroke();
+          rect(x+ 30 -10, y+marginV+55-10, w-50, 190 ,10);
+          textSize(midaSubtitol-2);textAlign(TOP, LEFT); fill(0);
+          //Pregunta
+          if(objetos == 0){
+            text("Si se consideran dos hilos conductores con intensidades I1 A y I2 A que distan de Dist m ¿Qué valdrá la fuerza producida entre ellos?", x+ 30, y+marginV+55, w-60, h-10);
+          }else{
+            text("Si se consideran dos hilos conductores con intensidades "+CM.I1+"A y "+CM.I2+"A que distan de "+CM.distancia+"mm  ¿Qué valdrá la fuerza producida entre ellos?", x+ 30, y+marginV+55, w-60, h-10);
+          }
+          //Explicación:
+          float Y1 = y+marginV+55+200;
+          textSize(midaSubtitol-8);
+          text("En esto problema, existen dos casos. Por un lado, si los verctores de la intensidad de los hilos van en el mismo sentido, la fuerza será actractiva, en cambio, si van en sentido contrario, senrá repulsiva. De igual manera, su valor se puede calcular con el módulo siguiendo la siguiente expresión:", x+30, Y1, w-30, h);
+          float Y2 = Y1 + 125;
+          textSize(midaParagraf);
+          text("F = NUo*(I1*I2)/(2*PI*r)", w/2 + 150,Y2, w-50, h-10);
+          textSize(midaSubtitol-8);
+          float Y3 = Y2 + 50;
+          text("En esta ecuación, NUo es la resistivitat magnética del medio que equivale a 4*PI*(10^-7)\nEntonces, lo único que hace falta es substituir.", x+ 30,Y3, w-50, h-10);
+          
+          if(objetos > 0){
+            float Y4 = Y3 + 75;
+            float Resp = calcularEjercicioM1();
+            textSize(midaParagraf);
+            text("F = (4*PI*(10^-7))*("+CM.I1+"*"+CM.I2+")/(2*PI*"+CM.distancia+") = "+Resp, w/2-150,Y4, w-50, h-10);
+            
+            textSize(midaSubtitol-8);
+            float Y5 = Y4 + 50;
+            if(CM.I1< 0 && CM.I2< 0 || CM.I1> 0 && CM.I2> 0){
+              text("Solución: La fuerza entre los hilos es de "+Resp+"F atractiva", x+30, Y5, w-30, h);
+            }else{
+              text("Solución: La fuerza entre los hilos es de "+Resp+"F repulsiva", x+30, Y5, w-30, h);
+            }        
+          }
+          
         }else if(ejercicio==2){
           text("Explicación Campo Magnetico 2", width/2, height/2);
         }
