@@ -424,10 +424,10 @@ void pantallaExplicacion(TEMA tema, int ejercicio){
            text("Finalmente, substituimos:", x+ 30,Y10, w-50, h-10);
            textSize(midaParagraf);
            float Resp = calcularEjercicioO2();
-           text("S = arcsin[(sin("+l.angulo+"))/"+l.n1+"]-arcsin[(sin("+l.angulo+"))/"+l.n2+"] = "+Resp, w/2 + 100,Y10, w-50, h-10);
+           text("S = arcsin[(sin("+l.angulo+"))/"+l.n1+"]-arcsin[(sin("+l.angulo+"))/"+l.n2+"] = "+Resp, w/2 + 100,Y10, w-250, h-10);
            float Y11 = Y10 + 50;
            textSize(midaSubtitol-8);
-           text("La separación de los rayos será por "+Resp+"º", x, y+h/2+40, w-30, h);
+           text("La separación de los rayos será por "+Resp+"º", x+30, Y11, w-30, h);
          }
         }
       }else if(tema == TEMA.GRAVITATORI){

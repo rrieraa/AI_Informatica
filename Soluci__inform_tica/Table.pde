@@ -57,6 +57,9 @@ class Table {
       
       // Dibuixa textos
       fill(0); textSize(midaSubtitol-5);textAlign(CORNER);
+      if( tableHeaders [0] == "Formules"){
+        textSize(midaParagraf);
+      }
       for(int r = 0; r< numRows; r++){
         xCol = x;
         for(int c = 0; c< numCols; c++){

@@ -13,8 +13,16 @@ void setup(){
 }
 
 void draw(){
-  //Background
-  background.resize(width, height);
-  image(background, 0, 0);
-  seleccionaPantalla(Pantalla);
+  if(frameCount < 75){
+    background.resize(width, height);
+    image(background, 0, 0);
+    textAlign(CENTER, CENTER); textFont(fonts[0]); textSize(120); fill(0);
+    text("FísicAprobada", width/2, height/2);
+  }else{
+    noTint();
+    //Background
+    background.resize(width, height);
+    image(background, 0, 0);
+    seleccionaPantalla(Pantalla);
+  }
 }

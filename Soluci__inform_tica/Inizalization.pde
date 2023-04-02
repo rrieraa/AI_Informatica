@@ -14,7 +14,7 @@ void setDesktop(){
     Button bElectric = new Button("CAMP ELÈCTRIC");
     Button bMagnetic = new Button("CAMP MAGNÈTIC");
     //Otros
-    Button bApp = new Button("Información App");
+    Button bApp = new Button("Pagina Web Oficial");
     Button bFAQs = new Button("FAQs");
     Button bProponer = new Button("Proponer Ejercicio");
   //Selecció d'exercicis
@@ -140,7 +140,7 @@ void setDesktop(){
       //informació Taules:
         String[] header = {"Variable", "Definición", "Unidad en SI"};
       
-        String[][] infoCt = {{"t", "Diferencia entre el momento en que ocurren dos eventos ", "s"},
+        String[][] infoCt = {{"t", "Diferencia entre el momento en que ocurren dos eventos", "s"},
                              {"x", "Componente horizontal de un sistema de coordenadas", "m"},
                              {"y", "Componente vertical de un sistema de coordenadas", "m"},
                              {"V", "Variación del espacio en un tiempo determinado", "m/s"},
@@ -174,7 +174,7 @@ void setDesktop(){
                              {"", "", ""}};
         String[][] infoEt = {{"C", "El nivel de electricidad de una particula o cuerpo", "C"},
                              {"Dist", "Diferencia en la posición de dos cuerpos", "m"},
-                             {"V", "diferencia de potencial electrico entre dos puntos", "V"},
+                             {"V", "Diferencia de potencial electrico entre dos puntos", "V"},
                              {"", "", ""},
                              {"", "", ""},
                              {"", "", ""},
@@ -200,14 +200,25 @@ void setDesktop(){
     
     String[] formules = {"Formules"};
     float[] proportionsF = {100};
-        String[][] infoCf = {{""},
-                             {""},
-                             {""},
-                             {""},
-                             {""},
-                             {""},
-                             {""},
-                             {""}};
+    
+    String[][] infoCf;
+    String[][] infoDf;
+    String[][] infoOf;
+    String[][] infoGf;
+    String[][] infoEf;
+    String[][] infoMf;
+    void setFormulasTable(){
+        
+        String[][] C = {{"Dist = sqrt[(Distx)^2 + (Disty)^2]"},
+                        {"x = xo +v*t"},
+                        {"y = yo + Vyo*t +(1/2)*g*(t^2)"},
+                        {""},
+                        {""},
+                        {""},
+                        {""},
+                        {""}};
+        infoCf = C;
+        
         String[][] infoDf = {{""},
                              {""},
                              {""},
@@ -247,7 +258,9 @@ void setDesktop(){
                              {""},
                              {""},
                              {""},
-                             {""}};    
+                             {""}};
+    }
+            
                              
      Table fC = new Table(nCr, 1);
      Table fD = new Table(nDr, 1);
