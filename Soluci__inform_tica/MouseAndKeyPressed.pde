@@ -197,12 +197,86 @@ void checkBotonsExercici(){
       }else if(bEXPORTEnu.mouseOverButton()){
         //Iniciar exportacion Enunciado();
         currentState = ESTADO.EJERCICIO;
+        if(tema == TEMA.CINEMATICA){
+          if(exercici == 1){
+            exportarEC1();
+          }else if(exercici == 2){
+            
+          }
+        }if(tema == TEMA.DINAMICA){
+          if(exercici == 1){
+            
+          }else if(exercici == 2){
+            
+          }
+        }if(tema == TEMA.OPTICA){
+          if(exercici == 1){
+            
+          }else if(exercici == 2){
+            
+          }
+        }if(tema == TEMA.GRAVITATORI){
+          if(exercici == 1){
+            
+          }else if(exercici == 2){
+            
+          }
+        }if(tema == TEMA.ELECTRIC){
+          if(exercici == 1){
+            
+          }else if(exercici == 2){
+            
+          }
+        }if(tema == TEMA.MEGNETIC){
+          if(exercici == 1){
+            
+          }else if(exercici == 2){
+            
+          }
+        }
       }
       //Respuestas
       else if(bEXPORTRes.mouseOverButton()){
         //Iniciar exportacion Respuesas();
         currentState = ESTADO.EJERCICIO;
-        exportarC1();
+        if(tema == TEMA.CINEMATICA){
+          if(exercici == 1){
+            exportarRC1();
+          }else if(exercici == 2){
+            
+          }
+        }if(tema == TEMA.DINAMICA){
+          if(exercici == 1){
+            
+          }else if(exercici == 2){
+            
+          }
+        }if(tema == TEMA.OPTICA){
+          if(exercici == 1){
+            
+          }else if(exercici == 2){
+            
+          }
+        }if(tema == TEMA.GRAVITATORI){
+          if(exercici == 1){
+            
+          }else if(exercici == 2){
+            
+          }
+        }if(tema == TEMA.ELECTRIC){
+          if(exercici == 1){
+            
+          }else if(exercici == 2){
+            
+          }
+        }if(tema == TEMA.MEGNETIC){
+          if(exercici == 1){
+            
+          }else if(exercici == 2){
+            
+          }
+        }
+        
       }
     //Explicación
       else if(bEXPLICACION.mouseOverButton()&& s1.getSelected().equals("Respuestas")){

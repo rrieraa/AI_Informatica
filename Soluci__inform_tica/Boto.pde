@@ -33,6 +33,11 @@ class Button {
  // Dibuixa el botó
  void display(){
    pushStyle();
+     if(mouseOverButton()){
+       cursor(HAND);
+     }else{
+       cursor(ARROW);
+     }
      if(mouseOverButton()&&!isSelected){
        fill(getColor("BotonPulsado"));      // Color quan ratolí a sobre
      }
@@ -57,6 +62,11 @@ class Button {
  }
  
  void DisplayWithImage(PImage icona, color c){
+   if(mouseOverButton()){
+       cursor(HAND);
+     }else{
+       cursor(ARROW);
+     }
    pushStyle();
      imageMode(CORNER);
      if(mouseOverButton()&&!isSelected){
@@ -73,6 +83,11 @@ class Button {
  }
  
  void displayTransparencia(float t){
+   if(mouseOverButton()){
+       cursor(HAND);
+     }else{
+       cursor(ARROW);
+     }
    pushStyle();
      if(mouseOverButton()&&!isSelected){
        fill(getColor("BotonPulsado"), t);      // Color quan ratolí a sobre

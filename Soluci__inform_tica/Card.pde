@@ -17,7 +17,7 @@ class Card{
     pushStyle();
       selectImage();
       textSize(midaSubtitol); textFont(fonts[0]); fill(0);
-      text(this.nom, x+wCard/2, y);
+      text(this.nom, x+wCard/2, y- 30);
       //Se muestran las estrellas
       displayStars(estrelles, x, y-20);
       this.boto.setMides(x, y+100, wCard, 250); this.boto.DisplayWithImage(this.image, 255);

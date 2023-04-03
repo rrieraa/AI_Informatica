@@ -83,7 +83,9 @@ void setDesktop(){
     //Enunciado i respuestas
        Button Enunciado = new Button("Enunciado");
        Button Respuestas = new Button("Respuestas");
-    
+       
+       
+     Button[] Buttons = new Button[52];
     void setButtons(){
       //Exercicis
         buttonsExercicis[0] = bC1;
@@ -140,14 +142,14 @@ void setDesktop(){
       //informació Taules:
         String[] header = {"Variable", "Definición", "Unidad en SI"};
       
-        String[][] infoCt = {{"t", "Diferencia entre el momento en que ocurren dos eventos", "s"},
+        String[] val= {"a", "b", "c"};       String[][] infoCt = {{"a", "b", "c"},
                              {"x", "Componente horizontal de un sistema de coordenadas", "m"},
                              {"y", "Componente vertical de un sistema de coordenadas", "m"},
                              {"V", "Variación del espacio en un tiempo determinado", "m/s"},
                              {"Vx", "Componente 'x' de la velocidad", "m/s"},
                              {"Vy", "Componente 'y' de la velocidad", "m/s"},
                              {"", "", ""},
-                             {"", "", ""}};
+                             {"", "", ""}}; 
         String[][] infoDt = {{"F", "Intensidad de cambio de movimiento", "N"},
                              {"M", "Porpiedad que describe la cantidad de materia de un objeto", "Kg"},
                              {"nu", "coeficiente de proporcionalidad entre fuerza y fricción", "No tiene"},
@@ -208,16 +210,13 @@ void setDesktop(){
     String[][] infoEf;
     String[][] infoMf;
     void setFormulasTable(){
-        
-        String[][] C = {{"Dist = sqrt[(Distx)^2 + (Disty)^2]"},
-                        {"x = xo +v*t"},
-                        {"y = yo + Vyo*t +(1/2)*g*(t^2)"},
+      
+        String[][] C = {{"Dist = sqrt[(Distx)^2 + (Disty)^2]"},{"x = xo +v*t"},{"y = yo + Vyo*t +(1/2)*g*(t^2)"},
                         {""},
                         {""},
                         {""},
                         {""},
                         {""}};
-        infoCf = C;
         
         String[][] infoDf = {{""},
                              {""},
@@ -284,7 +283,7 @@ void setDesktop(){
       tGfor.setHeaders(header);
       tEfor.setHeaders(header);
       tMfor.setHeaders(header);
-    //Information
+    //Information 
       tCfor.setData(infoCt);
       tDfor.setData(infoDt);
       tOfor.setData(infoOt);
@@ -432,12 +431,58 @@ void setDesktop(){
     
     
 //PDFs
-PGraphics pdfC1;
+PGraphics pdfRC1;
+PGraphics pdfEC1;
+PGraphics pdfRC2;
+PGraphics pdfEC2;
+PGraphics pdfRD1;
+PGraphics pdfED1;
+PGraphics pdfRD2;
+PGraphics pdfED2;
+PGraphics pdfRO1;
+PGraphics pdfEO1;
+PGraphics pdfRO2;
+PGraphics pdfEO2;
+PGraphics pdfRG1;
+PGraphics pdfEG1;
+PGraphics pdfRG2;
+PGraphics pdfEG2;
+PGraphics pdfRE1;
+PGraphics pdfEE1;
+PGraphics pdfRE2;
+PGraphics pdfEE2;
+PGraphics pdfRM1;
+PGraphics pdfEM1;
+PGraphics pdfRM2;
+PGraphics pdfEM2;
 
 void createGraphicsPDF(){
   pushMatrix();
     translate(width/6, 0);
-    pdfC1 = createGraphics(2*width/3, height, PDF, "optput.pdf");
+    pdfRC1 = createGraphics(width, height, PDF, "Respuestas_Ejercicio_Cinematica1.pdf");
+    pdfEC1 = createGraphics(width, height, PDF, "Enunciado_Ejercicio_Cinematica1.pdf");
+    pdfRC2 = createGraphics(width, height, PDF, "Respuestas_Ejercicio_Cinematica2.pdf");
+    pdfEC2 = createGraphics(width, height, PDF, "Enunciado_Ejercicio_Cinematica2.pdf");
+    pdfRD1 = createGraphics(width, height, PDF, "Respuestas_Ejercicio_Dinamica1.pdf");
+    pdfED1 = createGraphics(width, height, PDF, "Enunciado_Ejercicio_Dinamica1.pdf");
+    pdfRD2 = createGraphics(width, height, PDF, "Respuestas_Ejercicio_Dinamica2.pdf");
+    pdfED2 = createGraphics(width, height, PDF, "Enunciado_Ejercicio_Dinamica2.pdf");
+    pdfRO1 = createGraphics(width, height, PDF, "Respuestas_Ejercicio_Optica1.pdf");
+    pdfEO1 = createGraphics(width, height, PDF, "Enunciado_Ejercicio_Optica1.pdf");
+    pdfRO2 = createGraphics(width, height, PDF, "Respuestas_Ejercicio_Optica2.pdf");
+    pdfEO2 = createGraphics(width, height, PDF, "Enunciado_Ejercicio_Optica2.pdf");
+    pdfRG1 = createGraphics(width, height, PDF, "Respuestas_Ejercicio_Campo_Gravitatorio1.pdf");
+    pdfEG1 = createGraphics(width, height, PDF, "Enunciado_Ejercicio_Campo_Gravitatorio1.pdf");
+    pdfRG2 = createGraphics(width, height, PDF, "Respuestas_Ejercicio_Campo_Gravitatorioa2.pdf");
+    pdfEG2 = createGraphics(width, height, PDF, "Enunciado_Ejercicio_Campo_Gravitatorioa2.pdf");
+    pdfRE1 = createGraphics(width, height, PDF, "Respuestas_Ejercicio_Campo_Electrico1.pdf");
+    pdfEE1 = createGraphics(width, height, PDF, "Enunciado_Ejercicio_Campo_Electrico1.pdf");
+    pdfRE2 = createGraphics(width, height, PDF, "Respuestas_Ejercicio_Campo_Electrico2.pdf");
+    pdfEE2 = createGraphics(width, height, PDF, "Enunciado_Ejercicio_Campo_Electrico2.pdf");
+    pdfRM1 = createGraphics(width, height, PDF, "Respuestas_Ejercicio_Campo_Magnetico1.pdf");
+    pdfEM1 = createGraphics(width, height, PDF, "Enunciado_Ejercicio_Campo_Magnetico1.pdf");
+    pdfRM2 = createGraphics(width, height, PDF, "Respuestas_Ejercicio_Campo_Magnetico2.pdf");
+    pdfEM2 = createGraphics(width, height, PDF, "Enunciado_Ejercicio_Campo_Magnetico2.pdf");
   popMatrix();
   
 }

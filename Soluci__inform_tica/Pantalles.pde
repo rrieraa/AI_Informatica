@@ -291,7 +291,7 @@ void pantallaExplicacion(TEMA tema, int ejercicio){
           }
         }else if(ejercicio==2){
           textSize(midaTitol-5); fill(0); textAlign(CENTER);
-          text("Explicación tiro parabólico", width/2, marginV+25);//titol
+          text("Explicación Cajas Rozantes", width/2, marginV+25);//titol
           fill(200); noStroke();
           rect(x+ 30 -10, y+marginV+55-10, w-50, 190 ,10);
           textSize(midaSubtitol-2);textAlign(TOP, LEFT); fill(0);

@@ -6,9 +6,9 @@ import de.bezier.data.sql.*;
 void setup(){
   fullScreen();
   textAlign(CENTER);
-  setColors(); setFonts();
+  setColors(); setFonts();setBBDD();
   setCards(); setButtons();setSeleccionador();setTaules(); setDesktop(); setTFnumbers();
-  setMedias(); setBBDD();
+  setMedias(); setFormulasTable();
   createGraphicsPDF();
 }
 
