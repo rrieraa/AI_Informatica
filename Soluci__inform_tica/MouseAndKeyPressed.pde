@@ -195,85 +195,86 @@ void checkBotonsExercici(){
       else if(bEXPORT.mouseOverButton()){
         currentState = ESTADO.EXPORTAR;
       }else if(bEXPORTEnu.mouseOverButton()){
-        //Iniciar exportacion Enunciado();
+        //Iniciar exportacion
         currentState = ESTADO.EJERCICIO;
         if(tema == TEMA.CINEMATICA){
           if(exercici == 1){
             exportarEC1();
           }else if(exercici == 2){
-            
+            exportarEC2();
           }
         }if(tema == TEMA.DINAMICA){
           if(exercici == 1){
-            
+            exportarED1();
           }else if(exercici == 2){
-            
+            exportarED2();
           }
         }if(tema == TEMA.OPTICA){
           if(exercici == 1){
-            
+            exportarEO1();
           }else if(exercici == 2){
-            
+            exportarEO2();
           }
         }if(tema == TEMA.GRAVITATORI){
           if(exercici == 1){
-            
+            exportarEG1();
           }else if(exercici == 2){
-            
+            exportarEG2();
           }
         }if(tema == TEMA.ELECTRIC){
           if(exercici == 1){
-            
+            exportarEE1();
           }else if(exercici == 2){
-            
+            exportarEE2();
           }
         }if(tema == TEMA.MEGNETIC){
           if(exercici == 1){
-            
+            exportarEM1();
           }else if(exercici == 2){
-            
+            exportarEM2();
           }
         }
+        
       }
       //Respuestas
       else if(bEXPORTRes.mouseOverButton()){
         //Iniciar exportacion Respuesas();
-        currentState = ESTADO.EJERCICIO;
+       currentState = ESTADO.EJERCICIO;
         if(tema == TEMA.CINEMATICA){
           if(exercici == 1){
             exportarRC1();
           }else if(exercici == 2){
-            
+            exportarRC2();
           }
         }if(tema == TEMA.DINAMICA){
           if(exercici == 1){
-            
+            exportarRD1();
           }else if(exercici == 2){
-            
+            exportarRD2();
           }
         }if(tema == TEMA.OPTICA){
           if(exercici == 1){
-            
+            exportarRO1();
           }else if(exercici == 2){
-            
+            exportarRO2();
           }
         }if(tema == TEMA.GRAVITATORI){
           if(exercici == 1){
-            
+            exportarRG1();
           }else if(exercici == 2){
-            
+            exportarRG2();
           }
         }if(tema == TEMA.ELECTRIC){
           if(exercici == 1){
-            
+            exportarRE1();
           }else if(exercici == 2){
-            
+            exportarRE2();
           }
         }if(tema == TEMA.MEGNETIC){
           if(exercici == 1){
-            
+            exportarRM1();
           }else if(exercici == 2){
-            
+            exportarRM2();
           }
         }
         

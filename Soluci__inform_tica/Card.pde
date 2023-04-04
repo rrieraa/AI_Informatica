@@ -23,7 +23,7 @@ class Card{
       this.boto.setMides(x, y+100, wCard, 250); this.boto.DisplayWithImage(this.image, 255);
     popStyle();
   }
-  void displayStars(int e, float x, float y){ //<>// //<>// //<>//
+  void displayStars(int e, float x, float y){ //<>//
     //Se redimensionan al tamaño deseado
     stars[e-1].resize((int)wCard, 95);
     image(stars[e-1], x, y+30);

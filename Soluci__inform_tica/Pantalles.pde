@@ -1301,7 +1301,7 @@ void DisplayAddInformation(TEMA tema, int ejercicio){
     }
   popStyle();
 }
-
+int t = 0; boolean exportFeedBack = false;
 void drawExport(){
   pushStyle();
     fill(getColor("Fondo"));
