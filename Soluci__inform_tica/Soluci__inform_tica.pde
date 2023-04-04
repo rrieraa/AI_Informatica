@@ -7,8 +7,8 @@ void setup(){
   fullScreen();
   textAlign(CENTER);
   setColors(); setFonts();setBBDD();
-  setCards(); setButtons();setSeleccionador();setTaules(); setDesktop(); setTFnumbers();
-  setMedias(); setFormulasTable();
+  setCards(); setButtons();setSeleccionador();setFormulasTable();setFormularis();setTaules(); setDesktop(); setTFnumbers();
+  setMedias(); 
   createGraphicsPDF();
 }
 

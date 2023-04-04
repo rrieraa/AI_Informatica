@@ -28,19 +28,24 @@ void setFormulas(){
 }
 
 
-String[][] getInfoXXXX(int idFormulario){
+String[] getInfoFormulario(int idFormulario){
   String q = "SELECT `variable`, `definicion`, `unidadSI` FROM `formulario` WHERE `idformulario`='"+idFormulario+"'";
   msql.query(q);
+  msql.next();
   
-  String[][] data = new String[8][3];
-  int nr=0;
-  while(msql.next()){
-    data[nr][0]= msql.getString("variable");
-    data[nr][1]= msql.getString("definicion");
-    data[nr][2]= msql.getString("unidadSI");
-    print(data[nr][0]);
-    nr++;
-  }
+  String[] data = new String[3];
+      data[0]= msql.getString("variable");
+      data[1]= msql.getString("definicion");
+      data[2]= msql.getString("unidadSI");
+  return data;
+}
+
+String getInfoFormula(int idFormula){
+  String q = "SELECT `formula` FROM `formula` WHERE `idformula` ='"+idFormula+"'";
+  msql.query(q);
+  msql.next();
   
+  String data;
+      data = msql.getString("formula");
   return data;
 }

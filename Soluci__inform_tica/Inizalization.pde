@@ -141,56 +141,100 @@ void setDesktop(){
         
       //informació Taules:
         String[] header = {"Variable", "Definición", "Unidad en SI"};
-      
-        String[] val= {"a", "b", "c"};       String[][] infoCt = {{"a", "b", "c"},
-                             {"x", "Componente horizontal de un sistema de coordenadas", "m"},
-                             {"y", "Componente vertical de un sistema de coordenadas", "m"},
-                             {"V", "Variación del espacio en un tiempo determinado", "m/s"},
-                             {"Vx", "Componente 'x' de la velocidad", "m/s"},
-                             {"Vy", "Componente 'y' de la velocidad", "m/s"},
-                             {"", "", ""},
-                             {"", "", ""}}; 
-        String[][] infoDt = {{"F", "Intensidad de cambio de movimiento", "N"},
-                             {"M", "Porpiedad que describe la cantidad de materia de un objeto", "Kg"},
-                             {"nu", "coeficiente de proporcionalidad entre fuerza y fricción", "No tiene"},
-                             {"", "", ""},
-                             {"", "", ""},
-                             {"", "", ""},
-                             {"", "", ""},
-                             {"", "", ""}};
-        String[][] infoOt = {{"A", "Ángulo entre el rayo y la normal", "º"},
-                             {"x", "Posición horizontal de un objeto", "m"},
-                             {"y", "Posición vertical de un objeto", "m"},
-                             {"n", "Rleación de la reducción de la velocidad de una onda", "No tiene"},
-                             {"", "", ""},
-                             {"", "", ""},
-                             {"", "", ""},
-                             {"", "", ""}};
-        String[][] infoGt = {{"Dist/Radio", "Diferencia en la posición de dos cuerpos", "m"},
-                             {"M", "Porpiedad que describe la cantidad de materia de un objeto", ""},
-                             {"V", "Variación del espacio en un tiempo determinad", "m/s"},
-                             {"", "", ""},
-                             {"", "", ""},
-                             {"", "", ""},
-                             {"", "", ""},
-                             {"", "", ""}};
-        String[][] infoEt = {{"C", "El nivel de electricidad de una particula o cuerpo", "C"},
-                             {"Dist", "Diferencia en la posición de dos cuerpos", "m"},
-                             {"V", "Diferencia de potencial electrico entre dos puntos", "V"},
-                             {"", "", ""},
-                             {"", "", ""},
-                             {"", "", ""},
-                             {"", "", ""},
-                             {"", "", ""}};
-        String[][] infoMt = {{"I", "Intensidad electrica de un cuerpo", "A"},
-                             {"Dist/Radio", "Diferencia en la posición de dos cuerpos", "m"},
-                             {"", "", ""},
-                             {"", "", ""},
-                             {"", "", ""},
-                             {"", "", ""},
-                             {"", "", ""},
-                             {"", "", ""}};
         
+String[] F1 = new String[3];
+String[] F2 = new String[3];
+String[] F3 = new String[3];
+String[] F4 = new String[3];
+String[] F5 = new String[3];
+String[] F6 = new String[3];
+String[] F7 = new String[3];
+String[] F8 = new String[3];
+String[] F9 = new String[3];
+String[] F10 = new String[3];
+String[] F11 = new String[3];
+String[] F12 = new String[3];
+String[] F13 = new String[3];
+String[] F14 = new String[3];
+String[] F15 = new String[3];
+String[] F16 = new String[3];
+String[] F17 = new String[3];
+String[] F18 = new String[3];
+String[] F19 = new String[3];
+String[] F20 = new String[3];
+String[] F21 = new String[3];
+
+
+String[][] infoCt;
+String[][] infoDt;
+String[][] infoOt;
+String[][] infoEt;
+String[][] infoGt;
+String[][] infoMt;
+
+
+void setFormularis(){
+  F1 = getInfoFormulario(1);
+  F2 = getInfoFormulario(2);
+  F3 = getInfoFormulario(3);
+  F4 = getInfoFormulario(4);
+  F5 = getInfoFormulario(5);
+  F6 = getInfoFormulario(6);
+  F7 = getInfoFormulario(7);
+  F8 = getInfoFormulario(8);
+  F9 = getInfoFormulario(9);
+  F10 = getInfoFormulario(10);
+  F11 = getInfoFormulario(11);
+  F12 = getInfoFormulario(12);
+  F13 = getInfoFormulario(13);
+  F14 = getInfoFormulario(14);
+  F15 = getInfoFormulario(15);
+  F16 = getInfoFormulario(16);
+  F17 = getInfoFormulario(17);
+  F18 = getInfoFormulario(18);
+  F19 = getInfoFormulario(19);
+  F20 = getInfoFormulario(20);
+  F21 = getInfoFormulario(21);
+  String[][] C = {F1,F2,F3,F4,F5,F6,
+                 {"", "", ""},
+                 {"", "", ""}}; 
+  infoCt = C;   
+  String[][] D = {F7,F8,F9,
+                 {"", "", ""},
+                 {"", "", ""},
+                 {"", "", ""},
+                 {"", "", ""},
+                 {"", "", ""}};
+  infoDt = D;
+  String[][] O = {F10,F11,F12,F13,
+                      {"", "", ""},
+                      {"", "", ""},
+                      {"", "", ""},
+                      {"", "", ""}};
+  infoOt = O;
+  String[][] G = {F14,F15,F16,
+                      {"", "", ""},
+                      {"", "", ""},
+                      {"", "", ""},
+                      {"", "", ""},
+                      {"", "", ""}};
+  infoGt = G;
+  String[][] E = {F17,F18,F19,
+                      {"", "", ""},
+                      {"", "", ""},
+                      {"", "", ""},
+                      {"", "", ""},
+                      {"", "", ""}};
+  infoEt = E;
+  String[][] M = {F20,F21,
+                 {"", "", ""},
+                 {"", "", ""},
+                 {"", "", ""},
+                 {"", "", ""},
+                 {"", "", ""},
+                 {"", "", ""}};
+  infoMt = M;
+}
         
     //Talbes
     Table tCfor = new Table(nCr, nc); 
@@ -209,55 +253,95 @@ void setDesktop(){
     String[][] infoGf;
     String[][] infoEf;
     String[][] infoMf;
+    
+    String For1;
+    String For2;
+    String For3;
+    String For4;
+    String For5;
+    String For6;
+    String For7;
+    String For8;
+    String For9;
+    String For10;
+    String For11;
+    String For12;
+    String For13;
+    String For14;
+    String For15;
+    
     void setFormulasTable(){
+      For1 = getInfoFormula(1);
+      For2 = getInfoFormula(2);
+      For3 = getInfoFormula(3);
+      For4 = getInfoFormula(4);
+      For5 = getInfoFormula(5);
+      For6 = getInfoFormula(6);
+      For7 = getInfoFormula(7);
+      For8 = getInfoFormula(8);
+      For9 = getInfoFormula(9);
+      For10 = getInfoFormula(10);
+      For11 = getInfoFormula(11);
+      For12 = getInfoFormula(12);
+      For13 = getInfoFormula(13);
+      For14 = getInfoFormula(14);
+      For15 = getInfoFormula(15);
       
-        String[][] C = {{"Dist = sqrt[(Distx)^2 + (Disty)^2]"},{"x = xo +v*t"},{"y = yo + Vyo*t +(1/2)*g*(t^2)"},
+      
+        String[][] C = {{For1},
+                        {For2},
+                        {For3},
                         {""},
                         {""},
                         {""},
                         {""},
                         {""}};
-        
-        String[][] infoDf = {{""},
-                             {""},
-                             {""},
-                             {""},
-                             {""},
-                             {""},
-                             {""},
-                             {""}};
-        String[][] infoOf = {{""},
-                             {""},
-                             {""},
-                             {""},
-                             {""},
-                             {""},
-                             {""},
-                             {""}};
-        String[][] infoGf = {{""},
-                             {""},
-                             {""},
-                             {""},
-                             {""},
-                             {""},
-                             {""},
-                             {""}};
-        String[][] infoEf = {{""},
-                             {""},
-                             {""},
-                             {""},
-                             {""},
-                             {""},
-                             {""},
-                             {""}};
-        String[][] infoMf = {{""},
-                             {""},
-                             {""},
-                             {""},
-                             {""},
-                             {""},
-                             {""},
-                             {""}};
+        infoCf = C;
+        String[][] D = {{For4},
+                       {For5},
+                       {For6},
+                       {""},
+                       {""},
+                       {""},
+                       {""},
+                       {""}};
+        infoDf = D;
+        String[][] O = {{For7},
+                       {For8},
+                       {""},
+                       {""},
+                       {""},
+                       {""},
+                       {""},
+                       {""}};
+        infoOf = O;
+        String[][] G = {{For9},
+                       {For10},
+                       {For11},
+                       {""},
+                       {""},
+                       {""},
+                       {""},
+                       {""}};
+         infoGf = G;
+        String[][] E = {{For12},
+                       {For13},
+                       {""},
+                       {""},
+                       {""},
+                       {""},
+                       {""},
+                       {""}};
+        infoEf = E;
+        String[][] M = {{For14},
+                       {For15},
+                       {""},
+                       {""},
+                       {""},
+                       {""},
+                       {""},
+                       {""}};
+        infoMf = M; 
     }
             
                              

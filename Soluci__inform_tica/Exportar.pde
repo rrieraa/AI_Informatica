@@ -190,7 +190,11 @@ void exportarEC2(){
 }
 //DINAMICA
 void exportarRD1(){
-  /*pdfRD1.beginDraw();
+  pdfRD1.beginDraw();
+    float x = width/6; 
+    float y = 0;
+    float w = 2*width/3; 
+    float h = height;
     textSize(midaTitol-12); fill(0); textAlign(CENTER);
     text("Explicación Polea en plano inclinado", width/2, marginV+25);//titol
     fill(200); noStroke();
@@ -237,11 +241,28 @@ void exportarRD1(){
       text("Solución: Para que el sistema esté en equilibrio la segunda caja debe tener una masa de "+Resp+"kg", x + 30, Y10, w-30, h);
     }
   pdfRD1.dispose();
-  pdfRD1.endDraw();*/
+  pdfRD1.endDraw();
 }
 
 void exportarED1(){
-  
+  pdfED1.beginDraw();
+    float x = width/6; 
+    float y = 0;
+    float w = 2*width/3; 
+    float h = height;
+    pdfED1.textSize(midaTitol-12); pdfED1.fill(0); pdfED1.textAlign(CENTER);
+    pdfED1.text("Explicación Polea en plano inclinado", width/2, marginV+25);//titol
+    pdfED1.fill(200); pdfED1.noStroke();
+    pdfED1.rect(x+ 30 -10, y+marginV+55-10, w-50, 190 ,10);
+    pdfED1.textSize(midaSubtitol-2);pdfED1.textAlign(TOP, LEFT); fill(0);
+    //Pregunta
+    if(objetos == 0){
+      pdfED1.text("Si se considera una polea en un plano inclinado de ángulo Alpha que sujeta dos objetos, y el que está en el plano inclinado tiene una masa de M1 kg, ¿qué masa tiene que tener el segundo objeto para que el sistema esté en equilibrio?", x+ 30, y+marginV+55, w-60, h-10);
+    }else if(objetos == 1){
+      pdfED1.text("Si se considera una polea en un plano inclinado de ángulo "+c0.angulo+" que sujeta dos objetos, y el que está en el plano inclinado tiene una masa de "+c0.masa+" kg, ¿qué masa tiene que tener el segundo objeto para que el sistema esté en equilibrio?", x+ 30, y+marginV+55, w-60, h-10);
+    }
+  pdfED1.dispose();
+  pdfED1.endDraw();
 }
 
 void exportarRD2(){
@@ -332,4 +353,191 @@ void exportarED2(){
     }
   pdfED2.dispose();
   pdfED2.endDraw();
+}
+
+
+
+//Óptica:
+void exportarRO1(){
+  pdfRO1.beginDraw();
+     float x = width/6; 
+     float y = 0;
+     float w = 2*width/3; 
+     float h = height;
+     pdfRO1.textSize(midaTitol-16); pdfRO1.fill(0); pdfRO1.textAlign(CENTER);
+     pdfRO1.text("Explicación Espejo", width/2, marginV+25);//titol
+     pdfRO1.fill(200); pdfRO1.noStroke();
+     pdfRO1.rect(x+ 30 -10, y+marginV+55-10, w-50, 190 ,10);
+     pdfRO1.textSize(midaSubtitol-2);pdfRO1.textAlign(TOP, LEFT); pdfRO1.fill(0);
+     //Pregunta
+     if(objetos == 0){
+       pdfRO1.text("Se toma como punto de referencia el ojo de un observador. También se sabe que hay un vidrio a X1 m del ojo y una abeja stiuada a X2 y Y2 m de distáncia,¿en que posición se produce la imagen de la abeja?", x+ 30, y+marginV+55, w-60, h-10);
+     }else if(objetos == 1){
+       pdfRO1.text("Se toma como punto de referencia el ojo de un observador. También se sabe que hay un vidrio a "+l.XObsVi+" m del ojo y una abeja stiuada a "+l.xAbeja+" y "+l.yAbeja+" m de distáncia,¿en que posición se produce la imagen de la abeja?", x+ 30, y+marginV+55, w-60, h-10);
+     }
+     //Explicación
+     pdfRO1.textSize(midaSubtitol-8);
+     float Y1 = y+marginV+55+200;
+     pdfRO1.text("Cuando se ve un objeto reflejado en un espejo, se ve como una imagen virtual. Además, se puede afirmar que la distancia entre el objto y el vidrio será la mismo que entre la imagen y el vídrio. Además, su posición Y será también identica. Entonces, se puede afirmar lo siguiente:", x+ 30,Y1, w-50, h-10);
+     float Y2 = Y1+125;
+     pdfRO1.textSize(midaParagraf);
+     pdfRO1.text("Ax = DXvo + DXva     ;     Ay = DYao", w/2 + 150,Y2, w-50, h-10);
+     float Y3 = Y2 + 50;
+     pdfRO1.textSize(midaSubtitol-8);
+     pdfRO1.text("Donde DXvo se refiere a la distancia horizontal entre el vidrio y el ojo; DXva, a la distancia horizontal entre el vidrio y la abeja y finalmente, DYao, a la vertical entre la abeja y el ojo. \nEntonces, la posición de la abeja se escribe como A(Ax, Ay). Seguidamente, se debe hacer el módulo de este vector.", x+ 30,Y3, w-50, h-10);
+     if(objetos > 0){
+       float Y4 = Y3 + 150;
+       pdfRO1.text("Primero, se substituye:", x+ 30,Y4, w-50, h-10);
+       pdfRO1.textSize(midaParagraf);
+       pdfRO1.text("Ax = "+l.XObsVi+" + "+l.xAbeja+"     ;     Ay = "+l.yAbeja+"", w/2+150,Y4, w-50, h-10);
+       float Y5 = Y4 + 50;
+       pdfRO1.textSize(midaSubtitol-8);
+       pdfRO1.text("Y luego, se calcula el módulo:", x+ 30,Y5, w-50, h-10);
+       pdfRO1.textSize(midaParagraf);
+       float Resp = calcularEjercicioO1();
+       pdfRO1.text("|A| = sqrt[("+l.XObsVi+" + "+l.xAbeja+")^2 + ("+l.yAbeja+")^2] = "+Resp, w/2+ 150,Y5, w-50, h-10);
+       float Y6 = Y5+50;
+       pdfRO1.textSize(midaSubtitol-8);
+       pdfRO1.text("Solución: La imagen se formará a "+Resp+"m del observador", x+30, Y6, w-30, h);
+    }
+  pdfRO1.dispose();
+  pdfRO1.endDraw();
+}
+
+void exportarEO1(){
+   pdfEO1.beginDraw();
+     float x = width/6; 
+     float y = 0;
+     float w = 2*width/3; 
+     float h = height;
+     pdfEO1.textSize(midaTitol-16); pdfEO1.fill(0); pdfEO1.textAlign(CENTER);
+     pdfEO1.text("Explicación Espejo", width/2, marginV+25);//titol
+     pdfEO1.fill(200); pdfEO1.noStroke();
+     pdfEO1.rect(x+ 30 -10, y+marginV+55-10, w-50, 190 ,10);
+     pdfEO1.textSize(midaSubtitol-2);pdfEO1.textAlign(TOP, LEFT); pdfEO1.fill(0);
+     //Pregunta
+     if(objetos == 0){
+       pdfEO1.text("Se toma como punto de referencia el ojo de un observador. También se sabe que hay un vidrio a X1 m del ojo y una abeja stiuada a X2 y Y2 m de distáncia,¿en que posición se produce la imagen de la abeja?", x+ 30, y+marginV+55, w-60, h-10);
+     }else if(objetos == 1){
+       pdfEO1.text("Se toma como punto de referencia el ojo de un observador. También se sabe que hay un vidrio a "+l.XObsVi+" m del ojo y una abeja stiuada a "+l.xAbeja+" y "+l.yAbeja+" m de distáncia,¿en que posición se produce la imagen de la abeja?", x+ 30, y+marginV+55, w-60, h-10);
+     }
+  pdfEO1.dispose();
+  pdfEO1.endDraw();
+}
+
+
+void exportarRO2(){
+  pdfRO2.beginDraw();
+    float x = width/6; 
+    float y = 0;
+    float w = 2*width/3; 
+    float h = height;
+    pdfRO2.textSize(midaTitol-16); pdfRO2.fill(0); pdfRO2.textAlign(CENTER);
+    pdfRO2.text("Explicación Separación de rayos", width/2, marginV+25);//titol
+    pdfRO2.fill(200); pdfRO2.noStroke();
+    pdfRO2.rect(x+ 30 -10, y+marginV+55-10, w-50, 190 ,10);
+    pdfRO2.textSize(midaSubtitol-2);pdfRO2.textAlign(TOP, LEFT); pdfRO2.fill(0);
+    //Pregunta
+    if(objetos == 0){
+      pdfRO2.text("Si un rayo de luz que se translada por el aire incide en un vidrio formando un ángulo de Aº con la normal y se separa en dos rayos de coeficientes de refracción n1 y n2, ¿cual será la separación angular de los rayos?", x+ 30, y+marginV+55, w-60, h-10);
+    }else if(objetos == 1){
+      pdfRO2.text("Si un rayo de luz que se translada por el aire incide en un vidrio formando un ángulo de "+l.angulo+"º con la normal y se separa en dos rayos de coeficientes de refracción "+l.n1+" y "+l.n2+", ¿cual será la separación angular de los rayos?", x+ 30, y+marginV+55, w-60, h-10);
+    }
+    pdfRO2.textSize(midaSubtitol-8);
+    float Y1 = y+marginV+55+200;
+    pdfRO2.text("Para calcular la separación, se tienen que calcular cada uno de los ángulos y encontrar la diferencia. \nPara esto, se tiene que aplicar la ley de Snell, que dice:", x+ 30,Y1, w-50, h-10);
+    float Y2 = Y1 + 100;
+    pdfRO2.textSize(midaParagraf);
+    pdfRO2.text("n sin(a) = n' sin(a')", w/2 + 100,Y2, w-50, h-10);
+    float Y3 = Y2 + 50;
+    pdfRO2.textSize(midaSubtitol-8);
+    pdfRO2.text("Entonces, se tienen que calcular esto para los dos casos.", x+ 30,Y3, w-50, h-10);
+    float Y4 = Y3 + 50;
+    pdfRO2.textSize(midaParagraf);
+    pdfRO2.text("1* sin(A) = n1' sin(a1)", w/2 + 100,Y4, w-50, h-10);
+    float Y5 = Y4 + 50;
+    pdfRO2.text("a1 = arcsin[(sin(A))/n1]", w/2 + 100,Y5, w-50, h-10);
+    float Y6 = Y5 + 50;
+    pdfRO2.text("1* sin(A) = n2' sin(a2)", w/2 + 100,Y6, w-50, h-10);
+    float Y7 = Y6 + 50;
+    pdfRO2.text("a2 = arcsin[(sin(A))/n2]", w/2 + 100,Y7, w-50, h-10);
+    pdfRO2.textSize(midaSubtitol-8);
+    float Y8 = Y7 + 50;
+    pdfRO2.text("La sparación, será la resta entre los dos ángulos", x+ 30,Y8, w-50, h-10);
+    float Y9 = Y8 +50;
+    pdfRO2.textSize(midaParagraf);
+    pdfRO2.text("S = arcsin[(sin(A))/n1]-arcsin[(sin(A))/n2]", w/2 + 100,Y9, w-50, h-10);
+    if(objetos > 0){
+      pdfRO2.textSize(midaSubtitol-8);
+      float Y10 = Y9 + 50;
+      pdfRO2.text("Finalmente, substituimos:", x+ 30,Y10, w-50, h-10);
+      pdfRO2.textSize(midaParagraf);
+      float Resp = calcularEjercicioO2();
+      pdfRO2.text("S = arcsin[(sin("+l.angulo+"))/"+l.n1+"]-arcsin[(sin("+l.angulo+"))/"+l.n2+"] = "+Resp, w/2 + 100,Y10, w-250, h-10);
+      float Y11 = Y10 + 50;
+      pdfRO2.textSize(midaSubtitol-8);
+      pdfRO2.text("La separación de los rayos será por "+Resp+"º", x+30, Y11, w-30, h);
+   }
+   pdfRO2.dispose();
+   pdfRO2.endDraw();
+}
+
+void exportarEO2(){
+  pdfEO2.beginDraw();
+    float x = width/6; 
+    float y = 0;
+    float w = 2*width/3; 
+    float h = height;
+    pdfEO2.textSize(midaTitol-16); pdfEO2.fill(0); pdfEO2.textAlign(CENTER);
+    pdfEO2.text("Explicación Separación de rayos", width/2, marginV+25);//titol
+    pdfEO2.fill(200); pdfEO2.noStroke();
+    pdfEO2.rect(x+ 30 -10, y+marginV+55-10, w-50, 190 ,10);
+    pdfEO2.textSize(midaSubtitol-2);pdfEO2.textAlign(TOP, LEFT); pdfEO2.fill(0);
+    //Pregunta
+    if(objetos == 0){
+      pdfEO2.text("Si un rayo de luz que se translada por el aire incide en un vidrio formando un ángulo de Aº con la normal y se separa en dos rayos de coeficientes de refracción n1 y n2, ¿cual será la separación angular de los rayos?", x+ 30, y+marginV+55, w-60, h-10);
+    }else if(objetos == 1){
+      pdfEO2.text("Si un rayo de luz que se translada por el aire incide en un vidrio formando un ángulo de "+l.angulo+"º con la normal y se separa en dos rayos de coeficientes de refracción "+l.n1+" y "+l.n2+", ¿cual será la separación angular de los rayos?", x+ 30, y+marginV+55, w-60, h-10);
+    }
+  pdfEO2.dispose();
+  pdfEO2.endDraw();
+}
+
+
+
+//Gravitatorio:
+
+void exportarRG1(){
+  textSize(midaTitol-16); fill(0); textAlign(CENTER);
+          text("Explicación Atreacción Estrella-Planeta", width/2, marginV+25);//titol
+          fill(200); noStroke();
+          rect(x+ 30 -10, y+marginV+55-10, w-50, 190 ,10);
+          textSize(midaSubtitol-2);textAlign(TOP, LEFT); fill(0);
+          //Pregunta
+          if(objetos == 0){
+            text("Si un planeta de massa M1 Kg se encuentra a Dist Km de una estrella de massa M2 Kg, ¿cual será la fuerza de atracción entre los dos cuerpos?", x+ 30, y+marginV+55, w-60, h-10);
+          }else{
+            text("Si un planeta de massa "+CG.m1+"Kg se encuentra a "+CG.distancia+"Km de una estrella de massa "+CG.m2+"Kg, ¿cual será la fuerza de atracción entre los dos cuerpos?", x+ 30, y+marginV+55, w-60, h-10);
+          }
+          //Explicación:
+          textSize(midaSubtitol-8);
+          float Y1 = y+marginV+55+200;
+          text("La fuerza de atracción entre cuerpoes es debido al campo gravitatorio. De hecho, exsite una fórmula para calcular la fuerza de atracción entre dos cuerpos. Esta es la siguiente:", x+ 30,Y1, w-50, h-10);
+          float Y2 = Y1 + 100;
+          textSize(midaParagraf);
+          text("F = G*(M1*M2)/(r^2)", w/2 + 150,Y2, w-50, h-10);
+          textSize(midaSubtitol-8);
+          float Y3 = Y2 + 50;
+          text("En esta ecuación, G es la constante de gravitación que equivale a 6.67*(10^-11)\nEntonces, lo único que hace falta es substituir.", x+ 30,Y3, w-50, h-10);
+          
+          if(objetos > 0){
+            float Y4 = Y3 + 75;
+            float Resp = calcularEjercicioG1();
+            textSize(midaParagraf);
+            text("F = (6.67*(10^-11))*("+CG.m1+"*"+CG.m2+")/("+CG.distancia+"^2) = "+Resp, w/2-150,Y4, w-50, h-10);
+            
+            textSize(midaSubtitol-8);
+            float Y5 = Y4 + 50;
+            text("Solución: La fuerza de atracción entre los cuerpos astonómicos es "+Resp+"N", x+ 30,Y5, w-50, h-10);          
+          }
 }

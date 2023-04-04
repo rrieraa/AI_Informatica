@@ -57,9 +57,7 @@ class Table {
       
       // Dibuixa textos
       fill(0); textSize(midaSubtitol-5);textAlign(CORNER);
-      if( tableHeaders [0] == "Formules"){
-        textSize(midaParagraf);
-      }
+      
       for(int r = 0; r< numRows; r++){
         xCol = x;
         for(int c = 0; c< numCols; c++){
@@ -67,7 +65,12 @@ class Table {
             text(tableHeaders[c], xCol + 10, y + (r+1)*rowHeight - 30);
           }
           else{
-            text(tableData[r-1][c], xCol + 10, y + (r+1)*rowHeight- 80, 478, 100);
+            int wR = 478;
+            if( tableHeaders [0] == "Formules"){
+              textSize(midaParagraf);
+              wR = 350;
+            }
+            text(tableData[r-1][c], xCol + 10, y + (r+1)*rowHeight- 80, wR, 100);
           }
           xCol += w*columnWidths[c]/100.0;
         }
