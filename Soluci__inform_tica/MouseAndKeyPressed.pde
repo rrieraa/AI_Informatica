@@ -54,7 +54,12 @@ void checkBotonsInici(){
   
   if(bProponer.mouseOverButton()){
     openWebPage("https://forms.gle/ff2SHGXzBjkzugaU6");
+  }else if(bApp.mouseOverButton()){
+    openWebPage("https://sites.google.com/view/fisicaprobada/inicio");
+  }else if(bFAQs.mouseOverButton()){
+    openWebPage("https://drive.google.com/file/d/1CIzs9U0DCSMxKgjvPyjr9B-FPLUwZe7T/view?usp=share_link");
   }
+
   
 }
 

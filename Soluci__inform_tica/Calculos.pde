@@ -1,6 +1,14 @@
 float calcularEjercicioC1(){
   float t;
-  float dist = dist(m0.p.x, m0.p.y, m1.p.x, m1.p.y);
+  float distX = m0.p.x -m1.p.x;
+  float distY = m0.p.y -m1.p.y;
+  if(distX<0){
+    distX = -distX;
+  }
+  if(distY<0){
+    distY = -distY;
+  }
+  float dist = sqrt((float)(Math.pow(distX, 2) + Math.pow(distY, 2)));
   //Se calcula el momento donde se xocarán
   t =(dist/(m0.vel+m1.vel));
   return t;
@@ -8,9 +16,14 @@ float calcularEjercicioC1(){
 
 float calcularEjercicioC2(){
   float x;
-  float a = radians(m0.angulo);
-  float t = (-(m0.vel*sin(a))+sqrt(  ( m0.vel*sin(a)*(m0.vel*sin(a) )   )  +(2*9.81*m0.altura)))/(2*m0.altura);
-  x = (m0.vel*cos(a))*t;
+  float an = radians(m0.angulo);
+  println("a: "+an);
+  double a = (-9.81)/2;  double b = (m0.vel*sin(an));  double c = 26;
+  double Arriba = -b -Math.sqrt(Math.pow(b, 2) -4*a*c);
+  double Abajo = 2*a;
+  float t = (float)(Arriba/Abajo);
+  println("t:"+Arriba/Abajo);
+  x = (m0.vel*cos(an))*t;
   return x;
 }
 float calcularEjercicioD1(){
@@ -22,7 +35,7 @@ float calcularEjercicioD1(){
 
 float calcularEjercicioD2(){
   float nu;
-  nu = (c0.Fuerza-(c0.masa*c0.Nu))/(c0.masa*9.81);
+  nu = (c0.Fuerza-(c0.masa*9.81*c0.Nu))/(c0.masa);
   return nu;
 }
 
@@ -35,8 +48,10 @@ float calcularEjercicioO1(){
 float calcularEjercicioO2(){
   float A1, A2, res;
   float a = radians(l.angulo);
-  A1 = asin((1/l.n1)*sin(a));
-  A2 = asin((1/l.n2)*sin(a));
+  A1 = (float)Math.toDegrees(Math.asin((1/l.n1)*sin(a)));
+  println("Angulo: " + Math.toDegrees(Math.asin(0.5)));
+  println(A1);
+  A2 = (float)Math.toDegrees(Math.asin((1/l.n2)*sin(a)));
   res = abs(A1-A2);
   return res;
 }
@@ -48,7 +63,7 @@ float calcularEjercicioG1(){
 }
 
 float calcularEjercicioG2(){
-  float v = (CG.rp * CG.vp)/CG.ra;
+  float v = (CG.rp*(float)Math.pow(10,3) * CG.vp)/(CG.ra*(float)Math.pow(10,3));
   return v;
 }
 
@@ -67,13 +82,13 @@ float calcularEjercicioE2(){
 }
 
 float calcularEjercicioM1(){
-  float a =  4*PI* (float)Math.pow(10,-7) * CM.I1 * CM.I2;
-  float b = 2*PI*CM.distancia*1000;
+  float a =  4*PI*(float)Math.pow(10,-7) * CM.I1 * CM.I2;
+  float b = 2*PI*CM.distancia*(float)Math.pow(10,-4);
   return a/b;
 }
 
 float calcularEjercicioM2(){
   float a =  4*PI* (float)Math.pow(10,-7) * CM.I1;
-  float b = 2*CM.distancia*100000;
+  float b = 2*CM.distancia*(float)Math.pow(10,-3);
   return a/b;
 }

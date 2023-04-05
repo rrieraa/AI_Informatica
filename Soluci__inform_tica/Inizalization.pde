@@ -1,3 +1,20 @@
+void setGUI(){
+  setColors(); 
+  setFonts();
+  setBBDD();
+  setCards(); 
+  setButtons();
+  setSeleccionador();
+  setFormulasTable();
+  setFormularis();
+  setTaules(); 
+  setDesktop(); 
+  setTFnumbers();
+  setMedias(); 
+  createGraphicsPDF();
+}
+
+
 void setDesktop(){
   //Desktop
   desktop = Desktop.getDesktop();
@@ -557,8 +574,8 @@ void createGraphicsPDF(){
     pdfEO2 = createGraphics(width, height, PDF, "Enunciado_Ejercicio_Optica2.pdf");
     pdfRG1 = createGraphics(width, height, PDF, "Respuestas_Ejercicio_Campo_Gravitatorio1.pdf");
     pdfEG1 = createGraphics(width, height, PDF, "Enunciado_Ejercicio_Campo_Gravitatorio1.pdf");
-    pdfRG2 = createGraphics(width, height, PDF, "Respuestas_Ejercicio_Campo_Gravitatorioa2.pdf");
-    pdfEG2 = createGraphics(width, height, PDF, "Enunciado_Ejercicio_Campo_Gravitatorioa2.pdf");
+    pdfRG2 = createGraphics(width, height, PDF, "Respuestas_Ejercicio_Campo_Gravitatorio2.pdf");
+    pdfEG2 = createGraphics(width, height, PDF, "Enunciado_Ejercicio_Campo_Gravitatorio2.pdf");
     pdfRE1 = createGraphics(width, height, PDF, "Respuestas_Ejercicio_Campo_Electrico1.pdf");
     pdfEE1 = createGraphics(width, height, PDF, "Enunciado_Ejercicio_Campo_Electrico1.pdf");
     pdfRE2 = createGraphics(width, height, PDF, "Respuestas_Ejercicio_Campo_Electrico2.pdf");

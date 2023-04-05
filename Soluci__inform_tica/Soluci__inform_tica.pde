@@ -6,19 +6,7 @@ import de.bezier.data.sql.*;
 void setup() {
   fullScreen();
   textAlign(CENTER);
-  setColors(); 
-  setFonts();
-  setBBDD();
-  setCards(); 
-  setButtons();
-  setSeleccionador();
-  setFormulasTable();
-  setFormularis();
-  setTaules(); 
-  setDesktop(); 
-  setTFnumbers();
-  setMedias(); 
-  createGraphicsPDF();
+  setGUI();
 }
 int shading = 0;
 void draw() {

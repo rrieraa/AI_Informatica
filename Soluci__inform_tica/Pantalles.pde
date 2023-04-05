@@ -942,7 +942,7 @@ void drawExerciceResolucion(TEMA tema, int exercici){
       text("Distancia del afelio: "+CG.vp+"Km", x, y+80, w-30, h);
       text("velocidad Perihelio: "+CG.rp+"m/s", x, y+120, w-30, h);
       Resp =  calcularEjercicioG2();
-      text("En el afelio tiene una velocidad de "+Resp+"km/s", x, y+h/2+40, w-30, h);
+      text("En el afelio tiene una velocidad de "+Resp+"m/s", x, y+h/2+40, w-30, h);
     }
   }else if(tema == TEMA.ELECTRIC){
     if(exercici == 1 && objetos >0){
@@ -1243,7 +1243,7 @@ void DisplayAddInformation(TEMA tema, int ejercicio){
       
         //Magnitudes;
         text("Km", xT+400, (height/2 -(height/3+150)/2-10)+ (1*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+20)+(30));
-        text("Km/s", xT+400, (height/2 -(height/3+150)/2-10)+ (3*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields))+30);
+        text("m/s", xT+400, (height/2 -(height/3+150)/2-10)+ (3*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields))+30);
         text("Km", xT+400, (height/2 -(height/3+150)/2-10)+ (2*(((height/2 +(height/3+150)/2 -70 -(80/2)) -(height/2- (height/3+150)/2 +70))/nFields)+10 + 30));
       }
     }else if(tema == TEMA.ELECTRIC){
