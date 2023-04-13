@@ -6,6 +6,7 @@ class CampoGravitatorio{
   float rp, ra;
   float vp;
   
+  //Constructor
   CampoGravitatorio(){}
   
   void setValues1(float m1, float m2, float d){

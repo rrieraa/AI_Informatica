@@ -243,7 +243,6 @@ void checkBotonsExercici(){
       }
       //Respuestas
       else if(bEXPORTRes.mouseOverButton()){
-        //Iniciar exportacion Respuesas();
        currentState = ESTADO.EJERCICIO;
         if(tema == TEMA.CINEMATICA){
           if(exercici == 1){

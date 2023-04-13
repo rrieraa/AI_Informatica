@@ -3,7 +3,7 @@ class Vector{
   Mobil m1, m2;
   float distX, distY;
   float componentX, componentY;
-  Fletxa f1, f2;
+  Flecha f1, f2;
   
   Vector(Mobil m1, Mobil m2){
     this.m1 = m1;
@@ -30,14 +30,14 @@ class Vector{
     if(objetoInVisualization(m1, w, h)){//Si se ve, se dibuja
       float xm1 = lerp(this.m1.displayX, this.m2.displayX, m1.vel/150);
       float ym1 = lerp(this.m1.displayY, this.m2.displayY, m1.vel/150);
-      f1 = new Fletxa(m1.displayX, m1.displayY, xm1, ym1);
+      f1 = new Flecha(m1.displayX, m1.displayY, xm1, ym1);
       f1.display(0);
       
     }
     if(objetoInVisualization(m2, w, h)){//Si se ve, se dibuja
       float xm2 = lerp(this.m2.displayX, this.m1.displayX, m2.vel/150);
       float ym2 = lerp(this.m2.displayY, this.m1.displayY, m2.vel/150);
-      f2 = new Fletxa(m2.displayX, m2.displayY, xm2, ym2);
+      f2 = new Flecha(m2.displayX, m2.displayY, xm2, ym2);
       f2.display(0);
     }
     

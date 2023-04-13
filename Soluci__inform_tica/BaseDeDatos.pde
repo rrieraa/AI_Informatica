@@ -19,15 +19,6 @@ void setBBDD(){
     }
 }
 
-void setFormulario(){
-  
-}
-
-void setFormulas(){
-  
-}
-
-
 String[] getInfoFormulario(int idFormulario){
   String q = "SELECT `variable`, `definicion`, `unidadSI` FROM `formulario` WHERE `idformulario`='"+idFormulario+"'";
   msql.query(q);

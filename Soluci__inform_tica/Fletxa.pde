@@ -1,16 +1,16 @@
-class Fletxa {
+class Flecha {
   
   PVector p, q;
   float cx, cy;
 
-  Fletxa(float x1, float y1, float x2, float y2){
+  Flecha(float x1, float y1, float x2, float y2){
     p = new PVector(x1, y1);
     q = new PVector(x2, y2);
     cx = x2-x1;
     cy = y2-y1;
   }
   
-  Fletxa(){}
+  Flecha(){}
   
   float distance(){
     return p.dist(q);

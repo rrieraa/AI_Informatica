@@ -1,8 +1,11 @@
+//Pantallas de la aplicación
 enum PANTALLA {INICI, SELECCIO, EXERCICI, FORMULARI, EXPLICACION};
 PANTALLA Pantalla = PANTALLA.INICI;
 PANTALLA PantallaPrevia = PANTALLA.INICI;
+//Temas de la aplicación
 enum TEMA {CINEMATICA, DINAMICA, OPTICA, GRAVITATORI, MEGNETIC, ELECTRIC};
 TEMA tema; int exercici; 
+//Estado del ejercicio
 enum ESTADO {EJERCICIO, ANADIR, EXPORTAR};
 ESTADO currentState = ESTADO.EJERCICIO;
 int objetos = 0; int objetoLimite; boolean canAdd= true;
@@ -130,7 +133,7 @@ void pantallaFormulari(TEMA tema){
   popStyle();  
 }
 
-Fletxa f = new Fletxa();
+Flecha f = new Flecha();
 void pantallaExplicacion(TEMA tema, int ejercicio){
   pushStyle();
     fill(255); noStroke();
@@ -689,11 +692,10 @@ void pantallaExercicis(TEMA tema, int exercici){
   fill(0);
     if(tema == TEMA.CINEMATICA){
       if(exercici == 1){
-        //Titol
+        //Título
         textSize(midaTitol);textAlign(LEFT, TOP);
         text("Choque de móbiles", xVisualitzacio-wVisualitzacio/2, yVisualitzacio-hVisualitzacio/2 -120);
-        star = stars[0];
-        star.resize((int)(width-2*(marginH+100)-900-200), (int)100);
+        star = stars[0]; star.resize((int)(width-2*(marginH+100)-900-200), (int)100);
         image(star, marginH+100+ 900 +200 ,height/3-70-120);
         //Visualització d'exercici
         visualitzacioCinematica1(xVisualitzacio,yVisualitzacio , wVisualitzacio, hVisualitzacio);
@@ -701,26 +703,23 @@ void pantallaExercicis(TEMA tema, int exercici){
         //Titol
         textSize(midaTitol);textAlign(LEFT, TOP);
         text("Tiro parabólico", xVisualitzacio-wVisualitzacio/2, yVisualitzacio-hVisualitzacio/2 -120);
-        star = stars[0];
-        star.resize((int)(width-2*(marginH+100)-900-200), (int)100);
+        star = stars[0]; star.resize((int)(width-2*(marginH+100)-900-200), (int)100);
         image(star, marginH+100+ 900 +200 ,height/3-70-120);
         visualitzacioCinematica2(xVisualitzacio,yVisualitzacio , wVisualitzacio, hVisualitzacio);
       }
     }else if(tema == TEMA.DINAMICA){
       if(exercici == 1){
-        //Titol
+        //Título
         textSize(midaTitol);textAlign(LEFT, TOP);
         text("Polea en plano inclinado", xVisualitzacio-wVisualitzacio/2, yVisualitzacio-hVisualitzacio/2 -120);
-        star = stars[2];
-        star.resize((int)(width-2*(marginH+100)-900-200), (int)100);
+        star = stars[2]; star.resize((int)(width-2*(marginH+100)-900-200), (int)100);
         image(star, marginH+100+ 900 +200 ,height/3-70-120);
         visualitzacioDinamica1(xVisualitzacio,yVisualitzacio , wVisualitzacio, hVisualitzacio);
       }else if(exercici == 2){
         //Titol
         textSize(midaTitol);textAlign(LEFT, TOP);
         text("Caja rozante", xVisualitzacio-wVisualitzacio/2, yVisualitzacio-hVisualitzacio/2 -120);
-        star = stars[1];
-        star.resize((int)(width-2*(marginH+100)-900-200), (int)100);
+        star = stars[1]; star.resize((int)(width-2*(marginH+100)-900-200), (int)100);
         image(star, marginH+100+ 900 +200 ,height/3-70-120);
         visualitzacioDinamica2(xVisualitzacio,yVisualitzacio , wVisualitzacio, hVisualitzacio);
       }

@@ -1,50 +1,48 @@
 // Classe Botó
 
 class Button {
-  
- // Propietats d'un botó:
- float x, y, w, h;  // Posició i dimensions 
- String textBoto;  // Text
- boolean enabled;  // Abilitat / desabilitat
+ //Atributos
+ float x, y, w, h; 
+ String textBoto; 
+ boolean enabled;  
  boolean text = true;
  boolean isSelected = false;
  float redondetjat = 10;
  
  
- // Mètode Constructor
+ //Constructor
  Button(String text){
    this.textBoto = text;
    this.enabled = false;
  }
  
  // Setters
- 
  void setMides(float x, float y, float w, float h){
    this.x = x;
    this.y = y;
    this.w = w;
    this.h = h;
  }
+ 
  //Se utiliza para el seleccionador
  void selecUse(){
    redondetjat = 35;
  }
  
- // Dibuixa el botó
  void display(){
    pushStyle();
      if(mouseOverButton()&&!isSelected){
-       fill(getColor("BotonPulsado"));      // Color quan ratolí a sobre
+       fill(getColor("BotonPulsado"));      
      }
      else if(isSelected){
-       fill(getColor("Seleccionado"));          // Color actiu però ratolí fora
+       fill(getColor("Seleccionado"));          
      }else{
        fill(getColor("BotonSinPulsar"));
      }
-     stroke(0); strokeWeight(2);        //Color i gruixa del contorn
-     rect(this.x, this.y, this.w, this.h, redondetjat);   // Rectangle del botó
+     stroke(0); strokeWeight(2);       
+     rect(this.x, this.y, this.w, this.h, redondetjat);  
      
-     // Text (color, alineació i mida)
+     //Text
      if(text){
        fill(0); textAlign(CENTER); textFont(fonts[1]);
        if(textBoto == "Valores Aleatorios"){
@@ -65,8 +63,8 @@ class Button {
        fill(c);
      }
      
-     rect(this.x, this.y, this.w, this.h, redondetjat);   // Rectangle del botó
-     stroke(0); strokeWeight(2);        //Color i gruixa del contorn
+     rect(this.x, this.y, this.w, this.h, redondetjat);
+     stroke(0); strokeWeight(2);  
      image(icona, this.x+3, this.y+3, this.w-6, this.h-6);
      
    popStyle();
@@ -75,17 +73,17 @@ class Button {
  void displayTransparencia(float t){
    pushStyle();
      if(mouseOverButton()&&!isSelected){
-       fill(getColor("BotonPulsado"), t);  // Color quan ratolí a sobre
+       fill(getColor("BotonPulsado"), t);  
      }
      else if(isSelected){
-       fill(getColor("Seleccionado"), t);          // Color actiu però ratolí fora
+       fill(getColor("Seleccionado"), t);          
      }else{
        fill(getColor("BotonSinPulsar"), t);
      }
-     stroke(0); strokeWeight(2);        //Color i gruixa del contorn
-     rect(this.x, this.y, this.w, this.h, redondetjat);   // Rectangle del botó
+     stroke(0); strokeWeight(2);        
+     rect(this.x, this.y, this.w, this.h, redondetjat);   
      
-     // Text (color, alineació i mida)
+     //Text
      if(text){
        fill(0); textAlign(CENTER); textSize(20);
        text(textBoto, this.x + this.w/2, this.y + this.h/2 + (20/2));
@@ -93,12 +91,11 @@ class Button {
    popStyle();
  }
  
- // Indica si el cursor està sobre el botó
+ //Indica si el cursor está sobre el botón
  boolean mouseOverButton(){
    return (mouseX >= this.x) && 
           (mouseX<=this.x + this.w) && 
           (mouseY>= this.y) && 
           (mouseY<= this.y + this.h); 
  }
-  
 }

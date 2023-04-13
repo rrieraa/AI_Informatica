@@ -97,7 +97,7 @@ void visualitzacioCinematica2(float x, float y, float w, float h){
       translate(xVisualitzacio, yVisualitzacio);
       float xF = (m0.p.x+ m0.vel*cos(radians(m0.angulo)));
       float yF = (m0.p.y+ m0.vel*sin(radians(-m0.angulo)));
-      Fletxa f = new Fletxa();
+      Flecha f = new Flecha();
       f.changePoints(m0.p.x, m0.p.y, xF, yF); f.display(0);
     popMatrix();
   }

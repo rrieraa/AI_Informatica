@@ -18,7 +18,7 @@ class CampoMagnetico{
   
   void display(){
     if(exercici == 1){
-      //Fletxas orientadas según la corriente
+      //Flechas orientadas según la corriente
       if(I1 < 0){
         f.changePoints(-wVisualitzacio/5, -100, -wVisualitzacio/5, 100);
       }else{

@@ -57,10 +57,10 @@ class Particula{
       f.changePoints(-200,80,200,80);f.display(0);
       f.changePoints(200,80,-200,80);f.display(0);
     }else if(exercici == 2){
-      //Damos valores para la fletxa
+      //Damos valores para la Flecha
       float xF = -wVisualitzacio/3+20; float y1F = hVisualitzacio/5-20; float y2F = -hVisualitzacio/5+20;
     
-      Fletxa f = new Fletxa(xF, y1F, xF, y2F);
+      Flecha f = new Flecha(xF, y1F, xF, y2F);
       for(float x0 = xF; x0<wVisualitzacio/3+40; x0+=50.9){     
         f.display(paleta[4]);
         f.changePoints(x0, y1F, x0, y2F); 
